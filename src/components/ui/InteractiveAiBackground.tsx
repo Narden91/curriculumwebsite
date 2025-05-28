@@ -3,7 +3,9 @@ import { useTheme } from '../../hooks/useTheme'; // Assuming you have a useTheme
 import './InteractiveAiBackground.css';
 
 // Declare VANTA globally or import if types are available
-declare const VANTA: any;
+declare const VANTA: {
+  NET: (options: Record<string, unknown>) => { destroy: () => void };
+};
 
 const InteractiveAiBackground: React.FC = () => {
   const { theme } = useTheme();

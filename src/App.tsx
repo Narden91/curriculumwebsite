@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import HeroSection from './components/sections/HeroSection';
 import AboutSection from './components/sections/AboutSection';
 import EducationSection from './components/sections/EducationSection';
@@ -22,16 +22,16 @@ import './App.css';
  * - Colored particles represent different generations
  */
 function App() {
-  const [showInfo, setShowInfo] = useState(true);
+  // const [showInfo, setShowInfo] = useState(true);
 
-  // Hide the info badge after 10 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowInfo(false);
-    }, 10000);
+  // // Hide the info badge after 10 seconds
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowInfo(false);
+  //   }, 10000);
     
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <div className="app">

@@ -11,6 +11,7 @@
   overflow: hidden;
   padding: 2rem 0;
   margin-top: 0; /* Remove margin to account for fixed header */
+  pointer-events: none; /* Allow clicks to pass through to the background */
 }
 
 .hero-overlay {
@@ -23,6 +24,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
+  pointer-events: auto; /* Re-enable pointer events for the content */
 }
 
 /* Typography */

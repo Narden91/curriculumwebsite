@@ -1,12 +1,48 @@
-import React from 'react';
+// import React from 'react';
 import { useTheme } from '../../hooks/useTheme';
+import React, { useRef } from 'react';
 import './InteractiveAiBackground.css';
 
 const InteractiveAiBackground: React.FC = () => {
   const { theme } = useTheme();
+  const bgRef = useRef<HTMLDivElement>(null);
+  // Parallax effect with throttling for smooth performance
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { innerWidth, innerHeight } = window;
+    const x = (e.clientX / innerWidth - 0.5) * 30; // Increased range for more visible effect
+    const y = (e.clientY / innerHeight - 0.5) * 30;
+    if (bgRef.current) {
+      // Use requestAnimationFrame for smooth animation
+      requestAnimationFrame(() => {
+        if (bgRef.current) {
+          bgRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        }
+      });
+    }
+  };
+
+  // Ripple effect
+  const handleClick = (e: React.MouseEvent) => {
+    if (!bgRef.current) return;
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple-effect';
+    const rect = bgRef.current.getBoundingClientRect();
+    ripple.style.left = `${e.clientX - rect.left - 50}px`;
+    ripple.style.top = `${e.clientY - rect.top - 50}px`;
+    ripple.style.width = ripple.style.height = '100px';
+    bgRef.current.appendChild(ripple);
+    ripple.addEventListener('animationend', () => {
+      ripple.remove();
+    });
+  };
 
   return (
-    <div className="interactive-ai-background">
+    <div
+      className="interactive-ai-background parallax"
+      ref={bgRef}
+      onMouseMove={handleMouseMove}
+      onClick={handleClick}
+    >
       <svg
         className="background-svg"
         xmlns="http://www.w3.org/2000/svg"
@@ -72,16 +108,16 @@ const InteractiveAiBackground: React.FC = () => {
           
           {/* Network nodes */}
           <g className="nodes">
-            <circle cx="200" cy="150" r="6" fill="url(#nodeGradient)">
+            <circle className="interactive-node" cx="200" cy="150" r="6" fill="url(#nodeGradient)">
               <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" />
             </circle>
-            <circle cx="400" cy="200" r="5" fill="url(#nodeGradient)">
+            <circle className="interactive-node" cx="400" cy="200" r="5" fill="url(#nodeGradient)">
               <animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite" />
             </circle>
-            <circle cx="600" cy="180" r="4" fill="url(#nodeGradient)">
+            <circle className="interactive-node" cx="600" cy="180" r="4" fill="url(#nodeGradient)">
               <animate attributeName="r" values="3;6;3" dur="3s" repeatCount="indefinite" />
             </circle>
-            <circle cx="800" cy="250" r="6" fill="url(#nodeGradient)">
+            <circle className="interactive-node" cx="800" cy="250" r="6" fill="url(#nodeGradient)">
               <animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite" />
             </circle>
             <circle cx="300" cy="350" r="5" fill="url(#nodeGradient)">

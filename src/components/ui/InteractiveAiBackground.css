@@ -6,7 +6,8 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease, transform 0.1s ease-out;
+  --primary-color: #3b82f6;
 }
 
 .background-svg {
@@ -20,6 +21,12 @@
 .neural-network .connection-line {
   stroke-dasharray: 5, 5;
   animation: dash 2s linear infinite;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.neural-network .connection-line:hover {
+  opacity: 1;
 }
 
 @keyframes dash {
@@ -59,4 +66,39 @@
 
 .particles * {
   will-change: transform, opacity;
+}
+
+.interactive-ai-background.parallax {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Ripple effect for click */
+.ripple-effect {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.25); /* blue, semi-transparent */
+  animation: ripple 0.8s linear;
+  z-index: 0;
+  transform-origin: center;
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0.2);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* Highlight nodes on hover */
+.background-svg .interactive-node {
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+.background-svg .interactive-node:hover {
+  filter: drop-shadow(0 0 8px var(--primary-color, #3b82f6));
 }

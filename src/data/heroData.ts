@@ -17,5 +17,5 @@ export const heroData: HeroData = {
   phone: "(+39) 327-0181-459",
   linkedin: "https://linkedin.com/in/emanuele-nardone",
   github: "https://github.com/Narden91", 
-  cvLink: "/CV_2025.pdf",
+  cvLink: "./CV_2025.pdf",
 };

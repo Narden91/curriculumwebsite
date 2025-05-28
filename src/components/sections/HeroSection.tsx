@@ -63,7 +63,7 @@ const HeroSection: React.FC = () => {
         {/* Main CTAs */}
         <div className="hero-cta-container">
           <a 
-            href="/CV_2025.pdf"
+            href="./CV_2025.pdf"
             download
             className="btn btn-primary"
           >

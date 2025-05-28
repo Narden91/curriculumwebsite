@@ -5,21 +5,21 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: process.env.NODE_ENV === 'production' ? '/curriculumwebsite/' : '/',
-  build: {
+    build: {
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    minify: 'esbuild', // Use esbuild instead of terser (faster and no extra dependency needed)
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          slider: ['react-slick', 'slick-carousel']
+          ui: ['react-slick', '@heroicons/react']
         }
       }
     }
   },
-  server: {
-    port: 3000,
-    open: true
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-slick']
   }
 })

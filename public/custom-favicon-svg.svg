@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="45" fill="url(#brainGradient)" stroke="none"/>
+  
+  <!-- Neural Network Representation -->
+  <!-- Layer 1 (Input) -->
+  <circle cx="25" cy="30" r="3" fill="white" opacity="0.9"/>
+  <circle cx="25" cy="45" r="3" fill="white" opacity="0.9"/>
+  <circle cx="25" cy="60" r="3" fill="white" opacity="0.9"/>
+  <circle cx="25" cy="75" r="3" fill="white" opacity="0.9"/>
+  
+  <!-- Layer 2 (Hidden) -->
+  <circle cx="50" cy="25" r="3" fill="white" opacity="0.9"/>
+  <circle cx="50" cy="40" r="3" fill="white" opacity="0.9"/>
+  <circle cx="50" cy="55" r="3" fill="white" opacity="0.9"/>
+  <circle cx="50" cy="70" r="3" fill="white" opacity="0.9"/>
+  <circle cx="50" cy="85" r="3" fill="white" opacity="0.9"/>
+  
+  <!-- Layer 3 (Output) -->
+  <circle cx="75" cy="35" r="3" fill="white" opacity="0.9"/>
+  <circle cx="75" cy="50" r="3" fill="white" opacity="0.9"/>
+  <circle cx="75" cy="65" r="3" fill="white" opacity="0.9"/>
+  
+  <!-- Neural Connections -->
+  <!-- Input to Hidden -->
+  <line x1="28" y1="30" x2="47" y2="25" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="28" y1="30" x2="47" y2="40" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="28" y1="45" x2="47" y2="40" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="28" y1="45" x2="47" y2="55" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="28" y1="60" x2="47" y2="55" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="28" y1="60" x2="47" y2="70" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="28" y1="75" x2="47" y2="70" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="28" y1="75" x2="47" y2="85" stroke="white" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Hidden to Output -->
+  <line x1="53" y1="25" x2="72" y2="35" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="53" y1="40" x2="72" y2="35" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="53" y1="40" x2="72" y2="50" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="53" y1="55" x2="72" y2="50" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="53" y1="55" x2="72" y2="65" stroke="white" stroke-width="1" opacity="0.6"/>
+  <line x1="53" y1="70" x2="72" y2="65" stroke="white" stroke-width="1" opacity="0.6"/>
+  
+  <!-- AI Brain Symbol in Center -->
+  <path d="M45 47 Q47 45 50 47 Q53 45 55 47 Q53 50 50 48 Q47 50 45 47 Z" fill="white" opacity="0.8"/>
+  
+  <!-- Pulse Animation -->
+  <style>
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    .pulse-line {
+      animation: pulse 2s ease-in-out infinite;
+    }
+  </style>
+  
+  <!-- Animated connections -->
+  <line x1="28" y1="45" x2="47" y2="40" stroke="#60a5fa" stroke-width="2" opacity="0.8" class="pulse-line"/>
+  <line x1="53" y1="40" x2="72" y2="50" stroke="#60a5fa" stroke-width="2" opacity="0.8" class="pulse-line" style="animation-delay: 0.5s"/>
+</svg>

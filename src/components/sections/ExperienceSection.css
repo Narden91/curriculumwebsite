@@ -1,0 +1,567 @@
+/* Experience Section - Compact Alternating Timeline */
+.experience-section {
+  padding: 5rem 0;
+  background-color: var(--background-color);
+  position: relative;
+  z-index: 2;
+}
+
+/* Timeline Layout */
+.experience-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary-color), var(--accent-color, #0ea5e9));
+  transform: translateX(-50%);
+  opacity: 0.3;
+}
+
+/* Experience Cards - Alternating Layout */
+.experience-card {
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.experience-card.left {
+  flex-direction: row;
+}
+
+.experience-card.right {
+  flex-direction: row-reverse;
+}
+
+.experience-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Connector */
+.timeline-connector {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.timeline-dot {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color, #0ea5e9));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.timeline-dot svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.experience-card:hover .timeline-dot {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Experience Content */
+.experience-content {
+  width: calc(50% - 2rem);
+  background: var(--card-bg, white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color, #e2e8f0);
+  position: relative;
+  margin: 0 2rem;
+}
+
+.experience-card.left .experience-content {
+  margin-left: 0;
+  margin-right: 2rem;
+}
+
+.experience-card.right .experience-content {
+  margin-left: 2rem;
+  margin-right: 0;
+}
+
+.experience-card.left .experience-content::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--card-bg, white);
+}
+
+.experience-card.right .experience-content::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--card-bg, white);
+}
+
+.experience-card:hover .experience-content {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Experience Header - Clickable */
+.experience-header {
+  cursor: pointer;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.experience-header:hover {
+  background: var(--surface, #f8fafc);
+  margin: -0.5rem -1rem 1rem -1rem;
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  border-radius: 8px;
+}
+
+.experience-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.experience-role {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.experience-company,
+.experience-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.experience-company {
+  color: var(--primary-color);
+}
+
+.experience-duration {
+  color: var(--text-color-secondary, #6b7280);
+  flex-wrap: wrap;
+}
+
+.company-icon,
+.duration-icon,
+.location-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* Expand Toggle */
+.expand-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--surface, #f8fafc);
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.expand-toggle:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Collapsible Content */
+.experience-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.experience-card.collapsed .experience-details {
+  max-height: 0;
+  opacity: 0;
+  margin-top: -1rem;
+}
+
+.experience-card.expanded .experience-details {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Section Content */
+.experience-section-content {
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.subtitle-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--primary-color);
+}
+
+/* Lists - Compact */
+.responsibility-list,
+.achievement-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.responsibility-item,
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.responsibility-item:hover,
+.achievement-item:hover {
+  padding-left: 0.5rem;
+  background: var(--surface, #f8fafc);
+  border-radius: 4px;
+  margin: 0 -0.5rem;
+}
+
+.responsibility-bullet,
+.achievement-bullet {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.responsibility-bullet {
+  background: var(--success-color, #10b981);
+  color: white;
+}
+
+.achievement-bullet {
+  background: var(--warning-color, #f59e0b);
+  color: white;
+}
+
+.responsibility-bullet svg,
+.achievement-bullet svg {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+/* Technologies - Compact */
+.experience-technologies {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+}
+
+.tech-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-color-secondary, #6b7280);
+  margin-bottom: 0.5rem;
+}
+
+.tech-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--primary-color);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.tech-tag {
+  background: var(--surface, #f8fafc);
+  color: var(--text-color);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color, #e2e8f0);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Experience Summary */
+.experience-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 2px solid var(--border-color, #e2e8f0);
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color, #0ea5e9));
+  color: white;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.summary-icon {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.summary-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.summary-content {
+  flex: 1;
+}
+
+.summary-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.summary-description {
+  opacity: 0.9;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 3rem 0;
+  }
+
+  .experience-timeline::before {
+    left: 1.5rem;
+  }
+
+  .experience-card.left,
+  .experience-card.right {
+    flex-direction: row;
+  }
+
+  .timeline-connector {
+    left: 1.5rem;
+    transform: none;
+  }
+
+  .experience-content {
+    width: calc(100% - 4rem);
+    margin-left: 3rem !important;
+    margin-right: 0 !important;
+  }
+
+  .experience-content::after {
+    display: none;
+  }
+
+  .experience-content::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid var(--card-bg, white);
+  }
+
+  .timeline-dot {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .timeline-dot svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .experience-content {
+    padding: 1rem;
+  }
+
+  .experience-role {
+    font-size: 1.125rem;
+  }
+
+  .experience-summary {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+
+  .summary-card {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-timeline::before {
+    left: 1rem;
+  }
+
+  .timeline-connector {
+    left: 1rem;
+  }
+
+  .timeline-dot {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .timeline-dot svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .experience-content {
+    width: calc(100% - 3rem);
+    margin-left: 2.5rem !important;
+    padding: 0.875rem;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .expand-toggle {
+    align-self: flex-end;
+    margin-top: -2rem;
+    margin-left: 0;
+  }
+
+  .experience-role {
+    font-size: 1rem;
+  }
+
+  .tech-tags {
+    gap: 0.25rem;
+  }
+
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+}
+
+/* Animation Delays for Staggered Effect */
+.experience-card:nth-child(1) { transition-delay: 0.1s; }
+.experience-card:nth-child(2) { transition-delay: 0.2s; }
+.experience-card:nth-child(3) { transition-delay: 0.3s; }
+.experience-card:nth-child(4) { transition-delay: 0.4s; }
+.experience-card:nth-child(5) { transition-delay: 0.5s; }
+
+/* Loading State */
+.experience-card.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.experience-card.loading .timeline-dot {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

@@ -1,0 +1,95 @@
+{
+  "name": "Emanuele Nardone - AI Medical Diagnostics Portfolio",
+  "short_name": "E. Nardone AI",
+  "description": "Interactive portfolio showcasing AI research in medical diagnostics through handwriting analysis and machine learning",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#3b82f6",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "start_url": "/",
+  "lang": "en",
+  "categories": [
+    "portfolio", 
+    "technology", 
+    "artificial-intelligence", 
+    "research", 
+    "medical-diagnostics",
+    "machine-learning",
+    "academia"
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Emanuele Nardone AI Portfolio Homepage"
+    },
+    {
+      "src": "/screenshots/mobile-home.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile AI Portfolio"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "id": "emanuele-nardone-ai-portfolio",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "shortcuts": [
+    {
+      "name": "Research Publications",
+      "short_name": "Publications",
+      "description": "View my research publications and academic work",
+      "url": "/#publications",
+      "icons": [
+        {
+          "src": "/icons/publications-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch for research collaboration",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/icons/contact-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+.theme-toggle-button {
+  padding: 0.5rem; /* p-2 */
+  border-radius: 9999px; /* rounded-full */
+  transition: all 0.2s ease-in-out;
+  position: fixed;
+  top: 1rem; /* top-4 */
+  right: 1rem; /* right-4 */
+  z-index: 50; /* z-50 */
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.theme-toggle-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: var(--background-color);
+}
+
+.theme-toggle-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-color-light), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-button:active {
+  transform: translateY(1px);
+}
+
+.theme-toggle-icon {
+  height: 1.5rem; /* h-6 */
+  width: 1.5rem; /* w-6 */
+  display: block; /* Ensure SVG takes up space correctly */
+}
+
+/* Light theme icon color */
+body[data-theme='light'] .theme-toggle-button .moon-icon {
+  color: #374151; /* text-gray-800 (approx) */
+}
+
+/* Dark theme icon color */
+body[data-theme='dark'] .theme-toggle-button .sun-icon {
+  color: #fbbf24; /* text-yellow-400 */
+}
+
+/* Animation for the toggle */
+.theme-toggle-button svg {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-toggle-button:hover svg {
+  transform: rotate(15deg);
+}

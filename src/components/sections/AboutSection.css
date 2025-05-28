@@ -1,0 +1,367 @@
+/* About Section - Hyperbolic Style */
+.about-section {
+  padding: 5rem 0;
+  background-color: var(--surface, #f8fafc);
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-number {
+  display: inline-block;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  opacity: 0.1;
+  margin-bottom: -2rem;
+  line-height: 1;
+}
+
+.section-title {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.section-description {
+  font-size: 1.125rem;
+  color: var(--text-color-secondary, #6b7280);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content Grid */
+.about-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Cards */
+.about-card {
+  background: var(--card-bg, white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color, #e2e8f0);
+  position: relative;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-feature {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary-color), var(--accent-color, #0ea5e9));
+}
+
+/* Card Headers */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Expertise Grid */
+.expertise-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.expertise-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  transition: all 0.3s ease;
+}
+
+.expertise-item:last-child {
+  border-bottom: none;
+}
+
+.expertise-item:hover {
+  padding-left: 0.5rem;
+  background: var(--surface, #f8fafc);
+  border-radius: 6px;
+  margin: 0 -0.5rem;
+  border-bottom: 1px solid transparent;
+}
+
+.expertise-bullet {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: var(--success-color, #10b981);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.expertise-bullet svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.expertise-item span {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* Impact Content */
+.impact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.current-role,
+.research-focus {
+  padding: 1rem;
+  background: var(--surface, #f8fafc);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.role-title,
+.focus-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.role-description,
+.focus-description {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Summary */
+.about-summary {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.summary-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.summary-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Achievement Stats */
+.achievement-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--card-bg, white);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color, #0ea5e9));
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.stat-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-color-secondary, #6b7280);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 3rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-number {
+    font-size: 4rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .about-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    margin-bottom: 1rem;
+  }
+
+  .impact-content {
+    gap: 1rem;
+  }
+
+  .current-role,
+  .research-focus {
+    padding: 0.75rem;
+  }
+
+  .about-summary {
+    margin-bottom: 3rem;
+  }
+
+  .summary-paragraph {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .achievement-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .achievement-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise-item:hover {
+    margin: 0;
+    padding-left: 0.75rem;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s ease;
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered animations for stat cards */
+.stat-card:nth-child(1) { transition-delay: 0.1s; }
+.stat-card:nth-child(2) { transition-delay: 0.2s; }
+.stat-card:nth-child(3) { transition-delay: 0.3s; }
+.stat-card:nth-child(4) { transition-delay: 0.4s; }

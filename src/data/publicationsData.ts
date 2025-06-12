@@ -31,7 +31,7 @@ export const publicationsData: Publication[] = [
     title: "How Data Augmentation Affects Evolutionary Algorithms in Feature Selection: An Experimental Study",
     authors: ["Emanuele Nardone", "Tiziana D'Alessandro", "Claudio De Stefano", "Francesco Fontanella", "Alessandra Scotto di Freca"],
     year: 2025,
-    venue: "SN COMPUT. SCI.",
+    venue: "Springer Nature Computer Science",
     volume: "6",
     pages: "536",
     type: "journal"

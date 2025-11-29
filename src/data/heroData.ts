@@ -15,7 +15,7 @@ export const heroData: HeroData = {
   tagline: "Developing AI-driven medical diagnostic tools through machine learning and handwriting analysis for early detection of neurodegenerative diseases",
   email: "emanuele.nardone@unicas.it",
   phone: "(+39) 327-0181-459",
-  linkedin: "https://linkedin.com/in/emanuele-nardone",
+  linkedin: "https://www.linkedin.com/in/emanuelenardone/",
   github: "https://github.com/Narden91", 
   cvLink: "./CV_2025.pdf",
 };

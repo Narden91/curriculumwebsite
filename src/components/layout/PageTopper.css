@@ -1,0 +1,98 @@
+/* PageTopper.css */
+.page-topper {
+    height: 40vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    position: relative;
+    overflow: hidden;
+}
+
+.page-topper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.05) 30%, rgba(59, 130, 246, 0.05) 70%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(139, 92, 246, 0.05) 30%, rgba(139, 92, 246, 0.05) 70%, transparent 70%);
+    background-size: 100px 100px;
+    opacity: 0.5;
+}
+
+.page-topper-content {
+    text-align: center;
+    z-index: 1;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.page-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+    color: white;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--text-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-color-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-topper {
+        height: 30vh;
+        min-height: 250px;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .page-topper-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .page-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+}

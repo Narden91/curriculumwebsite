@@ -1,0 +1,315 @@
+/* SkillsSection.css */
+.skills-section {
+    padding: 4rem 0;
+    background: var(--surface);
+}
+
+/* Tabs Navigation */
+.skills-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--card-bg);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-color-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    border-color: var(--primary-color);
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.tab-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Tab Content */
+.tab-content {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--primary-color);
+}
+
+.category-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill-tag {
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 20px;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.cert-issuer {
+    font-size: 0.95rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.cert-description {
+    font-size: 0.9rem;
+    color: var(--text-color-tertiary);
+    line-height: 1.6;
+}
+
+/* Achievements */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.achievement-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.achievement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.achievement-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary-color);
+}
+
+.achievement-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.achievement-icon.teaching {
+    color: #10b981;
+}
+
+.achievement-icon.organization {
+    color: #f59e0b;
+}
+
+.achievement-icon.certification {
+    color: #8b5cf6;
+}
+
+.achievement-date {
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.achievement-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.achievement-organization {
+    font-size: 0.95rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.achievement-description {
+    font-size: 0.9rem;
+    color: var(--text-color-tertiary);
+    line-height: 1.6;
+}
+
+/* Languages */
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.language-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.language-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.language-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.language-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary-color);
+}
+
+.language-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.language-level {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.language-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.language-description {
+    font-size: 0.9rem;
+    color: var(--text-color-tertiary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-section {
+        padding: 3rem 0;
+    }
+
+    .skills-tabs {
+        gap: 0.5rem;
+    }
+
+    .tab-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .tab-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .skills-grid,
+    .certifications-grid,
+    .languages-grid,
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .skill-category,
+    .certification-card,
+    .achievement-card,
+    .language-card {
+        padding: 1.5rem;
+    }
+}

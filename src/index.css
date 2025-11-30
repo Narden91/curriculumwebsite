@@ -29,16 +29,16 @@ body,
   --success-color-light: #10b981;
   --warning-color-light: #f59e0b;
   --error-color-light: #ef4444;
-  
+
   --background-color-light: #ffffff;
   --surface-light: #f8fafc;
   --surface-dark-light: #e2e8f0;
   --card-bg-light: #ffffff;
   --border-color-light: #e2e8f0;
-  
+
   --text-color-light: #0f172a;
-  --text-secondary-light: #475569;
-  --text-tertiary-light: #94a3b8;
+  --text-secondary-light: #334155;
+  --text-tertiary-light: #64748b;
 
   /* Colors - Dark Theme */
   --primary-color-dark: #60a5fa;
@@ -47,13 +47,13 @@ body,
   --success-color-dark: #34d399;
   --warning-color-dark: #fbbf24;
   --error-color-dark: #f87171;
-  
+
   --background-color-dark: #0f172a;
   --surface-dark: #1e293b;
   --surface-dark-dark: #334155;
   --card-bg-dark: #1e293b;
   --border-color-dark: #334155;
-  
+
   --text-color-dark: #f1f5f9;
   --text-secondary-dark: #cbd5e1;
   --text-tertiary-dark: #64748b;
@@ -106,13 +106,13 @@ body[data-theme='light'] {
   --success-color: var(--success-color-light);
   --warning-color: var(--warning-color-light);
   --error-color: var(--error-color-light);
-  
+
   --background-color: var(--background-color-light);
   --surface: var(--surface-light);
   --surface-dark: var(--surface-dark-light);
   --card-bg: var(--card-bg-light);
   --border-color: var(--border-color-light);
-  
+
   --text-color: var(--text-color-light);
   --text-color-secondary: var(--text-secondary-light);
   --text-color-tertiary: var(--text-tertiary-light);
@@ -125,13 +125,13 @@ body[data-theme='dark'] {
   --success-color: var(--success-color-dark);
   --warning-color: var(--warning-color-dark);
   --error-color: var(--error-color-dark);
-  
+
   --background-color: var(--background-color-dark);
   --surface: var(--surface-dark);
   --surface-dark: var(--surface-dark-dark);
   --card-bg: var(--card-bg-dark);
   --border-color: var(--border-color-dark);
-  
+
   --text-color: var(--text-color-dark);
   --text-color-secondary: var(--text-secondary-dark);
   --text-color-tertiary: var(--text-tertiary-dark);
@@ -223,10 +223,21 @@ body {
   gap: var(--space-xl);
 }
 
-.grid-1 { grid-template-columns: 1fr; }
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
 /* Card System */
 .card {
@@ -322,47 +333,130 @@ a:hover {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-color);
   margin: 0;
   font-weight: 600;
 }
 
-h1 { font-size: var(--text-4xl); }
-h2 { font-size: var(--text-3xl); }
-h3 { font-size: var(--text-2xl); }
-h4 { font-size: var(--text-xl); }
-h5 { font-size: var(--text-lg); }
-h6 { font-size: var(--text-base); }
+h1 {
+  font-size: var(--text-4xl);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+h5 {
+  font-size: var(--text-lg);
+}
+
+h6 {
+  font-size: var(--text-base);
+}
 
 /* Utilities */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+  text-align: center;
+}
 
-.font-light { font-weight: 300; }
-.font-normal { font-weight: 400; }
-.font-medium { font-weight: 500; }
-.font-semibold { font-weight: 600; }
-.font-bold { font-weight: 700; }
+.text-left {
+  text-align: left;
+}
 
-.opacity-50 { opacity: 0.5; }
-.opacity-75 { opacity: 0.75; }
+.text-right {
+  text-align: right;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
 
 /* Spacing Utilities */
-.mt-0 { margin-top: 0; }
-.mt-1 { margin-top: var(--space-xs); }
-.mt-2 { margin-top: var(--space-sm); }
-.mt-4 { margin-top: var(--space-md); }
-.mt-6 { margin-top: var(--space-lg); }
-.mt-8 { margin-top: var(--space-xl); }
+.mt-0 {
+  margin-top: 0;
+}
 
-.mb-0 { margin-bottom: 0; }
-.mb-1 { margin-bottom: var(--space-xs); }
-.mb-2 { margin-bottom: var(--space-sm); }
-.mb-4 { margin-bottom: var(--space-md); }
-.mb-6 { margin-bottom: var(--space-lg); }
-.mb-8 { margin-bottom: var(--space-xl); }
+.mt-1 {
+  margin-top: var(--space-xs);
+}
+
+.mt-2 {
+  margin-top: var(--space-sm);
+}
+
+.mt-4 {
+  margin-top: var(--space-md);
+}
+
+.mt-6 {
+  margin-top: var(--space-lg);
+}
+
+.mt-8 {
+  margin-top: var(--space-xl);
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: var(--space-xs);
+}
+
+.mb-2 {
+  margin-bottom: var(--space-sm);
+}
+
+.mb-4 {
+  margin-bottom: var(--space-md);
+}
+
+.mb-6 {
+  margin-bottom: var(--space-lg);
+}
+
+.mb-8 {
+  margin-bottom: var(--space-xl);
+}
 
 /* Animation Classes */
 .fade-in {
@@ -403,11 +497,11 @@ h6 { font-size: var(--text-base); }
   .section {
     padding: var(--space-2xl) 0;
   }
-  
+
   .hidden-mobile {
     display: none;
   }
-  
+
   .text-center-mobile {
     text-align: center;
   }
@@ -462,8 +556,13 @@ h6 { font-size: var(--text-base); }
 }
 
 @keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Print Styles */
@@ -471,11 +570,11 @@ h6 { font-size: var(--text-base); }
   .no-print {
     display: none !important;
   }
-  
+
   * {
     box-shadow: none !important;
   }
-  
+
   body {
     background: white !important;
     color: black !important;
@@ -483,5 +582,6 @@ h6 { font-size: var(--text-base); }
 }
 
 .section-consistent {
-  scroll-margin-top: 80px; /* Accounts for fixed header */
+  scroll-margin-top: 80px;
+  /* Accounts for fixed header */
 }

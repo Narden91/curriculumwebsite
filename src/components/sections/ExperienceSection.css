@@ -1,12 +1,3 @@
-/* Experience Section - Compact Alternating Timeline */
-.experience-section {
-  padding: 5rem 0;
-  background-color: var(--background-color);
-  position: relative;
-  z-index: 2;
-}
-
-/* Timeline Layout */
 .experience-timeline {
   position: relative;
   max-width: 1000px;
@@ -545,11 +536,25 @@
 }
 
 /* Animation Delays for Staggered Effect */
-.experience-card:nth-child(1) { transition-delay: 0.1s; }
-.experience-card:nth-child(2) { transition-delay: 0.2s; }
-.experience-card:nth-child(3) { transition-delay: 0.3s; }
-.experience-card:nth-child(4) { transition-delay: 0.4s; }
-.experience-card:nth-child(5) { transition-delay: 0.5s; }
+.experience-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.experience-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.experience-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.experience-card:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.experience-card:nth-child(5) {
+  transition-delay: 0.5s;
+}
 
 /* Loading State */
 .experience-card.loading {
@@ -562,6 +567,13 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }

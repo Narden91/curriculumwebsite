@@ -187,13 +187,19 @@ export const fetchGitHubRepositories = async (): Promise<ProcessedRepository[]> 
       return fallbackRepositories;
     }
 
-    const repositories: GitHubRepository[] = await response.json();
+    const data = await response.json();
+    const repositories = Array.isArray(data) ? data : [];
 
-    // Separate pinned and other repos
+    // Filter out forks and archived repos if desired, or just use all
+    // Also filter out the template repo
+    const validRepos = repositories.filter((repo: any) =>
+      !repo.fork && !repo.archived && repo.name !== 'GA_template'
+    );
+
     const pinnedRepos: GitHubRepository[] = [];
     const otherRepos: GitHubRepository[] = [];
 
-    repositories.forEach(repo => {
+    validRepos.forEach((repo: any) => {
       if (PINNED_REPOS.includes(repo.name)) {
         pinnedRepos.push(repo);
       } else if (!repo.name.includes('.github.io') && repo.description) {
@@ -201,7 +207,7 @@ export const fetchGitHubRepositories = async (): Promise<ProcessedRepository[]> 
       }
     });
 
-    // Sort pinned repos according to PINNED_REPOS order
+    // Sort pinned repos by defined order
     pinnedRepos.sort((a, b) => {
       return PINNED_REPOS.indexOf(a.name) - PINNED_REPOS.indexOf(b.name);
     });

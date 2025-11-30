@@ -1,0 +1,18 @@
+/* PageLayout.css */
+.page-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-main {
+    flex: 1;
+    padding-top: 80px;
+    /* background: var(--surface); */
+    /* Navbar height */
+    position: relative;
+}
+
+.page-main.page-home {
+    padding-top: 0;
+}

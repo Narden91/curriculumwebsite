@@ -11,22 +11,10 @@ const AchievementsPage = lazy(() => import('../pages/AchievementsPage'));
 const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
 const ContactPage = lazy(() => import('../pages/ContactPage'));
 
-// Simple loading fallback
+/** Loading spinner shown during lazy page loading */
 const PageLoader = () => (
-    <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        minHeight: '50vh' 
-    }}>
-        <div style={{ 
-            width: '40px', 
-            height: '40px', 
-            border: '3px solid var(--border-color)', 
-            borderTopColor: 'var(--primary-color)', 
-            borderRadius: '50%', 
-            animation: 'spin 1s linear infinite' 
-        }} />
+    <div className="page-loader">
+        <div className="page-loader-spinner" />
     </div>
 );
 

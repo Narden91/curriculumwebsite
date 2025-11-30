@@ -129,12 +129,15 @@ const EvolutionShaderMaterial = shaderMaterial(
 
 extend({ EvolutionShaderMaterial });
 
-// Add type definition for the shader material
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            evolutionShaderMaterial: any;
-        }
+// Type augmentation for the custom shader material in @react-three/fiber
+declare module '@react-three/fiber' {
+    interface ThreeElements {
+        evolutionShaderMaterial: ThreeElements['shaderMaterial'] & {
+            uTime?: number;
+            uEvolution?: number;
+            uColorA?: THREE.Color;
+            uColorB?: THREE.Color;
+        };
     }
 }
 
@@ -167,8 +170,7 @@ const EvolutionarySystem = () => {
                 <bufferAttribute attach="attributes-aTarget" args={[targetPos, 3]} />
                 <bufferAttribute attach="attributes-aRandom" args={[randoms, 1]} />
             </bufferGeometry>
-            {/* KEY FIX: AdditiveBlending + No DepthWrite = Glowing Energy */}
-            {/* @ts-ignore */}
+            {/* AdditiveBlending + No DepthWrite = Glowing Energy */}
             <evolutionShaderMaterial
                 ref={materialRef}
                 transparent={true}

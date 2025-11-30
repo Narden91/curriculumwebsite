@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { technicalSkillsData, certificationsData, languagesData, achievementsData } from '../../data/publicationsData';
+import { technicalSkillsData, certificationsData, languagesData, professionalAchievementsData } from '../../data/publicationsData';
 import './SkillsSection.css';
 
 const SkillsSection: React.FC = () => {
@@ -196,7 +196,7 @@ const SkillsSection: React.FC = () => {
 
           {activeTab === 'achievements' && (
             <div className="achievements-grid">
-              {achievementsData.map((achievement, index) => (
+              {professionalAchievementsData.map((achievement, index) => (
                 <div key={index} className="achievement-card">
                   <div className="achievement-header">
                     <div className={`achievement-icon ${achievement.type}`}>

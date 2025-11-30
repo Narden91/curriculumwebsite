@@ -10,7 +10,8 @@ export interface Publication {
   abstract?: string;
 }
 
-export interface Achievement {
+/** Teaching, organizational, and professional accomplishments */
+export interface ProfessionalAchievement {
   title: string;
   organization: string;
   date: string;
@@ -126,7 +127,7 @@ export const publicationsData: Publication[] = [
   }
 ];
 
-export const achievementsData: Achievement[] = [
+export const professionalAchievementsData: ProfessionalAchievement[] = [
   {
     title: "Tutor - Corso di Alta Formazione on LLM Tools",
     organization: "University of Cassino and Southern Lazio",

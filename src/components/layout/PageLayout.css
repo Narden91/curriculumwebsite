@@ -7,8 +7,7 @@
 
 .page-main {
     flex: 1;
-    padding-top: 80px;
-    /* background: var(--surface); */
+    padding-top: 70px;
     /* Navbar height */
     position: relative;
 }

@@ -191,7 +191,7 @@ const EvolutionaryBackground: React.FC = () => {
             width: '100%',
             height: '100%',
             zIndex: 0,
-            background: '#020202'
+            background: 'radial-gradient(ellipse at 50% 50%, #334155 0%, #1e293b 60%, #0f172a 100%)'
         }}>
             <Canvas camera={{ position: [0, 0, 40], fov: 45 }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping }}>
                 <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} enablePan={false} />

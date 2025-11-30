@@ -47,10 +47,27 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
+  background-clip: unset;
+  color: #ffffff;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
+  text-shadow: 
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    -1px 0 0 #000,
+    1px 0 0 #000,
+    0 -1px 0 #000,
+    0 1px 0 #000;
+  filter: none;
+}
+
+[data-theme="light"] .gradient-text {
+  -webkit-text-fill-color: #ffffff;
+  color: #ffffff;
 }
 
 .hero-subtitle {
@@ -69,12 +86,8 @@
   font-size: 1.125rem;
   line-height: 1.7;
   margin-bottom: 3rem;
-  color: var(--text-color-tertiary);
-  max-width: 600px;
-}
-
-[data-theme="light"] .hero-description {
   color: #ffffff;
+  max-width: 600px;
 }
 
 /* Stats Container - White Cards */
@@ -90,26 +103,39 @@
   flex-direction: column;
   align-items: center;
   line-height: 1;
-  background: #ffffff;
+  background: transparent;
   padding: 1.5rem 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   min-width: 120px;
+}
+
+[data-theme="light"] .stat-item {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .stat-val {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 0.5rem;
+}
+
+[data-theme="light"] .stat-val {
+  color: #000000;
 }
 
 .stat-key {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #000000;
+  color: #ffffff;
   font-weight: 600;
+}
+
+[data-theme="light"] .stat-key {
+  color: #000000;
 }
 
 .stat-divider {

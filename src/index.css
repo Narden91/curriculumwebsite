@@ -144,6 +144,7 @@ body {
   transition: background-color var(--transition-slow), color var(--transition-slow);
   line-height: 1.6;
   font-size: var(--text-base);
+  text-align: center;
 }
 
 /* Typography System */

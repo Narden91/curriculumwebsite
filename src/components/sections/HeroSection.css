@@ -77,19 +77,12 @@
   color: #ffffff;
 }
 
-/* Glass Pill Stats */
+/* Stats Container (No Background Pill) */
 .hero-stats-pill {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 0.75rem 2rem;
-  border-radius: 100px;
-  border: 1px solid var(--border-color);
   margin-bottom: 3rem;
-  box-shadow: var(--shadow-md);
 }
 
 .stat-item {

@@ -117,6 +117,33 @@ const fallbackRepositories: ProcessedRepository[] = [
 ];
 
 /**
+ * Strips markdown formatting from text
+ */
+const stripMarkdown = (text: string): string => {
+  return text
+    // Remove bold/italic markers
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/__([^_]+)__/g, '$1')
+    .replace(/_([^_]+)_/g, '$1')
+    // Remove inline code
+    .replace(/`([^`]+)`/g, '$1')
+    // Remove links but keep text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    // Remove images
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '')
+    // Remove headers
+    .replace(/^#+\s*/gm, '')
+    // Remove blockquotes
+    .replace(/^>\s*/gm, '')
+    // Remove horizontal rules
+    .replace(/^[-*_]{3,}$/gm, '')
+    // Clean up multiple spaces
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
+/**
  * Fetches README content and extracts a brief description (max 20 words)
  */
 const fetchReadmeDescription = async (fullName: string): Promise<string | null> => {
@@ -158,6 +185,9 @@ const fetchReadmeDescription = async (fullName: string): Promise<string | null> 
       return null;
     }
 
+    // Strip markdown formatting
+    description = stripMarkdown(description);
+
     // Truncate to 20 words intelligently
     const words = description.split(' ');
     if (words.length <= 20) {
@@ -191,9 +221,13 @@ export const fetchGitHubRepositories = async (): Promise<ProcessedRepository[]> 
     const repositories = Array.isArray(data) ? data : [];
 
     // Filter out forks and archived repos if desired, or just use all
-    // Also filter out the template repo
+    // Also filter out the template repos
     const validRepos = repositories.filter((repo: any) =>
-      !repo.fork && !repo.archived && repo.name !== 'GA_template'
+      !repo.fork &&
+      !repo.archived &&
+      repo.name !== 'GA_template' &&
+      repo.name !== 'GA_Project' &&
+      repo.name !== 'GA_Project_Template'
     );
 
     const pinnedRepos: GitHubRepository[] = [];

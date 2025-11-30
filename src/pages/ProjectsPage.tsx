@@ -9,7 +9,7 @@ const ProjectsPage: React.FC = () => {
             <PageTopper
                 title="GitHub Projects"
                 subtitle="My open-source projects and research contributions"
-                badge="6+ Repositories"
+                badge="50+ Repositories"
             />
             <GithubCarouselSection />
         </PageLayout>

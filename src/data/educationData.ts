@@ -17,7 +17,7 @@ export const educationData: Degree[] = [
     institution: "University of Cassino and Southern Lazio",
     degree: "Doctor of Philosophy (PhD)",
     field: "Artificial Intelligence - Department of Electrical and Information Engineering (DIEI)",
-    year: "2022 - Present",
+    year: "2022 - 2025",
     // dissertationTitle: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of DSA in children",
     supervisors: [
       "Prof. Francesco Fontanella",
@@ -25,9 +25,11 @@ export const educationData: Degree[] = [
       "Prof. Leonardo Vanneschi"
     ],
     additionalInfo: [
-      "Developed C# WPF application for data acquisition for the PRIN2022 project on Alzheimer's disease through voice and handwriting",
-      "Developed AI and Acquisition system for Parkinson's disease through handwriting for San Raffaele Cassino",
-      "Developed AI pipeline for handwriting analysis"
+      "ML/DL for Neurodegenerative diseases",
+      "ML/DL for SLDs",
+      "Evolutionary Algorithms",
+      "Conformal Predictions",
+      "Genetic Programming"
     ],
     sortOrder: 1
   },

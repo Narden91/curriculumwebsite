@@ -54,7 +54,7 @@ export const experienceData: ExperienceEntry[] = [
   {
     company: "University of Cassino and Southern Lazio",
     role: "Fellowship Researcher - Application Development",
-    duration: "2022 - Present",
+    duration: "2022",
     location: "Cassino, Italy",
     responsibilities: [
       "Developing C# WPF applications for handwriting data acquisition from Wacom devices",
@@ -74,24 +74,15 @@ export const experienceData: ExperienceEntry[] = [
   },
   {
     company: "University of Cassino and Southern Lazio",
-    role: "PhD Student & Teaching Assistant",
-    duration: "2021 - Present",
+    role: "Teaching Assistant",
+    duration: "Fall 2024 and 2025",
     location: "Cassino, Italy",
     responsibilities: [
-      "Conducting cutting-edge research in AI-driven medical diagnostics using handwriting analysis",
-      "Developing machine learning models for early detection of neurodegenerative diseases and learning disorders",
-      "Teaching artificial intelligence concepts to Master's degree students in Computer Engineering",
-      "Supervising undergraduate and graduate students in AI and machine learning projects",
-      "Collaborating with medical institutions on real-world diagnostic applications"
+      "Teaching optimization algorithms (Dijkstra, Minimum Spanning Tree, etc.)",
+      "Teaching evolutionary algorithms",
+      "Teaching neural networks"
     ],
-    achievements: [
-      "Published 10+ peer-reviewed papers in top-tier conferences and journals",
-      "Developed innovative handwriting analysis pipeline for Alzheimer's disease detection",
-      "Created multi-modal classification system using genetic programming",
-      "Successfully defended PhD research progress with excellent evaluations",
-      "Received recognition as Adjunct Instructor for AI coursework delivery"
-    ],
-    technologies: ["Python", "TensorFlow", "PyTorch", "scikit-learn", "pandas", "numpy", "C#", "WPF", "SHAP", "Transformers", "CNNs"],
+    technologies: ["Python", "TensorFlow", "PyTorch"],
     supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
     sortOrder: 4
   },

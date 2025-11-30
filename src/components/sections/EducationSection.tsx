@@ -195,7 +195,7 @@ const EducationSection: React.FC = () => {
                 </svg>
               </div>
               <div className="stat-content">
-                <span className="stat-number">{educationData.length}</span>
+                <span className="stat-number">3</span>
                 <span className="stat-label">Degrees Earned</span>
               </div>
             </div>

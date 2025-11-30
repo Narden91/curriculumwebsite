@@ -39,25 +39,25 @@ const AchievementsSection: React.FC = () => {
 
                             {/* Overview */}
                             <div className="achievement-overview">
-                                <h4>📋 Panoramica del Progetto</h4>
+                                <h4>📋 Project Overview</h4>
                                 <p>{achievement.description}</p>
                             </div>
 
                             {/* Challenge */}
                             <div className="achievement-challenge">
-                                <h4>🎯 La Sfida</h4>
+                                <h4>🎯 The Challenge</h4>
                                 <p>{achievement.challenge}</p>
                             </div>
 
                             {/* Solution */}
                             <div className="achievement-solution">
-                                <h4>💡 Soluzione Tecnica</h4>
+                                <h4>💡 Technical Solution</h4>
                                 <p>{achievement.solution}</p>
                             </div>
 
                             {/* Technical Details */}
                             <div className="technical-details">
-                                <h4 className="section-subtitle">Componenti Crittografici</h4>
+                                <h4 className="section-subtitle">Cryptographic Components</h4>
                                 <div className="tech-grid">
                                     {achievement.technicalDetails.map((tech, index) => (
                                         <div
@@ -99,7 +99,7 @@ const AchievementsSection: React.FC = () => {
 
                             {/* Workflow */}
                             <div className="workflow-section">
-                                <h4 className="section-subtitle">Workflow del Sistema</h4>
+                                <h4 className="section-subtitle">System Workflow</h4>
                                 <div className="workflow-timeline">
                                     {achievement.workflow.map((phase, index) => (
                                         <div key={index} className="workflow-phase">
@@ -115,7 +115,7 @@ const AchievementsSection: React.FC = () => {
 
                             {/* Team Members */}
                             <div className="team-section">
-                                <h4 className="section-subtitle">Contributi del Team</h4>
+                                <h4 className="section-subtitle">Team Contributions</h4>
                                 <div className="team-grid">
                                     {achievement.teamMembers.map((member, index) => (
                                         <div key={index} className="team-member-card">
@@ -150,7 +150,7 @@ const AchievementsSection: React.FC = () => {
 
                             {/* Resources */}
                             <div className="resources-section">
-                                <h4 className="section-subtitle">Risorse</h4>
+                                <h4 className="section-subtitle">Resources</h4>
                                 <div className="resource-links">
                                     {achievement.resources.video && (
                                         <a

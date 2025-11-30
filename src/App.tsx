@@ -10,9 +10,12 @@ const InteractiveAiBackground = lazy(() => import('./components/ui/InteractiveAi
  * Main App component with React Router for multi-page navigation
  * Portfolio of Emanuele Nardone - PhD in Artificial Intelligence
  */
+// Get basename for GitHub Pages deployment
+const basename = import.meta.env.BASE_URL;
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <div className="app">
         <Suspense fallback={null}>
           <InteractiveAiBackground />

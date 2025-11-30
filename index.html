@@ -152,6 +152,27 @@
       })();
     </script>
     
+    <!-- SPA Redirect Handler for GitHub Pages -->
+    <script>
+      (function() {
+        // Handle redirects from 404.html
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Handle query parameter redirect
+        const params = new URLSearchParams(location.search);
+        const path = params.get('p');
+        if (path) {
+          params.delete('p');
+          const newSearch = params.toString();
+          const newUrl = location.pathname.replace(/\/$/, '') + path + (newSearch ? '?' + newSearch : '') + location.hash;
+          history.replaceState(null, null, newUrl);
+        }
+      })();
+    </script>
+    
     <!-- Performance and Analytics -->
     <!-- Google Analytics (replace with your tracking ID) -->
     <!--

@@ -99,7 +99,7 @@ body,
 }
 
 /* Theme Application */
-body[data-theme='light'] {
+[data-theme='light'] {
   --primary-color: var(--primary-color-light);
   --primary-hover: var(--primary-hover-light);
   --accent-color: var(--accent-color-light);
@@ -118,7 +118,7 @@ body[data-theme='light'] {
   --text-color-tertiary: var(--text-tertiary-light);
 }
 
-body[data-theme='dark'] {
+[data-theme='dark'] {
   --primary-color: var(--primary-color-dark);
   --primary-hover: var(--primary-hover-dark);
   --accent-color: var(--accent-color-dark);

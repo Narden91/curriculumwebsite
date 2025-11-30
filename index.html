@@ -139,15 +139,15 @@
     }
     </script>
     
-    <!-- Theme Detection Script -->
+    <!-- Theme Detection Script - runs immediately on html element -->
     <script>
       (function() {
         const theme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (theme === 'dark' || (!theme && prefersDark)) {
-          document.body.setAttribute('data-theme', 'dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
         } else {
-          document.body.setAttribute('data-theme', 'light');
+          document.documentElement.setAttribute('data-theme', 'light');
         }
       })();
     </script>
@@ -155,13 +155,7 @@
     <!-- SPA Redirect Handler for GitHub Pages -->
     <script>
       (function() {
-        // Handle redirects from 404.html
-        const redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
-        }
-        // Handle query parameter redirect
+        // Handle query parameter redirect from 404.html
         const params = new URLSearchParams(location.search);
         const path = params.get('p');
         if (path) {

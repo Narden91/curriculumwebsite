@@ -39,12 +39,12 @@
 }
 
 /* Light theme icon color */
-body[data-theme='light'] .theme-toggle-button .moon-icon {
+[data-theme='light'] .theme-toggle-button .moon-icon {
   color: #374151; /* text-gray-800 (approx) */
 }
 
 /* Dark theme icon color */
-body[data-theme='dark'] .theme-toggle-button .sun-icon {
+[data-theme='dark'] .theme-toggle-button .sun-icon {
   color: #fbbf24; /* text-yellow-400 */
 }
 

@@ -167,7 +167,7 @@
 .tech-header {
     padding: 1.5rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -180,10 +180,16 @@
 .tech-icon {
     font-size: 2rem;
     flex-shrink: 0;
+    min-width: 2.5rem;
+    text-align: center;
+    line-height: 1;
+    padding-top: 0.25rem;
 }
 
 .tech-info {
     flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .tech-info h5 {
@@ -191,12 +197,15 @@
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 0.35rem;
+    word-wrap: break-word;
 }
 
 .tech-info p {
     font-size: 0.875rem;
     color: var(--text-color-secondary);
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .expand-icon {

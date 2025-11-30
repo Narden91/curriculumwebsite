@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
           <div className="section-number">01</div>
           <h2 className="display-2 section-title">About Me</h2>
           <p className="section-description">
-            I'm an AI PhD student with a focus on machine learning in biomedical fields. 
+            I hold a PhD in AI with a focus on machine learning in biomedical fields. 
           </p>
         </div>
         

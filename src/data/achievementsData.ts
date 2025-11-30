@@ -5,11 +5,11 @@ export type { TeamMember, Achievement };
 export const achievements: Achievement[] = [
     {
         id: '1',
-        title: '🥈 2° Posto - Track Crittografia Avanzata',
+        title: '🥈 2nd Place - Advanced Cryptography Track',
         subtitle: 'Privacy-Preserving Blockchain Gaming',
         event: 'IXH25 – Italian XRPL Hackathon',
         date: 'November 2025',
-        team: 'Team πve',
+        team: 'πve',
         description: 'Team πve achieved second place in the Advanced Cryptography Track by developing a privacy-preserving solution for secure blockchain-based gaming. The project combines Fully Homomorphic Encryption (FHE) with Distributed Key Generation (DKG) to create a trustless F1-AI racing platform where computations occur on encrypted data, ensuring complete privacy and correctness for all participants.',
         challenge: 'The 24-hour challenge required designing and implementing a cryptographic protocol that would allow a racing game to operate securely on blockchain infrastructure while maintaining absolute privacy of game parameters and ensuring that no single party—including the server—could manipulate or view sensitive data.',
         solution: 'The solution combines two powerful cryptographic primitives to achieve both privacy and decentralized trust: FHE enables computations on encrypted data, DKG ensures there is no single point of control or failure, and XRPL Blockchain handles payment transactions using XRP cryptocurrency.',

@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => {
             <PageTopper
                 title="About Me"
                 subtitle="Get to know more about my background, skills, and interests"
-                badge="PhD Student in AI"
+                badge="PhD in Artificial Intelligence"
             />
             <AboutSection />
             <SkillsSection />

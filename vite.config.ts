@@ -9,12 +9,15 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'esbuild', // Use esbuild instead of terser (faster and no extra dependency needed)
+    minify: 'esbuild',
+    chunkSizeWarningLimit: 1100, // Three.js is ~1MB, this is expected
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          ui: ['react-slick', '@heroicons/react']
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-router': ['react-router-dom'],
+          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei'],
+          'vendor-ui': ['react-slick']
         }
       }
     }

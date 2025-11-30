@@ -1,28 +1,51 @@
-import React from 'react';
+import { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import AboutPage from '../pages/AboutPage';
-import ExperiencePage from '../pages/ExperiencePage';
-import EducationPage from '../pages/EducationPage';
-import ResearchPage from '../pages/ResearchPage';
-import AchievementsPage from '../pages/AchievementsPage';
-import ProjectsPage from '../pages/ProjectsPage';
-import ContactPage from '../pages/ContactPage';
 
-const AppRoutes: React.FC = () => {
+// Lazy load pages for code splitting
+const HomePage = lazy(() => import('../pages/HomePage'));
+const AboutPage = lazy(() => import('../pages/AboutPage'));
+const ExperiencePage = lazy(() => import('../pages/ExperiencePage'));
+const EducationPage = lazy(() => import('../pages/EducationPage'));
+const ResearchPage = lazy(() => import('../pages/ResearchPage'));
+const AchievementsPage = lazy(() => import('../pages/AchievementsPage'));
+const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
+const ContactPage = lazy(() => import('../pages/ContactPage'));
+
+// Simple loading fallback
+const PageLoader = () => (
+    <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '50vh' 
+    }}>
+        <div style={{ 
+            width: '40px', 
+            height: '40px', 
+            border: '3px solid var(--border-color)', 
+            borderTopColor: 'var(--primary-color)', 
+            borderRadius: '50%', 
+            animation: 'spin 1s linear infinite' 
+        }} />
+    </div>
+);
+
+const AppRoutes = () => {
     return (
-        <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/experience" element={<ExperiencePage />} />
-            <Route path="/education" element={<EducationPage />} />
-            <Route path="/research" element={<ResearchPage />} />
-            <Route path="/achievements" element={<AchievementsPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            {/* 404 redirect to home */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/experience" element={<ExperiencePage />} />
+                <Route path="/education" element={<EducationPage />} />
+                <Route path="/research" element={<ResearchPage />} />
+                <Route path="/achievements" element={<AchievementsPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                {/* 404 redirect to home */}
+                <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+        </Suspense>
     );
 };
 

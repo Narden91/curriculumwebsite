@@ -144,7 +144,6 @@ body {
   transition: background-color var(--transition-slow), color var(--transition-slow);
   line-height: 1.6;
   font-size: var(--text-base);
-  text-align: center;
 }
 
 /* Typography System */
@@ -563,6 +562,12 @@ h6 {
 
   100% {
     background-position: -200% 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 

@@ -1,7 +1,10 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
-import InteractiveAiBackground from './components/ui/InteractiveAiBackground';
 import './App.css';
+
+// Lazy load the heavy 3D background (Three.js ~1MB)
+const InteractiveAiBackground = lazy(() => import('./components/ui/InteractiveAiBackground'));
 
 /**
  * Main App component with React Router for multi-page navigation
@@ -11,7 +14,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <InteractiveAiBackground />
+        <Suspense fallback={null}>
+          <InteractiveAiBackground />
+        </Suspense>
         <AppRoutes />
       </div>
     </BrowserRouter>

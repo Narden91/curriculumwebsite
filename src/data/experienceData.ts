@@ -12,6 +12,49 @@ export interface ExperienceEntry {
 
 export const experienceData: ExperienceEntry[] = [
   {
+    company: "University of Cassino and Southern Lazio",
+    role: "Teaching Assistant",
+    duration: "Fall 2024 and 2025",
+    location: "Cassino, Italy",
+    responsibilities: [
+      "Teaching optimization algorithms (Dijkstra, Minimum Spanning Tree, etc.)",
+      "Teaching evolutionary algorithms",
+      "Teaching neural networks"
+    ],
+    technologies: ["Python", "TensorFlow", "PyTorch"],
+    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
+    sortOrder: 1
+  },
+  {
+    company: "University of Cassino and Southern Lazio",
+    role: "Tutor Corso Alta Formazione",
+    duration: "02/2025 - 06/2025",
+    location: "Cassino, Italy",
+    responsibilities: [
+      "Teaching Generative AI fundamentals and applications",
+      "Teaching Large Language Models (LLMs) architecture and implementation",
+      "Teaching AI Ethics and responsible AI development",
+      "Teaching Agentic AI systems and autonomous agents"
+    ],
+    technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"],
+    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
+    sortOrder: 2
+  },
+  {
+    company: "Corso GenAI Pignataro/Latina",
+    role: "Instructor",
+    duration: "2025",
+    location: "Pignataro/Latina, Italy",
+    responsibilities: [
+      "Teaching Generative AI fundamentals and applications",
+      "Teaching Large Language Models (LLMs) architecture and implementation",
+      "Teaching AI Ethics and responsible AI development",
+      "Teaching Agentic AI systems and autonomous agents"
+    ],
+    technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"],
+    sortOrder: 3
+  },
+  {
     company: "University of Cassino and Southern Lazio - ISESS 2023",
     role: "Conference Organizer & Session Chairman",
     duration: "October 2023",
@@ -29,7 +72,7 @@ export const experienceData: ExperienceEntry[] = [
       "Received positive feedback from participants and academic community"
     ],
     technologies: ["Conference Management Systems", "Academic Presentation Tools", "Microsoft Office Suite"],
-    sortOrder: 1
+    sortOrder: 4
   },
   {
     company: "University of Cassino and Southern Lazio - CyberChallenge.IT",
@@ -49,7 +92,7 @@ export const experienceData: ExperienceEntry[] = [
       "Developed innovative teaching methodologies for technical skill transfer"
     ],
     technologies: ["Linux", "Network Security", "Penetration Testing", "Cryptography", "Python", "Bash Scripting"],
-    sortOrder: 2
+    sortOrder: 5
   },
   {
     company: "University of Cassino and Southern Lazio",
@@ -70,21 +113,7 @@ export const experienceData: ExperienceEntry[] = [
     ],
     technologies: ["C#", "WPF", ".NET Framework", "Wacom SDK", "Windows API", "SQL Server"],
     supervisors: ["Prof. Claudio De Stefano", "Prof. Francesco Fontanella"],
-    sortOrder: 3
-  },
-  {
-    company: "University of Cassino and Southern Lazio",
-    role: "Teaching Assistant",
-    duration: "Fall 2024 and 2025",
-    location: "Cassino, Italy",
-    responsibilities: [
-      "Teaching optimization algorithms (Dijkstra, Minimum Spanning Tree, etc.)",
-      "Teaching evolutionary algorithms",
-      "Teaching neural networks"
-    ],
-    technologies: ["Python", "TensorFlow", "PyTorch"],
-    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
-    sortOrder: 4
+    sortOrder: 6
   },
   {
     company: "University of Cassino and Southern Lazio",
@@ -105,6 +134,6 @@ export const experienceData: ExperienceEntry[] = [
     ],
     technologies: ["Python", "scikit-learn", "pandas", "numpy", "matplotlib", "seaborn", "Jupyter", "Git"],
     supervisors: ["Prof. Claudio De Stefano", "Prof. Francesco Fontanella"],
-    sortOrder: 5
+    sortOrder: 7
   }
 ];

@@ -53,7 +53,7 @@ const EvolutionShaderMaterial = shaderMaterial(
     {
         uTime: 0,
         uEvolution: 0,
-        uColorA: new THREE.Color("#ff0040"), // High Error (Red)
+        uColorA: new THREE.Color("#da073cff"), // High Error (Red)
         uColorB: new THREE.Color("#00f0ff"), // Optimized (Cyan)
     },
     // Vertex Shader

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { 
-    EmailIcon, 
-    LocationIcon, 
-    ClockIcon, 
-    LinkedInIcon, 
-    GitHubIcon, 
-    ArrowUpIcon 
+import {
+    EmailIcon,
+    LocationIcon,
+    ClockIcon,
+    LinkedInIcon,
+    GitHubIcon,
+    ArrowUpIcon
 } from '../icons';
 import './Footer.css';
 
@@ -25,7 +25,7 @@ const Footer = () => {
                         <h3 className="footer-logo">Emanuele Nardone</h3>
                         <p className="footer-tagline">PhD in Artificial Intelligence</p>
                         <p className="footer-bio">
-                            Specializing in medical diagnostics and machine learning research,
+                            Expertise in medical diagnostics and machine learning research,
                             developing AI-driven solutions for early detection of neurodegenerative diseases.
                         </p>
                         <div className="footer-social">

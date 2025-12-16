@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { heroData } from '../../data/heroData';
 import './HeroSection.css';
 import { publicationsData } from '../../data/publicationsData';
@@ -6,13 +7,6 @@ import { EmailIcon, LinkedInIcon, GitHubIcon, DownloadIcon, ChatIcon } from '../
 import EvolutionaryBackground from '../3d/EvolutionaryBackground';
 
 const HeroSection: React.FC = () => {
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div id="hero" className="hero-section">
       <EvolutionaryBackground />
@@ -66,13 +60,13 @@ const HeroSection: React.FC = () => {
             <DownloadIcon className="btn-icon" />
             Download CV
           </a>
-          <button
-            onClick={() => scrollToSection('contact')}
+          <Link
+            to="/contact"
             className="btn btn-secondary glass-effect"
           >
             <ChatIcon className="btn-icon" />
             Let's Connect
-          </button>
+          </Link>
         </div>
       </div>
     </div>

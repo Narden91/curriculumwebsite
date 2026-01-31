@@ -646,11 +646,13 @@ const EvolutionaryBackground: React.FC = () => {
                 camera={{ position: [0, 18, 40], fov: 55 }}
                 dpr={[1, 1.5]}
                 gl={{
+                    alpha: false, // Force opaque context for Firefox stability
                     antialias: false,
                     toneMapping: THREE.NoToneMapping,
                     preserveDrawingBuffer: true // Helps with some browser artifacts
                 }}
             >
+                {/* Explicit background color imperative for Firefox when alpha is false */}
                 <color attach="background" args={['#050508']} />
 
                 <OrbitControls

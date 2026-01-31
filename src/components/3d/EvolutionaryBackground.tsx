@@ -6,7 +6,7 @@ import { BlendFunction } from 'postprocessing';
 import * as THREE from 'three';
 
 // --- 1. STAR FIELD DATA GENERATION ---
-const generateStarField = (count = 3000) => {
+const generateStarField = (count = 1000) => {
     const positions = new Float32Array(count * 3);
     const sizes = new Float32Array(count);
     const twinkle = new Float32Array(count);
@@ -98,7 +98,7 @@ const StarFieldShaderMaterial = shaderMaterial(
 );
 
 // --- 3. BLACK HOLE DATA GENERATION ---
-const generateBlackHoleData = (count = 30000) => {
+const generateBlackHoleData = (count = 5000) => {
     const positions = new Float32Array(count * 3);
     const velocities = new Float32Array(count * 3);
     const randoms = new Float32Array(count);
@@ -638,6 +638,7 @@ const EvolutionaryBackground: React.FC = () => {
         }}>
             <Canvas
                 camera={{ position: [0, 18, 40], fov: 55 }}
+                dpr={[1, 1.5]}
                 gl={{ antialias: false, toneMapping: THREE.NoToneMapping }}
             >
                 <OrbitControls

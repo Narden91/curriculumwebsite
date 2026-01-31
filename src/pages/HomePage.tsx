@@ -13,7 +13,6 @@ const HomePage: React.FC = () => {
             <div className="home-bio">
                 <div className="container">
                     <div className="bio-container">
-                        <h2 className="section-title">About Me</h2>
                         <p className="bio-text">
                             PhD in <span className="highlight">Artificial Intelligence</span> specializing in medical diagnostics and machine learning.
                             Developing AI-driven tools for early detection of neurodegenerative diseases through <span className="highlight">handwriting analysis</span>.

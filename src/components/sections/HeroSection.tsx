@@ -6,7 +6,7 @@ import { publicationsData } from '../../data/publicationsData';
 import { EmailIcon, LinkedInIcon, GitHubIcon, DownloadIcon, ChatIcon } from '../icons';
 import EvolutionaryBackground from '../3d/EvolutionaryBackground';
 
-const HeroSection: React.FC = () => {
+const HeroSection: React.FC = React.memo(() => {
   return (
     <div id="hero" className="hero-section">
       <EvolutionaryBackground />
@@ -71,6 +71,8 @@ const HeroSection: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';
 
 export default HeroSection;

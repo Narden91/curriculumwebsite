@@ -22,9 +22,9 @@ section {
 }
 
 section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(2px); /* Slightly stronger blur on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(1.5px);
 }
 
 /* Contact Section */

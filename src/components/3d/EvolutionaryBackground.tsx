@@ -632,6 +632,17 @@ const BlackHoleScene = () => {
 
 // --- 8. MAIN BACKGROUND COMPONENT ---
 const EvolutionaryBackground: React.FC = () => {
+    // Detect Firefox - it has issues with post-processing and performance
+    const isFirefox = useMemo(() => {
+        if (typeof navigator !== 'undefined') {
+            return navigator.userAgent.toLowerCase().includes('firefox');
+        }
+        return false;
+    }, []);
+
+    // Firefox gets lower resolution for better performance
+    const dpr: [number, number] = isFirefox ? [1, 1] : [1, 1.5];
+
     return (
         <div style={{
             position: 'absolute',
@@ -644,21 +655,21 @@ const EvolutionaryBackground: React.FC = () => {
         }}>
             <Canvas
                 camera={{ position: [0, 18, 40], fov: 55 }}
-                dpr={[1, 1.5]}
+                dpr={dpr}
                 gl={{
-                    alpha: false, // Force opaque context for Firefox stability
+                    alpha: false,
                     antialias: false,
                     toneMapping: THREE.NoToneMapping,
-                    preserveDrawingBuffer: true // Helps with some browser artifacts
+                    preserveDrawingBuffer: true,
+                    powerPreference: isFirefox ? 'low-power' : 'high-performance'
                 }}
             >
-                {/* Explicit background color imperative for Firefox when alpha is false */}
                 <color attach="background" args={['#050508']} />
 
                 <OrbitControls
                     enableZoom={false}
                     autoRotate
-                    autoRotateSpeed={0.25}
+                    autoRotateSpeed={isFirefox ? 0.15 : 0.25}
                     enablePan={false}
                     maxPolarAngle={Math.PI * 0.75}
                     minPolarAngle={Math.PI * 0.25}
@@ -666,15 +677,17 @@ const EvolutionaryBackground: React.FC = () => {
 
                 <BlackHoleScene />
 
-                {/* POST PROCESSING */}
-                <EffectComposer multisampling={0}>
-                    <Bloom
-                        luminanceThreshold={0.5} // Higher threshold to only bloom really bright things
-                        mipmapBlur
-                        intensity={1.0} // Lower intensity to prevent flashbangs
-                        radius={0.8}
-                    />
-                </EffectComposer>
+                {/* POST PROCESSING - disabled for Firefox due to WebGL issues */}
+                {!isFirefox && (
+                    <EffectComposer multisampling={0}>
+                        <Bloom
+                            luminanceThreshold={0.5}
+                            mipmapBlur
+                            intensity={1.0}
+                            radius={0.8}
+                        />
+                    </EffectComposer>
+                )}
             </Canvas>
         </div>
     );

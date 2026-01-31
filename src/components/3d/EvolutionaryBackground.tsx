@@ -1,8 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { OrbitControls, shaderMaterial } from '@react-three/drei';
-import { EffectComposer, Bloom, ChromaticAberration } from '@react-three/postprocessing';
-import { BlendFunction } from 'postprocessing';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
 // --- 1. STAR FIELD DATA GENERATION ---
@@ -67,7 +66,8 @@ const StarFieldShaderMaterial = shaderMaterial(
         
         // Twinkling size
         float twinkleAmount = sin(uTime * 3.0 + aTwinkle) * 0.5 + 0.5;
-        gl_PointSize = aSize * (1.0 + twinkleAmount * 0.5) * (300.0 / -mvPosition.z);
+        float pSize = aSize * (1.0 + twinkleAmount * 0.5) * (300.0 / max(-mvPosition.z, 1.0));
+        gl_PointSize = clamp(pSize, 0.0, 15.0); // Keep stars small and safe
         
         vAlpha = 0.6 + twinkleAmount * 0.4;
         vTwinkle = aTwinkle;
@@ -373,7 +373,10 @@ const BlackHoleShaderMaterial = shaderMaterial(
         float sizePulse = 1.0 + sin(uTime * 5.0 + aRandom * 10.0) * 0.25;
         float explosionSize = 1.0 + uExplosionProgress * 2.5;
         
-        gl_PointSize = (baseSize * sizePulse * explosionSize) / -mvPosition.z;
+        // Safe point size calculation
+        float distZ = max(-mvPosition.z, 1.0); // Prevent negative or zero Z division
+        float pSize = (baseSize * sizePulse * explosionSize) / distZ;
+        gl_PointSize = clamp(pSize, 0.0, 50.0); // Strict clamp to prevent giant tiles
         
         // Outputs
         vType = aType;
@@ -423,9 +426,12 @@ const BlackHoleShaderMaterial = shaderMaterial(
         vec2 stretchedCoord = coord * vec2(1.0, trailStretch);
         float stretchedDist = length(stretchedCoord);
         
-        float strength = 1.0 / (stretchedDist * 16.0) - 0.12;
+        // Safety guard: prevent division by zero
+        float strength = 1.0 / (max(stretchedDist, 0.001) * 16.0) - 0.12;
         
         if (strength < 0.01) discard;
+        
+        strength = clamp(strength, 0.0, 1.0); // Clamp strength to avoid blowouts
         
         vec3 color;
         
@@ -639,8 +645,14 @@ const EvolutionaryBackground: React.FC = () => {
             <Canvas
                 camera={{ position: [0, 18, 40], fov: 55 }}
                 dpr={[1, 1.5]}
-                gl={{ antialias: false, toneMapping: THREE.NoToneMapping }}
+                gl={{
+                    antialias: false,
+                    toneMapping: THREE.NoToneMapping,
+                    preserveDrawingBuffer: true // Helps with some browser artifacts
+                }}
             >
+                <color attach="background" args={['#050508']} />
+
                 <OrbitControls
                     enableZoom={false}
                     autoRotate
@@ -653,18 +665,12 @@ const EvolutionaryBackground: React.FC = () => {
                 <BlackHoleScene />
 
                 {/* POST PROCESSING */}
-                <EffectComposer>
+                <EffectComposer multisampling={0}>
                     <Bloom
-                        luminanceThreshold={0.08}
+                        luminanceThreshold={0.5} // Higher threshold to only bloom really bright things
                         mipmapBlur
-                        intensity={2.5}
-                        radius={0.9}
-                    />
-                    <ChromaticAberration
-                        blendFunction={BlendFunction.NORMAL}
-                        offset={new THREE.Vector2(0.0015, 0.0015)}
-                        radialModulation={true}
-                        modulationOffset={0.5}
+                        intensity={1.0} // Lower intensity to prevent flashbangs
+                        radius={0.8}
                     />
                 </EffectComposer>
             </Canvas>

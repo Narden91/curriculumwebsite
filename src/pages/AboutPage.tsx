@@ -8,8 +8,9 @@ const AboutPage: React.FC = () => {
     return (
         <PageLayout>
             <PageTopper
-                title="About Me"
-                subtitle="Get to know more about my background, skills, and interests"
+                mark="§4"
+                title="About"
+                subtitle="Background, research focus, skills, service and awards."
                 badge="Postdoc · University of Eastern Finland"
             />
             <AboutSection />

@@ -7,8 +7,9 @@ const AchievementsPage: React.FC = () => {
     return (
         <PageLayout>
             <PageTopper
-                title="Achievements & Awards"
-                subtitle="Recognition and accomplishments in hackathons and competitions"
+                mark="§4.1"
+                title="Hackathon"
+                subtitle="A 24-hour build: privacy-preserving blockchain gaming with homomorphic encryption."
                 badge="2nd place · IXH25 hackathon"
             />
             <AchievementsSection />

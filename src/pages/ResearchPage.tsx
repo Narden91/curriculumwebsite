@@ -12,6 +12,7 @@ const ResearchPage: React.FC = () => {
     return (
         <PageLayout>
             <PageTopper
+                mark="§1"
                 title="Research & Publications"
                 subtitle="Machine learning and pattern recognition for decision support: evolutionary feature selection, multimodal classification, conformal prediction and explainable AI."
                 badge={`${peerReviewedCount} peer-reviewed papers`}
@@ -21,6 +22,7 @@ const ResearchPage: React.FC = () => {
             <section className="research-projects section">
                 <div className="container">
                     <div className="section-header">
+                        <span className="section-mark">§1.2</span>
                         <h2 className="section-title">Funded research projects</h2>
                     </div>
                     <ul className="project-list">

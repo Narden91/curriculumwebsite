@@ -19,11 +19,16 @@
     letter-spacing: 0.02em;
 }
 
+.page-mark {
+    margin-right: 0.75rem;
+}
+
 .page-title {
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+    font-family: var(--font-serif);
+    font-size: clamp(2.75rem, 6.5vw, 4.75rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
     color: var(--text-color);
     margin: 0 0 0.75rem 0;
 }

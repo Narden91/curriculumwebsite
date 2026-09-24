@@ -7,6 +7,7 @@ const ExperiencePage: React.FC = () => {
     return (
         <PageLayout>
             <PageTopper
+                mark="§2"
                 title="Experience"
                 subtitle="Research positions, teaching and service. Select an entry for details."
             />

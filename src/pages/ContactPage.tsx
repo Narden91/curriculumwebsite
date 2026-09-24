@@ -8,6 +8,7 @@ const ContactPage: React.FC = () => {
     return (
         <PageLayout>
             <PageTopper
+                mark="§6"
                 title="Get In Touch"
                 subtitle="Feel free to reach out for collaborations or opportunities"
                 badge="Available"
@@ -86,7 +87,7 @@ const ContactPage: React.FC = () => {
                             </div>
                             <h3>Response Time</h3>
                             <p>Typically within 24-48 hours</p>
-                            <span className="contact-link">Mon-Fri, 9AM-6PM CET</span>
+                            <span className="contact-link">Mon-Fri, 9:00-18:00 EET (Finland)</span>
                         </div>
                     </div>
                 </div>

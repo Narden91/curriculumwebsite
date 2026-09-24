@@ -14,13 +14,12 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom'],
-          'vendor-router': ['react-router-dom'],
-          'vendor-ui': ['react-slick']
+          'vendor-router': ['react-router-dom']
         }
       }
     }
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-slick']
+    include: ['react', 'react-dom']
   }
 })

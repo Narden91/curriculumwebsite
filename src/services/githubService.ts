@@ -14,6 +14,8 @@ export interface GitHubRepository {
   default_branch: string;
   size: number;
   open_issues_count: number;
+  fork?: boolean;
+  archived?: boolean;
 }
 
 export interface ProcessedRepository {
@@ -159,7 +161,9 @@ const fetchReadmeDescription = async (fullName: string): Promise<string | null> 
     }
 
     const data = await response.json();
-    const content = atob(data.content); // Decode base64 content
+    // atob yields Latin-1 bytes; decode them as UTF-8 so accented READMEs ("è") are not garbled
+    const bytes = Uint8Array.from(atob(data.content), (c) => c.charCodeAt(0));
+    const content = new TextDecoder('utf-8').decode(bytes);
 
     // Extract first meaningful paragraph (skip headers, badges, images)
     const lines = content.split('\n');
@@ -173,7 +177,9 @@ const fetchReadmeDescription = async (fullName: string): Promise<string | null> 
         trimmed.startsWith('![') ||
         trimmed.startsWith('[![') ||
         trimmed.startsWith('<') ||
-        trimmed.startsWith('---')) {
+        trimmed.startsWith('---') ||
+        // attribute lines of a multi-line HTML tag, e.g. src="https://..."
+        /^[a-z-]+=/i.test(trimmed)) {
         continue;
       }
 
@@ -218,22 +224,24 @@ export const fetchGitHubRepositories = async (): Promise<ProcessedRepository[]> 
     }
 
     const data = await response.json();
-    const repositories = Array.isArray(data) ? data : [];
+    const repositories: GitHubRepository[] = Array.isArray(data) ? data : [];
 
     // Filter out forks and archived repos if desired, or just use all
     // Also filter out the template repos
-    const validRepos = repositories.filter((repo: any) =>
+    const validRepos = repositories.filter((repo) =>
       !repo.fork &&
       !repo.archived &&
       repo.name !== 'GA_template' &&
       repo.name !== 'GA_Project' &&
-      repo.name !== 'GA_Project_Template'
+      repo.name !== 'GA_Project_Template' &&
+      // the profile README repo is not a project
+      repo.name !== GITHUB_USERNAME
     );
 
     const pinnedRepos: GitHubRepository[] = [];
     const otherRepos: GitHubRepository[] = [];
 
-    validRepos.forEach((repo: any) => {
+    validRepos.forEach((repo) => {
       if (PINNED_REPOS.includes(repo.name)) {
         pinnedRepos.push(repo);
       } else if (!repo.name.includes('.github.io') && repo.description) {

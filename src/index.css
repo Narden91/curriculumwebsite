@@ -1,5 +1,41 @@
 /* Global Styles - "night lab" palette taken from public/pixel-researcher.gif */
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+/* Self-hosted fonts (SIL OFL, licences in public/fonts). Served from this site and preloaded in
+   index.html, so text is set in the final font on first paint instead of re-wrapping later. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/geist-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/geist-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-serif-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-serif-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /* Reset */
 *,
@@ -23,6 +59,25 @@ body,
    window scrolling and position: sticky keep working */
 body {
   overflow-x: clip;
+}
+
+/* Notebook paper: a faint dot grid on a fixed layer, so scrolling never repaints it */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(color-mix(in srgb, var(--text-color) 9%, transparent) 1px, transparent 1.2px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.35) 70%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+/* Serif display type for titles, like a typeset paper */
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 /* CSS Custom Properties - Design System */
@@ -55,7 +110,7 @@ body {
   --error-color-dark: #f2837b;
 
   --background-color-dark: #0f1424;
-  --surface-dark: #141a2e;
+  --surface-base-dark: #141a2e;
   --surface-dark-dark: #1c2338;
   --card-bg-dark: #161c30;
   --border-color-dark: #262e48;
@@ -66,6 +121,7 @@ body {
   --on-primary-dark: #141a2c;
 
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', serif;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Spacing System */
@@ -139,7 +195,7 @@ body {
   --error-color: var(--error-color-dark);
 
   --background-color: var(--background-color-dark);
-  --surface: var(--surface-dark);
+  --surface: var(--surface-base-dark);
   --surface-dark: var(--surface-dark-dark);
   --card-bg: var(--card-bg-dark);
   --border-color: var(--border-color-dark);
@@ -234,9 +290,7 @@ body {
   position: relative;
 }
 
-.section:nth-child(even) {
-  background-color: var(--surface);
-}
+
 
 /* Shared Section Header Styles */
 .section-header {
@@ -245,13 +299,22 @@ body {
   max-width: 65ch;
 }
 
+.section-mark {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
 .section-title {
   color: var(--text-color);
   margin-bottom: 0.75rem;
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 
 .section-description {
@@ -259,6 +322,181 @@ body {
   color: var(--text-color-secondary);
   max-width: 65ch;
   line-height: 1.6;
+}
+
+/* Notebook layout: a narrow margin column for labels (§ marks, dates) next to the content.
+   Shared by Home, About, Skills and Achievements. */
+.nb-section {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.nb-grid {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.nb-margin {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-color-tertiary);
+  padding-top: 0.45rem;
+  align-self: start;
+  position: sticky;
+  top: 90px;
+}
+
+.nb-margin .section-mark {
+  margin-bottom: 0.25rem;
+}
+
+.nb-row {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.nb-row > .nb-margin {
+  position: static;
+  padding-top: 0.2rem;
+}
+
+.nb-list {
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.nb-list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+}
+
+.nb-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 5px;
+  height: 1px;
+  background: var(--text-color-tertiary);
+}
+
+.nb-inline {
+  color: var(--text-color-secondary);
+  line-height: 1.75;
+}
+
+.nb-inline span + span::before {
+  content: ' · ';
+  color: var(--text-color-tertiary);
+}
+
+.nb-head {
+  margin-bottom: 1.5rem;
+}
+
+.nb-row-first {
+  border-top: none;
+  padding-top: 0;
+}
+
+.nb-lede {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.25;
+  color: var(--text-color);
+  max-width: 34ch;
+  margin-bottom: 1.25rem;
+}
+
+.nb-paragraph {
+  color: var(--text-color-secondary);
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+.nb-paragraph + .nb-paragraph {
+  margin-top: 1rem;
+}
+
+.nb-entries {
+  list-style: none;
+  display: grid;
+  gap: 1.25rem 2rem;
+}
+
+.nb-entry-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.nb-entry-date {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-color-tertiary);
+}
+
+.nb-entry-sub {
+  font-size: 0.875rem;
+  color: var(--text-color-tertiary);
+  margin-top: 0.15rem;
+}
+
+.nb-entry-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-color-secondary);
+  margin-top: 0.35rem;
+  max-width: 68ch;
+}
+
+.nb-entries .nb-list {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.nb-level {
+  font-size: 0.75rem;
+  color: var(--text-color-tertiary);
+}
+
+.award-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--primary-color);
+}
+
+.award-mark::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--primary-color);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .nb-grid,
+  .nb-row {
+    grid-template-columns: 1fr;
+  }
+
+  .nb-margin {
+    position: static;
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* Grid System */
@@ -607,6 +845,23 @@ h6 {
   }
 }
 
+/* Where the browser supports scroll-driven animations, reveal as items enter the viewport */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+    animation-delay: 0s;
+  }
+}
+
+/* Route changes cross-fade (React Router <Link viewTransition>) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+  animation-timing-function: var(--ease-out);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -672,6 +927,11 @@ h6 {
 
   * {
     box-shadow: none !important;
+  }
+
+  /* scroll-driven reveals never run on paper */
+  .reveal {
+    animation: none !important;
   }
 
   body {

@@ -8,7 +8,10 @@ const SCHOLAR_HTML = `
 <tr><td class="gsc_rsb_std">1</td><td class="gsc_rsb_std">1</td></tr></table>
 <tbody><tr class="gsc_a_tr"><td class="gsc_a_t"><a href="#" class="gsc_a_at">Handwriting strokes as biomarkers for Alzheimer&#8217;s disease prediction: a novel machine learning approach</a>
 <div class="gs_gray">E Nardone, C De Stefano</div></td><td class="gsc_a_c"><a href="#" class="gsc_a_ac gs_ibl">19</a></td></tr>
-<tr class="gsc_a_tr"><td class="gsc_a_t"><a href="#" class="gsc_a_at">Uncited work &amp; friends</a></td><td class="gsc_a_c"><a class="gsc_a_ac gs_ibl"></a></td></tr></tbody>`;
+<tr class="gsc_a_tr"><td class="gsc_a_t"><a href="#" class="gsc_a_at">Uncited work &amp; friends</a></td><td class="gsc_a_c"><a class="gsc_a_ac gs_ibl"></a></td></tr></tbody>
+<span class="gsc_g_t" style="right:67px">2023</span><span class="gsc_g_t" style="right:35px">2024</span><span class="gsc_g_t" style="right:3px">2025</span>
+<a href="javascript:void(0)" class="gsc_g_a" style="right:72px;top:134px;height:26px;z-index:3"><span class="gsc_g_al">5</span></a>
+<a href="javascript:void(0)" class="gsc_g_a" style="right:8px;top:6px;height:154px;z-index:1"><span class="gsc_g_al">29</span></a>`;
 
 test('normalizeTitle ignores case, punctuation and quote style', () => {
   assert.equal(normalizeTitle("Alzheimer’s: A Study!"), normalizeTitle("alzheimer's a study"));
@@ -81,4 +84,12 @@ test('mergeCitations replaces an ALL-CAPS title with the Scholar title', () => {
   const [p] = mergeCitations([{ title: 'WHEN DEEP LEARNING FAILS: LIMITS OF RECURRENT MODELS' }], rows);
   assert.equal(p.title, rows[0].title);
   assert.equal(p.citations, 3);
+});
+
+test('parseScholar reads citations per year, filling years without a bar with 0', () => {
+  assert.deepEqual(parseScholar(SCHOLAR_HTML).byYear, [
+    { year: 2023, citations: 5 },
+    { year: 2024, citations: 0 },
+    { year: 2025, citations: 29 },
+  ]);
 });

@@ -6,6 +6,32 @@
     "citations": 66,
     "hIndex": 6,
     "i10Index": 1,
+    "byYear": [
+      {
+        "year": 2021,
+        "citations": 2
+      },
+      {
+        "year": 2022,
+        "citations": 1
+      },
+      {
+        "year": 2023,
+        "citations": 0
+      },
+      {
+        "year": 2024,
+        "citations": 5
+      },
+      {
+        "year": 2025,
+        "citations": 29
+      },
+      {
+        "year": 2026,
+        "citations": 29
+      }
+    ],
     "updatedAt": "2026-09-24"
   },
   "publications": [

@@ -8,17 +8,17 @@ const Navbar: React.FC = () => {
     const location = useLocation();
 
     const navLinks = [
-        { path: '/', label: 'Home' },
-        { path: '/about', label: 'About' },
+        { path: '/research', label: 'Research' },
         { path: '/experience', label: 'Experience' },
         { path: '/education', label: 'Education' },
-        { path: '/research', label: 'Research' },
-        { path: '/achievements', label: 'Achievements' },
+        { path: '/about', label: 'About' },
         { path: '/projects', label: 'Projects' },
         { path: '/contact', label: 'Contact' },
     ];
 
-    const isActive = (path: string) => location.pathname === path;
+    // Achievements lives under About in the menu, so About stays highlighted there.
+    const isActive = (path: string) =>
+        location.pathname === path || (path === '/about' && location.pathname === '/achievements');
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <Link to="/" className="navbar-logo" onClick={closeMenu}>
+                <Link to="/" viewTransition className="navbar-logo" onClick={closeMenu}>
                     <span className="logo-text">Emanuele Nardone</span>
                     <span className="logo-subtitle">Postdoc · University of Eastern Finland</span>
                 </Link>
@@ -37,6 +37,7 @@ const Navbar: React.FC = () => {
                         <li key={link.path} className="navbar-item">
                             <Link
                                 to={link.path}
+                                viewTransition
                                 className={`navbar-link ${isActive(link.path) ? 'active' : ''}`}
                                 onClick={closeMenu}
                             >

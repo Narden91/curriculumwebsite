@@ -1,0 +1,85 @@
+.cite-chart {
+  margin: 0;
+}
+
+.cite-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.cite-base {
+  stroke: var(--border-color);
+  stroke-width: 1;
+}
+
+.cite-area {
+  fill: color-mix(in srgb, var(--primary-color) 6%, transparent);
+  opacity: 0;
+  animation: cite-fade 0.8s var(--ease-out) 1s forwards;
+}
+
+.cite-line {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: cite-draw 1.6s var(--ease-out) 0.2s forwards;
+}
+
+.cite-point circle {
+  fill: var(--background-color);
+  stroke: var(--primary-color);
+  stroke-width: 2;
+}
+
+.cite-point:last-child circle {
+  fill: var(--primary-color);
+}
+
+.cite-point circle,
+.cite-value {
+  opacity: 0;
+  animation: cite-fade 0.4s var(--ease-out) forwards;
+  animation-delay: calc(0.3s + var(--i) * 0.22s);
+}
+
+.cite-value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--text-color);
+}
+
+.cite-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--text-color-tertiary);
+}
+
+.cite-chart figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.8125rem;
+  color: var(--text-color-tertiary);
+}
+
+/* "Fig. N" label */
+.cite-chart figcaption .mono:first-child {
+  color: var(--primary-color);
+  margin-right: 0.35rem;
+}
+
+@keyframes cite-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes cite-fade {
+  to {
+    opacity: 1;
+  }
+}

@@ -1,3 +1,28 @@
+export interface ResearchTheme {
+  title: string;
+  text: string;
+}
+
+// Wording follows the CV profile and publication titles.
+export const researchThemes: ResearchTheme[] = [
+  {
+    title: "Evolutionary feature selection",
+    text: "Genetic algorithms and genetic programming that choose which features a classifier should use, including causality-driven and data-augmented variants.",
+  },
+  {
+    title: "Multimodal classifier combination",
+    text: "Combining handwriting tasks, feature sets and models with Bayesian networks and ensemble methods.",
+  },
+  {
+    title: "Uncertainty you can check",
+    text: "Conformal prediction for reliable surrogate-assisted evolutionary algorithms: Best EvoApps Paper Award, EvoStar 2026.",
+  },
+  {
+    title: "Explainable, applied AI",
+    text: "SHAP and attention maps for handwriting-based detection of Alzheimer's disease; now spectral data, inverse problems and image segmentation in photonics.",
+  },
+];
+
 export interface AboutData {
   summary: string[];
   expertise: string[];

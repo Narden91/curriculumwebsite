@@ -77,7 +77,15 @@ export function parseScholar(html) {
       citations: Number(row.match(/class="gsc_a_ac[^"]*">(\d*)</)?.[1]) || 0,
     }))
     .filter((r) => r.title);
-  return { citations: stats[0], hIndex: stats[2], i10Index: stats[4], rows };
+  // Citations-per-year histogram: year labels left to right; bars carry z-index 1 for the
+  // latest year upward, and years with zero citations have no bar at all.
+  const years = [...html.matchAll(/class="gsc_g_t"[^>]*>(\d{4})</g)].map((m) => Number(m[1]));
+  const byYear = years.map((year) => ({ year, citations: 0 }));
+  for (const m of html.matchAll(/class="gsc_g_a"[^>]*z-index:(\d+)[^>]*><span class="gsc_g_al">(\d+)</g)) {
+    const slot = byYear[years.length - Number(m[1])];
+    if (slot) slot.citations = Number(m[2]);
+  }
+  return { citations: stats[0], hIndex: stats[2], i10Index: stats[4], byYear, rows };
 }
 
 function findByTitle(title, entries) {
@@ -196,7 +204,13 @@ async function main() {
       'Accept-Language': 'en',
     });
     const parsed = parseScholar(await res.text());
-    scholar = { citations: parsed.citations, hIndex: parsed.hIndex, i10Index: parsed.i10Index, updatedAt: today };
+    scholar = {
+      citations: parsed.citations,
+      hIndex: parsed.hIndex,
+      i10Index: parsed.i10Index,
+      byYear: parsed.byYear,
+      updatedAt: today,
+    };
     scholarRows = parsed.rows;
   } catch (err) {
     console.warn(`[scholar] ${err.message}; keeping previous citation counts`);

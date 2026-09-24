@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { publicationsData, scholarStats, publicationsUpdatedAt, type Publication } from '../../data/publicationsData';
+import { publicationsData, scholarStats, publicationsUpdatedAt, awardFor, type Publication } from '../../data/publicationsData';
 import { heroData } from '../../data/heroData';
+import CitationChart from '../ui/CitationChart';
 import './PublicationsSection.css';
 
 type Filter = 'all' | Publication['type'];
@@ -15,6 +16,11 @@ const TYPE_LABELS: Record<Publication['type'], string> = {
 const count = (type: Publication['type']) => publicationsData.filter((p) => p.type === type).length;
 
 const presentTypes = (Object.keys(TYPE_LABELS) as Publication['type'][]).filter((t) => count(t) > 0);
+
+const maxCitations = Math.max(1, ...publicationsData.map((p) => p.citations ?? 0));
+
+// Reference numbers follow the full list (newest = highest), so they stay stable when filtering.
+const refNumber = new Map(publicationsData.map((p, i) => [p, publicationsData.length - i]));
 
 const PublicationsSection: React.FC = () => {
   const [filter, setFilter] = useState<Filter>('all');
@@ -32,42 +38,52 @@ const PublicationsSection: React.FC = () => {
   return (
     <section id="publications" className="publications-section section">
       <div className="container">
-        <dl className="pub-stats">
-          {scholarStats && (
-            <>
+        <div className="pub-overview">
+          <div>
+            <dl className="pub-stats">
+              {scholarStats && (
+                <>
+                  <div className="pub-stat">
+                    <dt>Citations</dt>
+                    <dd className="mono">{scholarStats.citations}</dd>
+                  </div>
+                  <div className="pub-stat">
+                    <dt>h-index</dt>
+                    <dd className="mono">{scholarStats.hIndex}</dd>
+                  </div>
+                  <div className="pub-stat">
+                    <dt>i10-index</dt>
+                    <dd className="mono">{scholarStats.i10Index}</dd>
+                  </div>
+                </>
+              )}
               <div className="pub-stat">
-                <dt>Citations</dt>
-                <dd className="mono">{scholarStats.citations}</dd>
+                <dt>Journal articles</dt>
+                <dd className="mono">{count('journal')}</dd>
               </div>
               <div className="pub-stat">
-                <dt>h-index</dt>
-                <dd className="mono">{scholarStats.hIndex}</dd>
+                <dt>Conference papers</dt>
+                <dd className="mono">{count('conference')}</dd>
               </div>
-              <div className="pub-stat">
-                <dt>i10-index</dt>
-                <dd className="mono">{scholarStats.i10Index}</dd>
-              </div>
-            </>
-          )}
-          <div className="pub-stat">
-            <dt>Journal articles</dt>
-            <dd className="mono">{count('journal')}</dd>
+            </dl>
+            <p className="pub-source mono">
+              List from <a href={heroData.orcid} target="_blank" rel="noopener noreferrer">ORCID</a>
+              {' '}· metadata from Crossref
+              {scholarStats && (
+                <>
+                  {' '}· citations from <a href={heroData.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                </>
+              )}
+              {' '}· synced {publicationsUpdatedAt}
+            </p>
           </div>
-          <div className="pub-stat">
-            <dt>Conference papers</dt>
-            <dd className="mono">{count('conference')}</dd>
-          </div>
-        </dl>
-        <p className="pub-source mono">
-          List from <a href={heroData.orcid} target="_blank" rel="noopener noreferrer">ORCID</a>
-          {scholarStats && (
-            <>
-              {' '}· citations from <a href={heroData.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>{' '}
-              ({scholarStats.updatedAt})
-            </>
+          {scholarStats?.byYear && (
+            <CitationChart
+              data={scholarStats.byYear}
+              caption={<><span className="mono">Fig. 3</span> Citations per year.</>}
+            />
           )}
-          {' '}· last sync {publicationsUpdatedAt}
-        </p>
+        </div>
 
         <div className="pub-filters" role="group" aria-label="Filter by type">
           {(['all', ...presentTypes] as Filter[]).map((t) => (
@@ -88,51 +104,52 @@ const PublicationsSection: React.FC = () => {
           <p className="pub-empty">No publications of this type yet.</p>
         ) : (
           byYear.map(([year, pubs]) => (
-            <div key={year} className="pub-year-group">
-              <h2 className="pub-year mono">{year}</h2>
+            <div key={year} className="nb-row pub-year-group">
+              <h2 className="nb-margin pub-year">{year}</h2>
               <ol className="pub-list">
-                {pubs.map((p, i) => (
-                  <li
-                    key={p.doi ?? p.title}
-                    className="pub-item reveal"
-                    style={{ '--i': i } as React.CSSProperties}
-                  >
-                    <div className="pub-main">
-                      <h3 className="pub-title">
-                        {p.doi ? (
-                          <a href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer">
-                            {p.title}
-                          </a>
-                        ) : (
-                          p.title
+                {pubs.map((p, i) => {
+                  const award = awardFor(p);
+                  return (
+                    <li key={p.doi ?? p.title} className="pub-item reveal" style={{ '--i': i } as React.CSSProperties}>
+                      <span className="pub-ref mono">[{refNumber.get(p)}]</span>
+                      <div className="pub-main">
+                        <h3 className="pub-title">
+                          {p.doi ? (
+                            <a href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer">
+                              {p.title}
+                            </a>
+                          ) : (
+                            p.title
+                          )}
+                        </h3>
+                        {p.authors.length > 0 && (
+                          <p className="pub-authors">
+                            {p.authors.map((a, idx) => (
+                              <React.Fragment key={idx}>
+                                {a.includes('Nardone') ? <strong>{a}</strong> : a}
+                                {idx < p.authors.length - 1 && ', '}
+                              </React.Fragment>
+                            ))}
+                          </p>
                         )}
-                      </h3>
-                      {p.authors.length > 0 && (
-                        <p className="pub-authors">
-                          {p.authors.map((a, idx) => (
-                            <React.Fragment key={idx}>
-                              {a.includes('Nardone') ? <strong>{a}</strong> : a}
-                              {idx < p.authors.length - 1 && ', '}
-                            </React.Fragment>
-                          ))}
+                        <p className="pub-venue">
+                          {p.venue && <em>{p.venue}</em>}
+                          {p.volume && `, ${p.volume}`}
+                          {p.pages && `, ${p.pages}`}
                         </p>
-                      )}
-                      <p className="pub-venue">
-                        {p.venue && <em>{p.venue}</em>}
-                        {p.volume && `, ${p.volume}`}
-                        {p.pages && `, ${p.pages}`}
-                      </p>
-                    </div>
-                    <div className="pub-meta">
-                      <span className={`pub-type pub-type-${p.type}`}>{TYPE_LABELS[p.type]}</span>
-                      {p.citations !== undefined && p.citations > 0 && (
-                        <span className="pub-cites mono">
-                          {p.citations} {p.citations === 1 ? 'citation' : 'citations'}
-                        </span>
-                      )}
-                    </div>
-                  </li>
-                ))}
+                        <p className="pub-meta mono">
+                          <span className={`pub-type pub-type-${p.type}`}>{TYPE_LABELS[p.type]}</span>
+                          {p.doi && <span className="pub-doi">doi:{p.doi}</span>}
+                          {award && <span className="award-mark">{award}</span>}
+                        </p>
+                      </div>
+                      <div className="pub-cites" aria-label={`${p.citations ?? 0} citations`}>
+                        <span className="pub-cites-bar" style={{ '--w': (p.citations ?? 0) / maxCitations } as React.CSSProperties} />
+                        <span className="pub-cites-n mono">{p.citations ?? 0}</span>
+                      </div>
+                    </li>
+                  );
+                })}
               </ol>
             </div>
           ))

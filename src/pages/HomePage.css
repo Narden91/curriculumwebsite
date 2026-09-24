@@ -1,62 +1,172 @@
 /* HomePage.css */
-.home-recent {
-    padding: clamp(3rem, 8vw, 5rem) 0;
-}
-
-.home-recent-header {
+.home-head {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
     gap: 0.5rem 2rem;
-    margin-bottom: 1.5rem;
 }
 
-.home-recent-all {
+.home-more {
     font-size: 0.9375rem;
     font-weight: 500;
 }
 
-.home-recent-list {
+/* §1 themes: 2 x 2 with hairlines */
+.home-themes {
     list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1.5rem;
     border-top: 1px solid var(--border-color);
 }
 
-.home-recent-item {
+.home-theme {
+    padding: 1.5rem 2rem 1.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.home-theme:nth-child(even) {
+    padding: 1.5rem 0 1.75rem 2rem;
+    border-left: 1px solid var(--border-color);
+}
+
+.home-theme-index {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+}
+
+.home-theme-title {
+    font-size: 1.75rem;
+    line-height: 1.1;
+    margin: 0.5rem 0 0.6rem;
+    color: var(--text-color);
+}
+
+.home-theme-text {
+    color: var(--text-color-secondary);
+    line-height: 1.65;
+    max-width: 48ch;
+}
+
+/* §2 selected work */
+.home-papers {
+    list-style: none;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.home-paper {
     display: grid;
-    grid-template-columns: 4.5rem 1fr;
-    gap: 1rem;
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    gap: 1rem 1.5rem;
     padding: 1.25rem 0;
     border-bottom: 1px solid var(--border-color);
 }
 
-.home-recent-year {
-    font-size: 0.875rem;
+.home-paper-year,
+.home-paper-cites {
+    font-size: 0.8125rem;
     color: var(--text-color-tertiary);
-    padding-top: 0.15rem;
+    padding-top: 0.2rem;
 }
 
-.home-recent-title {
-    display: inline;
+.home-paper-title {
     font-size: 1.0625rem;
     font-weight: 500;
     line-height: 1.45;
     color: var(--text-color);
 }
 
-a.home-recent-title:hover {
+a.home-paper-title:hover {
     color: var(--primary-color);
 }
 
-.home-recent-venue {
-    margin-top: 0.35rem;
+.home-paper-venue {
+    margin: 0.3rem 0 0.4rem;
     font-size: 0.9375rem;
     color: var(--text-color-secondary);
 }
 
-@media (max-width: 480px) {
-    .home-recent-item {
+/* §3 now */
+.home-now {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 0 2rem;
+    margin-top: 1.5rem;
+}
+
+.home-now-item {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.home-now-name {
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--text-color);
+}
+
+.home-now-funder {
+    margin: 0.4rem 0 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-color-tertiary);
+}
+
+.home-now-summary {
+    color: var(--text-color);
+    margin-bottom: 0.35rem;
+}
+
+.home-now-role {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-color-secondary);
+}
+
+/* §4 contact */
+.home-contact-line {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1.08;
+    color: var(--text-color);
+    max-width: 22ch;
+}
+
+.home-contact-line em {
+    color: var(--primary-color);
+}
+
+.home-contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+}
+
+.home-contact-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+    .home-themes {
         grid-template-columns: 1fr;
-        gap: 0.25rem;
+    }
+
+    .home-theme,
+    .home-theme:nth-child(even) {
+        padding: 1.25rem 0 1.5rem;
+        border-left: none;
+    }
+
+    .home-paper {
+        grid-template-columns: 1fr auto;
+    }
+
+    .home-paper-year {
+        grid-column: 1 / -1;
+        padding-top: 0;
     }
 }

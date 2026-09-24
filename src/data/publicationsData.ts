@@ -17,6 +17,7 @@ export interface ScholarStats {
   citations: number;
   hIndex: number;
   i10Index: number;
+  byYear?: { year: number; citations: number }[];
   updatedAt: string;
 }
 
@@ -42,6 +43,15 @@ export interface Certification {
 export const publicationsData = generated.publications as Publication[];
 export const scholarStats = generated.scholar as ScholarStats | null;
 export const publicationsUpdatedAt = generated.updatedAt;
+
+/** Awards keyed by lower-case DOI (from the CV); shown next to the paper wherever it is listed. */
+export const paperAwards: Record<string, string> = {
+  '10.1007/978-3-032-23604-3_24': 'Best EvoApps Paper Award, EvoStar 2026',
+};
+
+export const awardFor = (p: Publication) => (p.doi ? paperAwards[p.doi.toLowerCase()] : undefined);
+
+export const isPeerReviewed = (p: Publication) => p.type === 'journal' || p.type === 'conference';
 
 export const professionalAchievementsData: ProfessionalAchievement[] = [
   {

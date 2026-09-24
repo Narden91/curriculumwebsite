@@ -64,7 +64,6 @@ const GithubCarouselSection: React.FC = () => {
       <section id="github-projects" className="github-carousel-section section">
         <div className="container">
           <div className="section-header">
-            <div className="section-number">06</div>
             <h2 className="display-2 section-title">GitHub Projects</h2>
             <p className="section-description">
               Loading my latest open-source projects and contributions...
@@ -84,7 +83,6 @@ const GithubCarouselSection: React.FC = () => {
       <section id="github-projects" className="github-carousel-section section">
         <div className="container">
           <div className="section-header">
-            <div className="section-number">06</div>
             <h2 className="display-2 section-title">GitHub Projects</h2>
             <p className="section-description">
               Unable to load repositories at the moment.
@@ -105,7 +103,6 @@ const GithubCarouselSection: React.FC = () => {
     <section id="github-projects" className="github-carousel-section section">
       <div className="container">
         <div className="section-header">
-          <div className="section-number">06</div>
           <h2 className="display-2 section-title">GitHub Projects</h2>
           <p className="section-description">
             A selection of my open-source projects and research contributions showcasing AI, machine learning, and software development expertise.

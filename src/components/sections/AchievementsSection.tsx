@@ -17,7 +17,6 @@ const AchievementsSection: React.FC = () => {
         <section id="achievements" className="achievements-section section">
             <div className="container">
                 <div className="section-header">
-                    <div className="section-number">05</div>
                     <h2 className="display-2 section-title">Achievements</h2>
                     <p className="section-description">
                         Recognition and awards from hackathons, competitions, and research contributions.
@@ -40,19 +39,19 @@ const AchievementsSection: React.FC = () => {
 
                             {/* Overview */}
                             <div className="achievement-overview">
-                                <h4>📋 Project Overview</h4>
+                                <h4>Project Overview</h4>
                                 <p>{achievement.description}</p>
                             </div>
 
                             {/* Challenge */}
                             <div className="achievement-challenge">
-                                <h4>🎯 The Challenge</h4>
+                                <h4>The Challenge</h4>
                                 <p>{achievement.challenge}</p>
                             </div>
 
                             {/* Solution */}
                             <div className="achievement-solution">
-                                <h4>💡 Technical Solution</h4>
+                                <h4>Technical Solution</h4>
                                 <p>{achievement.solution}</p>
                             </div>
 
@@ -71,7 +70,6 @@ const AchievementsSection: React.FC = () => {
                                                 className="tech-header"
                                                 onClick={() => toggleSection(`tech-${index}`)}
                                             >
-                                                <span className="tech-icon">{tech.icon}</span>
                                                 <div className="tech-info">
                                                     <h5>{tech.title}</h5>
                                                     <p>{tech.description}</p>
@@ -130,7 +128,7 @@ const AchievementsSection: React.FC = () => {
                             {/* Video */}
                             {achievement.resources.video && (
                                 <div className="video-section">
-                                    <h4 className="section-subtitle">📺 Video Demo</h4>
+                                    <h4 className="section-subtitle">Video Demo</h4>
                                     <div className="video-wrapper">
                                         <iframe
                                             src={`https://www.youtube.com/embed/${achievement.resources.video.split('v=')[1]}`}

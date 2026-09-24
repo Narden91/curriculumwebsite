@@ -1,0 +1,359 @@
+{
+  "updatedAt": "2026-09-24",
+  "orcidId": "0009-0005-8718-5435",
+  "scholarUser": "2qupBvTUD3sC",
+  "scholar": {
+    "citations": 66,
+    "hIndex": 6,
+    "i10Index": 1,
+    "updatedAt": "2026-09-24"
+  },
+  "publications": [
+    {
+      "title": "Artificial Intelligence for Alzheimer’s disease screening via handwriting images acquired by smartphones",
+      "year": 2026,
+      "type": "journal",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "doi": "10.1016/j.engappai.2026.116023",
+      "url": "https://doi.org/10.1016/j.engappai.2026.116023",
+      "putCode": 224806260,
+      "authors": [
+        "Emanuele Nardone",
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Alessandra Scotto di Freca",
+        "Francesco Fontanella"
+      ],
+      "volume": "182",
+      "pages": "116023",
+      "citations": 0
+    },
+    {
+      "title": "Artificial Intelligence for Natural Products Drug Discovery in Neurodegenerative Therapies: A Review",
+      "year": 2026,
+      "type": "journal",
+      "venue": "Biomolecules",
+      "doi": "10.3390/biom16010129",
+      "url": "https://doi.org/10.3390/biom16010129",
+      "putCode": 202156224,
+      "authors": [
+        "Francesco Fontanella",
+        "Tiziana D’Alessandro",
+        "Emanuele Nardone",
+        "Claudio De Stefano",
+        "Caterina Vicidomini",
+        "Giovanni N. Roviello"
+      ],
+      "volume": "16",
+      "pages": "129",
+      "citations": 9
+    },
+    {
+      "title": "Compact and Interpretable Binary Classification with SLIM Geometric Semantic Genetic Programming",
+      "year": 2026,
+      "type": "preprint",
+      "venue": "",
+      "doi": "10.2139/ssrn.7231540",
+      "url": "https://doi.org/10.2139/ssrn.7231540",
+      "putCode": 222723296,
+      "authors": [
+        "Emanuele Nardone",
+        "Alessandra Scotto di Freca",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Leonardo Vanneschi"
+      ],
+      "citations": 0
+    },
+    {
+      "title": "Scale-Aware Fractal-Lacunarity Analysis of Handwriting for Alzheimer’s Disease Classification",
+      "year": 2026,
+      "type": "conference",
+      "venue": "Image Analysis and Processing - ICIAP 2025 Workshops",
+      "doi": "10.1007/978-3-032-11381-8_4",
+      "url": "https://doi.org/10.1007/978-3-032-11381-8_4",
+      "putCode": 202125961,
+      "authors": [
+        "Emanuele Nardone",
+        "Marco Cantone",
+        "Gabriele Lozupone",
+        "Cesare Davide Pace",
+        "Ciro Russo",
+        "Tiziana D’Alessandro"
+      ],
+      "pages": "41-53",
+      "citations": 0
+    },
+    {
+      "title": "The Role of Artificial Intelligence in Diagnosis and Monitoring of Specific Learning Disorders: A Systematic Review",
+      "year": 2026,
+      "type": "preprint",
+      "venue": "",
+      "doi": "10.2139/ssrn.6232773",
+      "url": "https://doi.org/10.2139/ssrn.6232773",
+      "putCode": 206080513,
+      "authors": [
+        "Tiziana D'Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Emanuele Nardone",
+        "Alessandra Scotto di Freca"
+      ],
+      "citations": 0
+    },
+    {
+      "title": "Toward Reliable Uncertainty Quantification in Surrogate-Assisted Evolutionary Algorithms via Temporal Conformal Prediction",
+      "year": 2026,
+      "type": "conference",
+      "venue": "Applications of Evolutionary Computation",
+      "doi": "10.1007/978-3-032-23604-3_24",
+      "url": "https://doi.org/10.1007/978-3-032-23604-3_24",
+      "putCode": 214039649,
+      "authors": [
+        "Emanuele Nardone",
+        "Claudio De Stefano",
+        "Alessandra Scotto di Freca",
+        "Francesco Fontanella",
+        "Tiziana D’Alessandro"
+      ],
+      "pages": "384-401",
+      "citations": 0
+    },
+    {
+      "title": "A Bayesian network combiner for multimodal handwriting analysis in Alzheimer’s disease detection",
+      "year": 2025,
+      "type": "journal",
+      "venue": "Pattern Recognition Letters",
+      "doi": "10.1016/j.patrec.2025.02.019",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85218978523&partnerID=MN8TOARS",
+      "putCode": 200591440,
+      "authors": [
+        "Emanuele Nardone",
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Alessandra Scotto di Freca"
+      ],
+      "volume": "190",
+      "pages": "177-184",
+      "citations": 8
+    },
+    {
+      "title": "Evolutionary Computation for Causality-Driven Feature Selection: A Preliminary Study",
+      "year": 2025,
+      "type": "conference",
+      "venue": "Applications of Evolutionary Computation",
+      "doi": "10.1007/978-3-031-90062-4_24",
+      "url": "https://doi.org/10.1007/978-3-031-90062-4_24",
+      "putCode": 182707688,
+      "authors": [
+        "Emanuele Nardone",
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella"
+      ],
+      "pages": "385-401",
+      "citations": 0
+    },
+    {
+      "title": "Handwriting strokes as biomarkers for Alzheimer’s disease prediction: A novel machine learning approach",
+      "year": 2025,
+      "type": "journal",
+      "venue": "Computers in Biology and Medicine",
+      "doi": "10.1016/j.compbiomed.2025.110039",
+      "url": "https://doi.org/10.1016/j.compbiomed.2025.110039",
+      "putCode": 181207360,
+      "authors": [
+        "Emanuele Nardone",
+        "Claudio De Stefano",
+        "Nicole Dalia Cilia",
+        "Francesco Fontanella"
+      ],
+      "volume": "190",
+      "pages": "110039",
+      "citations": 19
+    },
+    {
+      "title": "How Data Augmentation Affects Evolutionary Algorithms in Feature Selection: An Experimental Study",
+      "year": 2025,
+      "type": "journal",
+      "venue": "SN Computer Science",
+      "doi": "10.1007/s42979-025-04049-3",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-105007668392&partnerID=MN8TOARS",
+      "putCode": 200591428,
+      "authors": [
+        "Emanuele Nardone",
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella"
+      ],
+      "volume": "6",
+      "pages": "536",
+      "citations": 1
+    },
+    {
+      "title": "Transformers and CNNs in Neurodiagnostics: Handwriting Analysis for Alzheimer’s Diagnosis",
+      "year": 2025,
+      "type": "conference",
+      "venue": "Pattern Recognition",
+      "doi": "10.1007/978-3-031-78195-7_30",
+      "url": "https://doi.org/10.1007/978-3-031-78195-7_30",
+      "putCode": 172910392,
+      "authors": [
+        "Gabriele Lozupone",
+        "Emanuele Nardone",
+        "Cesare Davide Pace",
+        "Tiziana D’Alessandro"
+      ],
+      "pages": "447-463",
+      "citations": 6
+    },
+    {
+      "title": "When Deep Learning Fails: Limitations of Recurrent Models on Stroke-Based Handwriting for Alzheimer's Disease Detection",
+      "year": 2025,
+      "type": "preprint",
+      "venue": "Arxiv",
+      "doi": "10.48550/arXiv.2508.03773",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-105018379695&partnerID=MN8TOARS",
+      "putCode": 200591442,
+      "authors": [
+        "E. Nardone",
+        "T. D’Alessandro",
+        "F. Fontanella",
+        "C. De Stefano"
+      ],
+      "citations": 0
+    },
+    {
+      "title": "A Genetic Algorithm for Feature Selection for Alzheimer’s Disease Detection Using a Deep Transfer Learning Approach",
+      "year": 2024,
+      "type": "conference",
+      "venue": "Artificial Life and Evolutionary Computation",
+      "doi": "10.1007/978-3-031-57430-6_24",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85190393261&partnerID=MN8TOARS",
+      "putCode": 200591436,
+      "authors": [
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Emanuele Nardone",
+        "Alessandra Scotto Di Freca"
+      ],
+      "pages": "309-323",
+      "citations": 0
+    },
+    {
+      "title": "From Handwriting Analysis to Alzheimer’s Disease Prediction: An Experimental Comparison of Classifier Combination Methods",
+      "year": 2024,
+      "type": "conference",
+      "venue": "Document Analysis and Recognition - ICDAR 2024",
+      "doi": "10.1007/978-3-031-70536-6_20",
+      "url": "https://doi.org/10.1007/978-3-031-70536-6_20",
+      "putCode": 166634605,
+      "authors": [
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Emanuele Nardone",
+        "Cesare Davide Pace"
+      ],
+      "pages": "334-351",
+      "citations": 9
+    },
+    {
+      "title": "Integrating Data Augmentation in Evolutionary Algorithms for Feature Selection: A Preliminary Study",
+      "year": 2024,
+      "type": "conference",
+      "venue": "Applications of Evolutionary Computation",
+      "doi": "10.1007/978-3-031-56852-7_25",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85189638733&partnerID=MN8TOARS",
+      "putCode": 200591434,
+      "authors": [
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Emanuele Nardone"
+      ],
+      "pages": "397-412",
+      "citations": 2
+    },
+    {
+      "title": "UniCas for Medicine and Healthcare",
+      "year": 2024,
+      "type": "conference",
+      "venue": "Ceur Workshop Proceedings",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85205573926&partnerID=MN8TOARS",
+      "putCode": 200591424,
+      "authors": [
+        "M. Cantone",
+        "S. Galasso",
+        "G. Lozupone",
+        "E. Nardone",
+        "C.D. Pace",
+        "C. Russo",
+        "A. Bria",
+        "T. D’Alessandro",
+        "C. De Stefano",
+        "F. Fontanella",
+        "C. Marrocco",
+        "M. Molinara",
+        "A.S. di Freca"
+      ],
+      "citations": 0
+    },
+    {
+      "title": "Feature Evaluation in Handwriting Analysis for Alzheimer’s Disease Using Bayesian Network",
+      "year": 2023,
+      "type": "conference",
+      "venue": "Graphonomics in Human Body Movement. Bridging Research and Practice from Motor Control to Handwriting Analysis and Recognition",
+      "doi": "10.1007/978-3-031-45461-5_9",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85175803577&partnerID=MN8TOARS",
+      "putCode": 200591438,
+      "authors": [
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Emanuele Nardone",
+        "Alessandra Scotto di Freca"
+      ],
+      "pages": "122-135",
+      "citations": 7
+    },
+    {
+      "title": "Predicting Alzheimer’s Disease: A Stroke-Based Handwriting Analysis Approach Based on Machine Learning",
+      "year": 2023,
+      "type": "conference",
+      "venue": "Pattern Recognition, Computer Vision, and Image Processing. ICPR 2022 International Workshops and Challenges",
+      "doi": "10.1007/978-3-031-37660-3_44",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85171564725&partnerID=MN8TOARS",
+      "putCode": 200591432,
+      "authors": [
+        "Nicole Dalia Cilia",
+        "Tiziana D’Alessandro",
+        "Claudio De Stefano",
+        "Francesco Fontanella",
+        "Emanuele Nardone"
+      ],
+      "pages": "632-643",
+      "citations": 2
+    },
+    {
+      "title": "How Smart and Green? A Simulation Model of Demand Cost Perception in the Electricity Market",
+      "year": 2020,
+      "type": "conference",
+      "venue": "2020 IEEE International Smart Cities Conference (ISC2)",
+      "doi": "10.1109/ISC251055.2020.9239018",
+      "url": "https://www.scopus.com/inward/record.url?eid=2-s2.0-85097153910&partnerID=MN8TOARS",
+      "putCode": 204278867,
+      "authors": [
+        "Ciro Russo",
+        "Tobias Grossauer",
+        "Emanuele Nardone",
+        "Zafeiris Kokkinogenis",
+        "Rosaldo J. F. Rossetti"
+      ],
+      "pages": "1-8",
+      "citations": 3
+    }
+  ]
+}

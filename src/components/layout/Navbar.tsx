@@ -29,10 +29,10 @@ const Navbar: React.FC = () => {
             <div className="navbar-container">
                 <Link to="/" className="navbar-logo" onClick={closeMenu}>
                     <span className="logo-text">Emanuele Nardone</span>
-                    <span className="logo-subtitle">PhD in AI</span>
+                    <span className="logo-subtitle">Postdoc · University of Eastern Finland</span>
                 </Link>
 
-                <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+                <ul id="navbar-menu" className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
                     {navLinks.map((link) => (
                         <li key={link.path} className="navbar-item">
                             <Link
@@ -52,6 +52,8 @@ const Navbar: React.FC = () => {
                         className={`hamburger ${isMenuOpen ? 'active' : ''}`}
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
+                        aria-expanded={isMenuOpen}
+                        aria-controls="navbar-menu"
                     >
                         <span></span>
                         <span></span>

@@ -1,30 +1,17 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { aboutData } from '../../data/aboutData';
 import './AboutSection.css';
-import { publicationsData } from '../../data/publicationsData';
+import { publicationsData, scholarStats } from '../../data/publicationsData';
 
-const PHD_START_YEAR = 2022;
-const PROJECT_COUNTS = { research: 4, software: 6, academic: 5 };
+const peerReviewedCount = publicationsData.filter((p) => p.type === 'journal' || p.type === 'conference').length;
 
 const AboutSection: React.FC = React.memo(() => {
-  // Calculate years of experience from PhD start date
-  const experienceYears = useMemo(() => {
-    const currentYear = new Date().getFullYear();
-    return currentYear - PHD_START_YEAR + 1;
-  }, []);
-
-  // Calculate total project count
-  const projectCount = useMemo(() => {
-    return PROJECT_COUNTS.research + PROJECT_COUNTS.software + PROJECT_COUNTS.academic;
-  }, []);
-
   return (
     <section id="about" className="about-section section">
       <div className="container">
         <div className="section-header">
-          <div className="section-number">01</div>
           <p className="section-description">
-            I hold a PhD in AI with a focus on machine learning in biomedical fields.
+            Postdoctoral researcher in machine learning and pattern recognition at the University of Eastern Finland.
           </p>
         </div>
 
@@ -99,8 +86,8 @@ const AboutSection: React.FC = React.memo(() => {
                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
               </svg>
             </div>
-            <span className="stat-number">{publicationsData.length}</span>
-            <span className="stat-label">Research Publications</span>
+            <span className="stat-number mono">{peerReviewedCount}</span>
+            <span className="stat-label">Peer-reviewed papers</span>
           </div>
 
           <div className="stat-card">
@@ -110,8 +97,8 @@ const AboutSection: React.FC = React.memo(() => {
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <span className="stat-number">{experienceYears}+</span>
-            <span className="stat-label">Years Experience</span>
+            <span className="stat-number mono">{scholarStats?.citations ?? '-'}</span>
+            <span className="stat-label">Citations (Google Scholar)</span>
           </div>
 
           <div className="stat-card">
@@ -121,8 +108,8 @@ const AboutSection: React.FC = React.memo(() => {
                   d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
               </svg>
             </div>
-            <span className="stat-number">{projectCount}+</span>
-            <span className="stat-label">Projects Completed</span>
+            <span className="stat-number mono">{scholarStats?.hIndex ?? '-'}</span>
+            <span className="stat-label">h-index</span>
           </div>
         </div>
       </div>

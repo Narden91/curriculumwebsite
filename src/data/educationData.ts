@@ -15,45 +15,43 @@ export interface Degree {
 export const educationData: Degree[] = [
   {
     institution: "University of Cassino and Southern Lazio",
-    degree: "Doctor of Philosophy (PhD)",
-    field: "Artificial Intelligence - Department of Electrical and Information Engineering (DIEI)",
-    year: "2022 - 2025",
-    // dissertationTitle: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of DSA in children",
+    degree: "PhD in Artificial Intelligence",
+    field: "Department of Electrical and Information Engineering (DIEI)",
+    year: "11/2022 - 10/2025",
+    dissertationTitle: "AI-Based Handwriting Analysis for Early Detection of Developmental and Cognitive Disorders",
     supervisors: [
       "Prof. Francesco Fontanella",
-      "Prof. Claudio De Stefano", 
-      "Prof. Leonardo Vanneschi"
+      "Prof. Claudio De Stefano",
+      "Prof. Leonardo Vanneschi (co-supervisor)"
     ],
     additionalInfo: [
-      "ML/DL for Neurodegenerative diseases",
-      "ML/DL for SLDs",
-      "Evolutionary Algorithms",
-      "Conformal Predictions",
-      "Genetic Programming"
+      "ML/DL for neurodegenerative diseases",
+      "ML/DL for specific learning disorders",
+      "Evolutionary algorithms",
+      "Conformal prediction",
+      "Genetic programming"
     ],
     sortOrder: 1
   },
   {
-    institution: "University of NOVA IMS - Lisbon",
-    degree: "PhD Period Abroad",
-    field: "Genetic Programming & Multi-modal Classification",
-    year: "2024",
-    // dissertationTitle: "Genetic Programming approach for Multi-modal classification system",
+    institution: "NOVA IMS, Universidade Nova de Lisboa",
+    degree: "Visiting PhD Researcher",
+    field: "Genetic Programming for multimodal classification",
+    year: "05/2024 - 08/2024",
     additionalInfo: [
       "International research collaboration",
-      "Advanced genetic programming techniques",
-      "Multi-modal data fusion methodologies"
+      "Genetic programming for multimodal data fusion"
     ],
     supervisors: [
-      "Prof. Leonardo Vanneschi"
+      "Prof. Leonardo Vanneschi (host)"
     ],
     sortOrder: 2
   },
   {
     institution: "University of Cassino and Southern Lazio",
-    degree: "Master's Degree",
+    degree: "MSc in Software Engineering (LM-32)",
     field: "Software Engineering",
-    year: "2019 - 2021",
+    year: "2019 - 03/2021",
     dissertationTitle: "A stroke-based Machine Learning approach for early diagnosis of neurodegenerative diseases",
     honors: "110/110 summa cum laude",
     relevantCoursework: [
@@ -67,16 +65,20 @@ export const educationData: Degree[] = [
     sortOrder: 3
   },
   {
-    institution: "Faculdade de Engenharia da Universidade do Porto",
-    degree: "Erasmus+ Exchange Program",
+    institution: "FEUP, University of Porto",
+    degree: "Erasmus+ Exchange",
     field: "Engineering",
     year: "2020",
     additionalInfo: [
-      "European Student Exchange Program",
-      "International academic experience",
-      "Cross-cultural engineering education",
-      "Portuguese language and culture immersion"
+      "European student exchange during the MSc"
     ],
     sortOrder: 4
+  },
+  {
+    institution: "Italy — State Examination",
+    degree: "Esame di Stato",
+    field: "Professional qualification to practise engineering",
+    year: "12/2021",
+    sortOrder: 5
   }
 ];

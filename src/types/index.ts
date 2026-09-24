@@ -15,7 +15,6 @@ export interface TeamMember {
 
 export interface TechnicalDetail {
   title: string;
-  icon: string;
   description: string;
   details: string[];
 }
@@ -131,7 +130,6 @@ export interface HeroData {
   title: string;
   tagline: string;
   email: string;
-  phone: string;
   linkedin: string;
   github: string;
   cvLink: string;

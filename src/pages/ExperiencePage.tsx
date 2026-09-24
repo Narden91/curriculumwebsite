@@ -7,9 +7,8 @@ const ExperiencePage: React.FC = () => {
     return (
         <PageLayout>
             <PageTopper
-                title="Professional Experience"
-                subtitle="My career journey and professional accomplishments"
-                badge="3+ Years"
+                title="Experience"
+                subtitle="Research positions, teaching and service. Select an entry for details."
             />
             <ExperienceSection />
         </PageLayout>

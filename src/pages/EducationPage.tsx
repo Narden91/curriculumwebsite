@@ -7,9 +7,8 @@ const EducationPage: React.FC = () => {
     return (
         <PageLayout>
             <PageTopper
-                title="Education & Certifications"
-                subtitle="My academic background and continuous learning"
-                badge="PhD Candidate"
+                title="Education"
+                subtitle="PhD in Artificial Intelligence (10/2025), research visit at NOVA IMS, MSc in Software Engineering."
             />
             <EducationSection />
         </PageLayout>

@@ -7,6 +7,7 @@ import {
     GitHubIcon,
     ArrowUpIcon
 } from '../icons';
+import { heroData } from '../../data/heroData';
 import './Footer.css';
 
 const Footer = () => {
@@ -23,14 +24,14 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div className="footer-brand">
                         <h3 className="footer-logo">Emanuele Nardone</h3>
-                        <p className="footer-tagline">PhD in Artificial Intelligence</p>
+                        <p className="footer-tagline">Postdoctoral Researcher, {heroData.affiliation}</p>
                         <p className="footer-bio">
-                            Expertise in medical diagnostics and machine learning research,
-                            developing AI-driven solutions for early detection of neurodegenerative diseases.
+                            Machine learning and pattern recognition for decision support: evolutionary
+                            feature selection, multimodal classification, conformal prediction and explainable AI.
                         </p>
                         <div className="footer-social">
                             <a
-                                href="https://www.linkedin.com/in/emanuelenardone/"
+                                href={heroData.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-icon"
@@ -39,7 +40,7 @@ const Footer = () => {
                                 <LinkedInIcon />
                             </a>
                             <a
-                                href="https://github.com/Narden91"
+                                href={heroData.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-icon"
@@ -48,7 +49,7 @@ const Footer = () => {
                                 <GitHubIcon />
                             </a>
                             <a
-                                href="mailto:emanuele.nardone@unicas.it"
+                                href={`mailto:${heroData.email}`}
                                 className="social-icon"
                                 aria-label="Email"
                             >
@@ -85,11 +86,15 @@ const Footer = () => {
                         <ul className="footer-contact-list">
                             <li className="footer-contact-item">
                                 <EmailIcon />
-                                <a href="mailto:emanuele.nardone@unicas.it">emanuele.nardone@unicas.it</a>
+                                <a href={`mailto:${heroData.email}`}>{heroData.email}</a>
+                            </li>
+                            <li className="footer-contact-item">
+                                <EmailIcon />
+                                <a href={`mailto:${heroData.emailSecondary}`}>{heroData.emailSecondary}</a>
                             </li>
                             <li className="footer-contact-item">
                                 <LocationIcon />
-                                <span>Cassino, Italy</span>
+                                <span>{heroData.location}</span>
                             </li>
                             <li className="footer-contact-item">
                                 <ClockIcon />

@@ -5,7 +5,7 @@ export type { TeamMember, Achievement };
 export const achievements: Achievement[] = [
     {
         id: '1',
-        title: '🥈 2nd Place - Advanced Cryptography Track',
+        title: '2nd Place - Advanced Cryptography Track',
         subtitle: 'Privacy-Preserving Blockchain Gaming',
         event: 'IXH25 – Italian XRPL Hackathon',
         date: 'November 2025',
@@ -17,7 +17,6 @@ export const achievements: Achievement[] = [
         technicalDetails: [
             {
                 title: 'Fully Homomorphic Encryption',
-                icon: '🔐',
                 description: 'BFV scheme based on RLWE',
                 details: [
                     'Allows server to perform speed calculations on encrypted parameters',
@@ -27,7 +26,6 @@ export const achievements: Achievement[] = [
             },
             {
                 title: 'Distributed Key Generation',
-                icon: '🔑',
                 description: '5 judges with distributed keys',
                 details: [
                     'Collaborative generation of encryption key',
@@ -38,7 +36,6 @@ export const achievements: Achievement[] = [
             },
             {
                 title: 'XRPL Blockchain Integration',
-                icon: '💰',
                 description: 'Payment and transaction management',
                 details: [
                     'Economic layer management with XRP',

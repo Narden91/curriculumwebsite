@@ -10,22 +10,11 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  // Initialize state with a default value, then update in useEffect
-  const [theme, setTheme] = useState<Theme>('light');
-
-  useEffect(() => {
-    // This effect runs only on the client side
-    const storedTheme = localStorage.getItem('theme') as Theme | null;
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (storedTheme) {
-      setTheme(storedTheme);
-    } else if (prefersDark) {
-      setTheme('dark');
-    } else {
-      setTheme('light'); // Default to light if no preference or storage
-    }
-  }, []); // Empty dependency array ensures this runs once on mount
+  // index.html sets data-theme before first paint (stored choice, else system preference).
+  // Start from it so the first effect run cannot overwrite the stored choice with a default.
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+  );
 
   useEffect(() => {
     // This effect applies the theme data attribute and updates localStorage

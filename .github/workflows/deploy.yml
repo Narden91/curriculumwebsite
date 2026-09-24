@@ -4,6 +4,10 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch: # Allow manual trigger
+  schedule:
+    # Weekly rebuild so new publications and citation counts show up without a push.
+    # Weekly (not daily) keeps Google Scholar requests rare.
+    - cron: '0 6 * * 1'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -30,11 +34,15 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '24'
         cache: 'npm'
 
     - name: Install dependencies
       run: npm ci
+
+    - name: Fetch publications (ORCID, Crossref, Google Scholar)
+      # Falls back to the committed src/data/publications.generated.json if a source is down.
+      run: npm run fetch:pubs
 
     - name: Build
       run: npm run build

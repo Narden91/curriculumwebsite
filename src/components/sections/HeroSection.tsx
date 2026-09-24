@@ -1,75 +1,89 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { heroData } from '../../data/heroData';
+import { publicationsData, scholarStats } from '../../data/publicationsData';
+import { EmailIcon, LinkedInIcon, GitHubIcon, DownloadIcon, ScholarIcon, OrcidIcon } from '../icons';
 import './HeroSection.css';
-import { publicationsData } from '../../data/publicationsData';
-import { EmailIcon, LinkedInIcon, GitHubIcon, DownloadIcon, ChatIcon } from '../icons';
-import EvolutionaryBackground from '../3d/EvolutionaryBackground';
+
+const base = import.meta.env.BASE_URL;
+
+const peerReviewedCount = publicationsData.filter((p) => p.type === 'journal' || p.type === 'conference').length;
+
+const profileLinks = [
+  { href: `mailto:${heroData.email}`, label: `Email ${heroData.email}`, Icon: EmailIcon },
+  { href: heroData.scholar, label: 'Google Scholar', Icon: ScholarIcon },
+  { href: heroData.orcid, label: 'ORCID', Icon: OrcidIcon },
+  { href: heroData.github, label: 'GitHub', Icon: GitHubIcon },
+  { href: heroData.linkedin, label: 'LinkedIn', Icon: LinkedInIcon },
+];
 
 const HeroSection: React.FC = React.memo(() => {
   return (
-    <div id="hero" className="hero-section">
-      <EvolutionaryBackground />
+    <section id="hero" className="hero-section">
+      <div className="hero-grid">
+        <div className="hero-content">
+          <p className="hero-eyebrow mono">Postdoc · {heroData.affiliation}</p>
+          <h1 className="hero-title">{heroData.name}</h1>
+          <p className="hero-subtitle">{heroData.title}</p>
+          <p className="hero-description">{heroData.tagline}</p>
 
-      <div className="hero-content fade-in visible">
-        <h1 className="hero-title display-1">
-          <span className="gradient-text">{heroData.name}</span>
-        </h1>
-        <p className="hero-subtitle">{heroData.title}</p>
+          <div className="hero-actions">
+            <a href={`${base}${heroData.cvLink}`} download className="btn btn-primary">
+              <DownloadIcon className="btn-icon" />
+              Download CV
+            </a>
+            <ul className="hero-links">
+              {profileLinks.map(({ href, label, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="hero-link"
+                    aria-label={label}
+                    title={label}
+                    {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    <Icon />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <p className="hero-description">
-          {heroData.tagline}
-        </p>
-
-        {/* Stats Cards */}
-        <div className="hero-stats-pill">
-          <div className="stat-item">
-            <span className="stat-val">{publicationsData.length}</span>
-            <span className="stat-key">Publications</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-val">3+</span>
-            <span className="stat-key">Years Exp.</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-val">15+</span>
-            <span className="stat-key">Projects</span>
-          </div>
+          <dl className="hero-stats">
+            <div className="hero-stat">
+              <dt>Peer-reviewed papers</dt>
+              <dd className="mono">{peerReviewedCount}</dd>
+            </div>
+            {scholarStats && (
+              <>
+                <div className="hero-stat">
+                  <dt>Citations</dt>
+                  <dd className="mono">{scholarStats.citations}</dd>
+                </div>
+                <div className="hero-stat">
+                  <dt>h-index</dt>
+                  <dd className="mono">{scholarStats.hIndex}</dd>
+                </div>
+              </>
+            )}
+          </dl>
+          {scholarStats && (
+            <p className="hero-stats-note mono">Google Scholar · updated {scholarStats.updatedAt}</p>
+          )}
         </div>
 
-        {/* Floating Dock Socials */}
-        <div className="hero-social-dock">
-          <a href={`mailto:${heroData.email}`} className="dock-item" title="Email">
-            <EmailIcon className="dock-icon" />
-          </a>
-          <a href={heroData.linkedin} target="_blank" rel="noopener noreferrer" className="dock-item" title="LinkedIn">
-            <LinkedInIcon className="dock-icon" />
-          </a>
-          <a href={heroData.github} target="_blank" rel="noopener noreferrer" className="dock-item" title="GitHub">
-            <GitHubIcon className="dock-icon" />
-          </a>
-        </div>
-
-        {/* Main CTAs */}
-        <div className="hero-cta-container">
-          <a
-            href="./CV_2025.pdf"
-            download
-            className="btn btn-primary glow-effect"
-          >
-            <DownloadIcon className="btn-icon" />
-            Download CV
-          </a>
-          <Link
-            to="/contact"
-            className="btn btn-secondary glass-effect"
-          >
-            <ChatIcon className="btn-icon" />
-            Let's Connect
-          </Link>
-        </div>
+        <figure className="hero-figure">
+          <picture>
+            <source srcSet={`${base}pixel-researcher-still.png`} media="(prefers-reduced-motion: reduce)" />
+            <img
+              src={`${base}pixel-researcher.gif`}
+              width={512}
+              height={384}
+              alt="Pixel-art researcher holding a laptop in a night-time lab, with a moonlit window, a monitor showing a falling loss curve, and a server rack."
+            />
+          </picture>
+        </figure>
       </div>
-    </div>
+    </section>
   );
 });
 

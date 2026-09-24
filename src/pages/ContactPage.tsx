@@ -1,6 +1,7 @@
 import React from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import PageTopper from '../components/layout/PageTopper';
+import { heroData } from '../data/heroData';
 import './ContactPage.css';
 
 const ContactPage: React.FC = () => {
@@ -31,8 +32,11 @@ const ContactPage: React.FC = () => {
                             </div>
                             <h3>Email</h3>
                             <p>Preferred method for professional inquiries</p>
-                            <a href="mailto:emanuele.nardone@unicas.it" className="contact-link">
-                                emanuele.nardone@unicas.it
+                            <a href={`mailto:${heroData.email}`} className="contact-link">
+                                {heroData.email}
+                            </a>
+                            <a href={`mailto:${heroData.emailSecondary}`} className="contact-link contact-link-secondary">
+                                {heroData.emailSecondary}
                             </a>
                         </div>
 
@@ -44,7 +48,7 @@ const ContactPage: React.FC = () => {
                             </div>
                             <h3>LinkedIn</h3>
                             <p>Connect for professional networking</p>
-                            <a href="https://www.linkedin.com/in/emanuelenardone/" target="_blank" rel="noopener noreferrer" className="contact-link">
+                            <a href={heroData.linkedin} target="_blank" rel="noopener noreferrer" className="contact-link">
                                 View Profile
                             </a>
                         </div>
@@ -57,7 +61,7 @@ const ContactPage: React.FC = () => {
                             </div>
                             <h3>GitHub</h3>
                             <p>Check out my projects and contributions</p>
-                            <a href="https://github.com/Narden91" target="_blank" rel="noopener noreferrer" className="contact-link">
+                            <a href={heroData.github} target="_blank" rel="noopener noreferrer" className="contact-link">
                                 Visit GitHub
                             </a>
                         </div>
@@ -70,8 +74,8 @@ const ContactPage: React.FC = () => {
                                 </svg>
                             </div>
                             <h3>Location</h3>
-                            <p>Based in Italy, available remotely</p>
-                            <span className="contact-link">Cassino, Italy</span>
+                            <p>{heroData.affiliation}</p>
+                            <span className="contact-link">{heroData.location}</span>
                         </div>
 
                         <div className="contact-card">

@@ -12,33 +12,106 @@ export interface ExperienceEntry {
 
 export const experienceData: ExperienceEntry[] = [
   {
-    company: "University of Cassino and Southern Lazio",
-    role: "Teaching Assistant",
-    duration: "Fall 2024 and 2025",
-    location: "Cassino, Italy",
+    company: "University of Eastern Finland — Center for Photonics Sciences",
+    role: "Postdoctoral Researcher",
+    duration: "02/2026 - present",
+    location: "Joensuu, Finland",
     responsibilities: [
-      "Teaching optimization algorithms (Dijkstra, Minimum Spanning Tree, etc.)",
-      "Teaching evolutionary algorithms",
-      "Teaching neural networks"
+      "ML/DL for optical and spectral data, inverse-problem reconstruction and image segmentation (PROFI6 programme)",
+      "AI/ML lead on HERMES (Horizon Europe): Python and C++ pipelines for Transfer Matrix Method optimisation and inverse-problem reconstruction from experimental photonic data",
+      "Interactive dashboards for spectral and material analysis",
+      "AI/ML contributor to THz-Skin: sample-library and data-analysis workflow design"
     ],
-    technologies: ["Python", "TensorFlow", "PyTorch"],
-    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
+    achievements: [
+      "Co-supervisor of an iPSRS Erasmus Mundus Joint Master research internship (06-08/2026): Raman hyperspectral preprocessing and spectral ratio analysis pipeline for THz-Skin"
+    ],
+    technologies: ["Python", "C++", "PyTorch", "scikit-learn", "CINECA HPC"],
+    supervisors: ["Prof. P. Kuzhir", "Prof. G. Fedorov"],
     sortOrder: 1
   },
   {
+    company: "Monozukuri S.p.A. (UEF-funded under HERMES)",
+    role: "Industrial Secondment",
+    duration: "2026, 4 months",
+    location: "Rome, Italy",
+    responsibilities: [
+      "Feasibility study on THz-based non-invasive glucose detection",
+      "Design of AI/ML signal-processing pipelines for THz spectroscopic biosensing data"
+    ],
+    technologies: ["Python", "Signal processing"],
+    sortOrder: 2
+  },
+  {
     company: "University of Cassino and Southern Lazio",
-    role: "Tutor Corso Alta Formazione",
-    duration: "02/2025 - 06/2025",
+    role: "Adjunct Lecturer — Artificial Intelligence (MSc LM-32)",
+    duration: "A.Y. 2024/25 and 2025/26",
     location: "Cassino, Italy",
     responsibilities: [
-      "Teaching Generative AI fundamentals and applications",
-      "Teaching Large Language Models (LLMs) architecture and implementation",
-      "Teaching AI Ethics and responsible AI development",
-      "Teaching Agentic AI systems and autonomous agents"
+      "Adjunct lecturer (docente a contratto) in Artificial Intelligence, MSc in Computer Engineering, 14 h per academic year",
+      "Python for machine learning and supervised learning",
+      "Metaheuristic optimisation and evolutionary algorithms",
+      "Graph optimisation algorithms (Dijkstra, minimum spanning tree) and neural networks"
     ],
-    technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"],
+    technologies: ["Python", "TensorFlow", "PyTorch"],
     supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
-    sortOrder: 2
+    sortOrder: 3
+  },
+  {
+    company: "University of Cassino and Southern Lazio",
+    role: "Tutor — Advanced Training Course on Generative AI",
+    duration: "02/2025 - 05/2025",
+    location: "Cassino, Italy",
+    responsibilities: [
+      "30 h of hands-on sessions with notebooks on generative AI and large language models",
+      "Ethics, reproducibility and responsible use of AI",
+      "Agentic AI systems and LLM tools for industrial workflows",
+      "Supervision of participants' final projects"
+    ],
+    technologies: ["Python", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"],
+    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
+    sortOrder: 4
+  },
+  {
+    company: "University of Cassino and Southern Lazio",
+    role: "Invited Seminars",
+    duration: "07/2024 and 01/2025",
+    location: "Cassino, Italy",
+    responsibilities: [
+      "Kubernetes and GPU resource management, AIDA LAB (01/2025, 2 h)",
+      "Frontiers in AI: generative models, self-supervised learning, diffusion (07/2024, 2 h)"
+    ],
+    technologies: ["Kubernetes", "Docker", "GPU scheduling"],
+    sortOrder: 5
+  },
+  {
+    company: "University of Cassino and Southern Lazio",
+    role: "Tutor — PCTO Programme",
+    duration: "01/2025",
+    location: "Cassino, Italy",
+    responsibilities: [
+      "20 h introduction to machine learning and Python for secondary-school students (pre-university outreach)"
+    ],
+    technologies: ["Python", "scikit-learn"],
+    sortOrder: 6
+  },
+  {
+    company: "University of Cassino and Southern Lazio — DIEI",
+    role: "Research Fellow",
+    duration: "04/2021 - 08/2022",
+    location: "Cassino, Italy",
+    responsibilities: [
+      "Two consecutive research fellowships",
+      "ML pipelines for the early diagnosis of cognitive impairment from handwriting",
+      "Feature extraction and selection for handwriting biomarkers",
+      "Design and development of C#/WPF acquisition software for Wacom digitising tablets, used for clinical data collection"
+    ],
+    achievements: [
+      "Developed the stroke-based handwriting features later published in Computers in Biology and Medicine (2025)",
+      "Built the handwriting acquisition software used for data collection in the PRIN2022 project"
+    ],
+    technologies: ["Python", "scikit-learn", "pandas", "NumPy", "C#", "WPF", ".NET", "Wacom SDK"],
+    supervisors: ["Prof. Claudio De Stefano", "Prof. Francesco Fontanella"],
+    sortOrder: 7
   },
   {
     company: "Corso GenAI Pignataro/Latina",
@@ -52,88 +125,29 @@ export const experienceData: ExperienceEntry[] = [
       "Teaching Agentic AI systems and autonomous agents"
     ],
     technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"],
-    sortOrder: 3
+    sortOrder: 8
   },
   {
-    company: "University of Cassino and Southern Lazio - ISESS 2023",
-    role: "Conference Organizer & Session Chairman",
+    company: "University of Cassino and Southern Lazio — ISESS 2023",
+    role: "Conference Organizer & Session Chair",
     duration: "October 2023",
     location: "Cassino, Italy",
     responsibilities: [
-      "Serving as member of Organization Committee for International PhD Symposium",
-      "Moderating oral presentation sessions on Engineering and Sport Sciences",
-      "Coordinating with international speakers and researchers",
-      "Managing conference logistics and academic program coordination"
+      "Member of the Organization Committee of the 1st International PhD Symposium on Engineering and Sport Sciences",
+      "Chair of an oral presentation session on engineering and sport sciences"
     ],
-    achievements: [
-      "Successfully organized first edition of International PhD Symposium",
-      "Facilitated knowledge exchange between 50+ international PhD students",
-      "Managed multi-disciplinary session covering AI applications in sports science",
-      "Received positive feedback from participants and academic community"
-    ],
-    technologies: ["Conference Management Systems", "Academic Presentation Tools", "Microsoft Office Suite"],
-    sortOrder: 4
+    sortOrder: 9
   },
   {
-    company: "University of Cassino and Southern Lazio - CyberChallenge.IT",
+    company: "Cybersecurity National Lab, CINI — CyberChallenge.IT 2023",
     role: "Cybersecurity Instructor",
     duration: "June 2023",
     location: "Cassino, Italy",
     responsibilities: [
-      "Delivering hands-on cybersecurity training to university students",
-      "Creating interactive learning environments for cybersecurity skill development",
-      "Developing practical exercises and challenges for participants",
-      "Mentoring students in cybersecurity best practices and methodologies"
-    ],
-    achievements: [
-      "Successfully trained 25+ students in cybersecurity fundamentals",
-      "Created engaging hands-on learning experiences with 95% satisfaction rate",
-      "Contributed to national cybersecurity education initiative",
-      "Developed innovative teaching methodologies for technical skill transfer"
+      "Hands-on cybersecurity training for university students at the Cassino site",
+      "Practical exercises and challenges for participants"
     ],
     technologies: ["Linux", "Network Security", "Penetration Testing", "Cryptography", "Python", "Bash Scripting"],
-    sortOrder: 5
-  },
-  {
-    company: "University of Cassino and Southern Lazio",
-    role: "Fellowship Researcher - Application Development",
-    duration: "2022",
-    location: "Cassino, Italy",
-    responsibilities: [
-      "Developing C# WPF applications for handwriting data acquisition from Wacom devices",
-      "Creating user-friendly interfaces for medical data collection in clinical settings",
-      "Integrating real-time data processing capabilities for handwriting analysis",
-      "Collaborating with medical professionals to ensure application usability and effectiveness"
-    ],
-    achievements: [
-      "Successfully developed and deployed handwriting acquisition system for PRIN2022 project",
-      "Created specialized data collection tools for Alzheimer's disease research",
-      "Implemented robust data validation and quality control mechanisms",
-      "Reduced data collection time by 40% through interface optimization"
-    ],
-    technologies: ["C#", "WPF", ".NET Framework", "Wacom SDK", "Windows API", "SQL Server"],
-    supervisors: ["Prof. Claudio De Stefano", "Prof. Francesco Fontanella"],
-    sortOrder: 6
-  },
-  {
-    company: "University of Cassino and Southern Lazio",
-    role: "Fellowship Researcher - Machine Learning",
-    duration: "2021 - 2022",
-    location: "Cassino, Italy",
-    responsibilities: [
-      "Developing machine learning techniques for predicting cognitive deficits through handwriting analysis",
-      "Implementing feature extraction and selection algorithms for biomarker identification",
-      "Creating robust data preprocessing pipelines for multi-modal medical data",
-      "Conducting statistical analysis and validation of machine learning models"
-    ],
-    achievements: [
-      "Developed novel stroke-based feature extraction methodology",
-      "Achieved 85%+ accuracy in early Alzheimer's disease detection using handwriting data",
-      "Implemented Bayesian network approaches for uncertainty quantification",
-      "Created comprehensive evaluation framework for medical AI systems"
-    ],
-    technologies: ["Python", "scikit-learn", "pandas", "numpy", "matplotlib", "seaborn", "Jupyter", "Git"],
-    supervisors: ["Prof. Claudio De Stefano", "Prof. Francesco Fontanella"],
-    sortOrder: 7
+    sortOrder: 10
   }
 ];

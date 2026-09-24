@@ -100,7 +100,6 @@ const SkillsSection: React.FC = React.memo(() => {
     <section id="skills" className="skills-section section">
       <div className="container">
         <div className="section-header">
-          <div className="section-number">02</div>
           <h2 className="display-2 section-title">Skills & Expertise</h2>
           <p className="section-description">
             Comprehensive technical skills and professional achievements in AI and software development

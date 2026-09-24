@@ -7,21 +7,22 @@ export interface AboutData {
 
 export const aboutData: AboutData = {
   summary: [
-    "I hold a PhD and focus on developing AI-driven medical diagnostic tools through machine learning and artificial intelligence applications. I analyze multiple data sources - handwriting dynamics, neuroimaging, and biological markers - to create early detection methods for Neurodegenerative Diseases (ND) and Specific Learning Disorders (SLD).",
-    "My research utilizes deep learning architectures, specifically Transformers and CNNs, to build diagnostic frameworks that show promising results in the early detection of conditions like Alzheimer's disease using offline handwriting images. I implement explainability tools such as SHAP values and attention visualization to ensure that AI-driven diagnoses provide clear insights for healthcare practitioners."
+    "I hold a PhD in Artificial Intelligence (10/2025) from the University of Cassino and Southern Lazio. I work on machine learning and pattern recognition methods for decision support: evolutionary computation and feature selection, multimodal classification and classifier combination, uncertainty quantification with conformal prediction, and explainable AI.",
+    "My PhD applied these methods to handwriting analysis for the early detection of cognitive and developmental disorders, with first-author papers in Engineering Applications of Artificial Intelligence, Computers in Biology and Medicine and Pattern Recognition Letters. Our EvoStar 2026 paper on conformal prediction in surrogate-assisted evolutionary algorithms received the Best EvoApps Paper Award.",
+    "Since 02/2026 I am a postdoctoral researcher at the University of Eastern Finland, where I use the same methods for inverse problems, spectral data analysis and image segmentation in photonics, as AI/ML lead on the Horizon Europe project HERMES. I also teach Artificial Intelligence as an adjunct lecturer (MSc LM-32) and serve as Guest Editor, Workshop Chair and journal reviewer.",
   ],
   expertise: [
-    "Deep Learning (Transformers, CNNs) for Medical Diagnostics",
-    "Handwriting Analysis & Biometric Pattern Recognition",
-    "Machine Learning for Neurodegenerative Disease Detection",
-    "Data Augmentation & Feature Selection Optimization",
-    "Bayesian Networks & Genetic Programming",
-    "Explainable AI (SHAP, Attention Visualization)",
-    "Multi-modal Classification Systems",
-    "Software Development (Python, C#, C++, Java)",
-    "MLOps & Container Technologies (Docker, Kubernetes)",
-    "Agentic AI Development (LangChain, LangGraph)"
+    "Evolutionary computation and feature selection",
+    "Multimodal classification and classifier combination",
+    "Conformal prediction and uncertainty quantification",
+    "Bayesian networks and genetic programming",
+    "Explainable AI (SHAP, attention)",
+    "Handwriting analysis for cognitive disorder detection",
+    "Inverse problems and spectral data analysis in photonics",
+    "Agentic AI (LangChain, LangGraph, smolagents)",
+    "Python, C++, C#, Java; PyTorch, TensorFlow, scikit-learn",
+    "Docker, Kubernetes (GPU orchestration), CINECA HPC",
   ],
-  currentRole: "PhD in AI at University of Cassino and Southern Lazio - Department of Electrical and Information Engineering (DIEI)",
-  researchFocus: "Digital handwriting analysis using Machine and Deep Learning techniques for early diagnosis of Specific Learning Disorders (SLD) in children and neurodegenerative diseases like Alzheimer's and Parkinson's. Evolutionary algorithms and Bayesian networks. Genetic programming for feature selection and optimization in medical data analysis.",
+  currentRole: "Postdoctoral Researcher, Center for Photonics Sciences, University of Eastern Finland (Joensuu). AI/ML lead on HERMES (Horizon Europe).",
+  researchFocus: "Machine learning and pattern recognition for decision support: evolutionary feature selection, multimodal classifier combination, conformal prediction and explainable AI. Applied to handwriting-based early detection of cognitive and developmental disorders, and now to optical and spectral data, inverse-problem reconstruction and image segmentation in photonics.",
 };

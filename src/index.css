@@ -85,15 +85,9 @@ body::before {
   /* Colors - Light Theme (paper + ink) */
   --primary-color-light: #96600f;
   --primary-hover-light: #7a4e0c;
-  --accent-color-light: #96600f;
-  --success-color-light: #2f7a55;
-  --warning-color-light: #96600f;
-  --error-color-light: #b3261e;
 
   --background-color-light: #f6f4ef;
   --surface-light: #efece5;
-  --surface-dark-light: #e4e0d6;
-  --card-bg-light: #fbfaf7;
   --border-color-light: #dcd7cc;
 
   --text-color-light: #141a2c;
@@ -104,15 +98,9 @@ body::before {
   /* Colors - Dark Theme (night navy + warm lamp) */
   --primary-color-dark: #e3a23b;
   --primary-hover-dark: #f0b457;
-  --accent-color-dark: #e3a23b;
-  --success-color-dark: #6fc59a;
-  --warning-color-dark: #e3a23b;
-  --error-color-dark: #f2837b;
 
   --background-color-dark: #0f1424;
   --surface-base-dark: #141a2e;
-  --surface-dark-dark: #1c2338;
-  --card-bg-dark: #161c30;
   --border-color-dark: #262e48;
 
   --text-color-dark: #ece8df;
@@ -130,39 +118,23 @@ body::before {
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Spacing System */
-  --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
-  --space-xl: 2rem;
   --space-2xl: 3rem;
-  --space-3xl: 4rem;
   --space-4xl: 5rem;
 
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-xl: 14px;
-
-  /* Shadows */
-  /* Shadows tinted to the navy ink, not grey */
-  --shadow-sm: 0 1px 2px rgba(15, 20, 36, 0.06);
-  --shadow-md: 0 6px 16px -8px rgba(15, 20, 36, 0.18);
-  --shadow-lg: 0 16px 32px -16px rgba(15, 20, 36, 0.28);
-  --shadow-xl: 0 24px 48px -20px rgba(15, 20, 36, 0.35);
 
   /* Typography Scale */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
-  --text-5xl: 3rem;
-  --text-6xl: 3.75rem;
 
   /* Transitions */
   --transition-fast: 0.15s var(--ease-out);
@@ -174,15 +146,9 @@ body::before {
 [data-theme='light'] {
   --primary-color: var(--primary-color-light);
   --primary-hover: var(--primary-hover-light);
-  --accent-color: var(--accent-color-light);
-  --success-color: var(--success-color-light);
-  --warning-color: var(--warning-color-light);
-  --error-color: var(--error-color-light);
 
   --background-color: var(--background-color-light);
   --surface: var(--surface-light);
-  --surface-dark: var(--surface-dark-light);
-  --card-bg: var(--card-bg-light);
   --border-color: var(--border-color-light);
 
   --text-color: var(--text-color-light);
@@ -194,15 +160,9 @@ body::before {
 [data-theme='dark'] {
   --primary-color: var(--primary-color-dark);
   --primary-hover: var(--primary-hover-dark);
-  --accent-color: var(--accent-color-dark);
-  --success-color: var(--success-color-dark);
-  --warning-color: var(--warning-color-dark);
-  --error-color: var(--error-color-dark);
 
   --background-color: var(--background-color-dark);
   --surface: var(--surface-base-dark);
-  --surface-dark: var(--surface-dark-dark);
-  --card-bg: var(--card-bg-dark);
   --border-color: var(--border-color-dark);
 
   --text-color: var(--text-color-dark);
@@ -596,7 +556,6 @@ h6 {
   font-size: var(--text-base);
 }
 
-/* Responsive Utilities */
 @media (max-width: 768px) {
   .section {
     padding: var(--space-2xl) 0;
@@ -650,9 +609,8 @@ h6 {
   }
 }
 
-/* Where the browser supports scroll-driven animations, reveal as items enter the viewport */
-/* Scroll-driven version slides only: content is never transparent while off screen,
-   so contrast checks and fast scrolling always see the text */
+/* Where scroll-driven animations are supported, items slide in as they enter the viewport.
+   Slide only, no fade: text is never transparent while off screen. */
 @supports (animation-timeline: view()) {
   .reveal {
     animation: reveal-slide linear both;

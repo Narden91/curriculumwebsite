@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HeroSection from '../components/sections/HeroSection';
 import { peerReviewedPublications, awardFor } from '../data/publicationsData';
 import { researchThemes } from '../data/aboutData';
-import { fundedProjects } from '../data/projectsData';
+import { fundedProjects } from '../data/fundedProjectsData';
 import { heroData } from '../data/heroData';
 import './HomePage.css';
 

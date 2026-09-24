@@ -1,4 +1,3 @@
-/* PageTopper.css */
 .page-topper {
     border-bottom: 1px solid var(--border-color);
     padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);

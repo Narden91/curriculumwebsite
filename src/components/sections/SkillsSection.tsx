@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { technicalSkillsData, certificationsData, languagesData, professionalAchievementsData } from '../../data/publicationsData';
+import { technicalSkillsData, certificationsData, languagesData, professionalAchievementsData } from '../../data/recordData';
 
 const SkillsSection: React.FC = React.memo(() => {
   return (
@@ -57,7 +57,7 @@ const SkillsSection: React.FC = React.memo(() => {
                   {c.name}
                   <span className="nb-entry-date mono">{c.date}</span>
                 </p>
-                <p className="nb-entry-sub">{c.issuer}</p>
+                {c.issuer && <p className="nb-entry-sub">{c.issuer}</p>}
                 {c.description && <p className="nb-entry-text">{c.description}</p>}
               </li>
             ))}

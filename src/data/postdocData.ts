@@ -17,14 +17,14 @@ export type TopicId =
   | 'agents'
   | 'hpc';
 
-export interface Topic {
+interface Topic {
   id: TopicId;
   title: string;
   summary: string;
   techniques: string[];
 }
 
-export interface TopicGroup {
+interface TopicGroup {
   title: string;
   intro: string;
   topics: Topic[];

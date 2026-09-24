@@ -1,98 +1,12 @@
-/* ContactPage.css */
-.contact-section {
-    padding: clamp(2.5rem, 6vw, 4rem) 0;
-}
-
-.contact-intro {
-    max-width: 65ch;
-    margin-bottom: 2.5rem;
-}
-
-.contact-intro h2 {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    color: var(--text-color);
-    margin-bottom: 0.75rem;
-}
-
-.contact-intro p {
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    color: var(--text-color-secondary);
-}
-
-.contact-grid {
+/* ContactPage.css: row layout comes from the shared .nb-* classes */
+.contact-lines {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 3rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.contact-card {
-    display: grid;
-    grid-template-columns: 2.5rem 1fr;
-    column-gap: 1rem;
-    align-items: start;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.contact-icon {
-    grid-row: 1 / span 4;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    color: var(--primary-color);
-}
-
-.contact-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-.contact-card h3 {
+    gap: 0.4rem;
+    justify-items: start;
     font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-color);
 }
 
-.contact-card p {
-    font-size: 0.9375rem;
-    color: var(--text-color-secondary);
-    margin: 0.2rem 0 0.5rem;
-}
-
-.contact-link {
-    justify-self: start;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    text-decoration: none;
-    overflow-wrap: anywhere;
-}
-
-a.contact-link:hover {
+.contact-lines a:hover {
     text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-span.contact-link {
-    color: var(--text-color);
-}
-
-.contact-link-secondary {
-    margin-top: 0.2rem;
-    color: var(--text-color-secondary);
-}
-
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+    text-underline-offset: 4px;
 }

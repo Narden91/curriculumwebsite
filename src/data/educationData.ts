@@ -8,7 +8,6 @@ export interface Degree {
   honors?: string;
   relevantCoursework?: string[];
   additionalInfo?: string[];
-  sortOrder: number; // Add this for proper sorting
 }
 
 
@@ -17,7 +16,7 @@ export const educationData: Degree[] = [
     institution: "University of Cassino and Southern Lazio",
     degree: "PhD in Artificial Intelligence",
     field: "Department of Electrical and Information Engineering (DIEI)",
-    year: "11/2022 - 10/2025",
+    year: "11/2022 - 01/2026",
     dissertationTitle: "AI-Based Handwriting Analysis for Early Detection of Developmental and Cognitive Disorders",
     supervisors: [
       "Prof. Francesco Fontanella",
@@ -30,8 +29,7 @@ export const educationData: Degree[] = [
       "Evolutionary algorithms",
       "Conformal prediction",
       "Genetic programming"
-    ],
-    sortOrder: 1
+    ]
   },
   {
     institution: "NOVA IMS, Universidade Nova de Lisboa",
@@ -44,8 +42,7 @@ export const educationData: Degree[] = [
     ],
     supervisors: [
       "Prof. Leonardo Vanneschi (host)"
-    ],
-    sortOrder: 2
+    ]
   },
   {
     institution: "University of Cassino and Southern Lazio",
@@ -61,8 +58,7 @@ export const educationData: Degree[] = [
       "Database Design and Management",
       "Computer Vision and Pattern Recognition",
       "Statistical Data Analysis"
-    ],
-    sortOrder: 3
+    ]
   },
   {
     institution: "FEUP, University of Porto",
@@ -71,14 +67,12 @@ export const educationData: Degree[] = [
     year: "2020",
     additionalInfo: [
       "European student exchange during the MSc"
-    ],
-    sortOrder: 4
+    ]
   },
   {
     institution: "Italy — State Examination",
     degree: "Esame di Stato",
     field: "Professional qualification to practise engineering",
-    year: "12/2021",
-    sortOrder: 5
+    year: "12/2021"
   }
 ];

@@ -1,4 +1,4 @@
-export interface FundedProject {
+interface FundedProject {
   name: string;
   funder: string;
   period?: string;

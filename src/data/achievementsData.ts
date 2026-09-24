@@ -1,28 +1,27 @@
-export interface TeamMember {
+interface TeamMember {
   name: string;
   role: string;
   contributions: string[];
 }
 
-export interface TechnicalDetail {
+interface TechnicalDetail {
   title: string;
   description: string;
   details: string[];
 }
 
-export interface WorkflowPhase {
+interface WorkflowPhase {
   phase: string;
   description: string;
 }
 
-export interface AchievementResources {
+interface AchievementResources {
   video?: string;
   github?: string;
-  demo?: string;
 }
 
 /** Hackathon/Competition achievements */
-export interface Achievement {
+interface Achievement {
   id: string;
   title: string;
   subtitle: string;
@@ -49,9 +48,9 @@ export const achievements: Achievement[] = [
         event: 'IXH25 – Italian XRPL Hackathon',
         date: 'November 2025',
         team: 'πve',
-        description: 'Team πve achieved second place in the Advanced Cryptography Track by developing a privacy-preserving solution for secure blockchain-based gaming. The project combines Fully Homomorphic Encryption (FHE) with Distributed Key Generation (DKG) to create a trustless F1-AI racing platform where computations occur on encrypted data, ensuring complete privacy and correctness for all participants.',
-        challenge: 'The 24-hour challenge required designing and implementing a cryptographic protocol that would allow a racing game to operate securely on blockchain infrastructure while maintaining absolute privacy of game parameters and ensuring that no single party—including the server—could manipulate or view sensitive data.',
-        solution: 'The solution combines two powerful cryptographic primitives to achieve both privacy and decentralized trust: FHE enables computations on encrypted data, DKG ensures there is no single point of control or failure, and XRPL Blockchain handles payment transactions using XRP cryptocurrency.',
+        description: 'Second place in the Advanced Cryptography Track. We built an F1 racing game on the XRP Ledger in which the server computes race results on encrypted car parameters: fully homomorphic encryption (FHE) keeps the parameters private, and distributed key generation (DKG) means no single party, the server included, can decrypt them.',
+        challenge: 'In 24 hours, design and implement a protocol that lets a blockchain racing game run without any party, the server included, being able to read or alter the players\' secret parameters.',
+        solution: 'FHE (BFV scheme) to compute on encrypted data, DKG among five judges so the decryption key never exists in one place, and the XRP Ledger for entry fees and payments.',
         technicalDetailsTitle: 'Cryptographic Components',
         technicalDetails: [
             {
@@ -60,7 +59,7 @@ export const achievements: Achievement[] = [
                 details: [
                     'Allows server to perform speed calculations on encrypted parameters',
                     'Processes encrypted flag vectors without ever decrypting them',
-                    'Applies complex formulas while maintaining complete privacy',
+                    'Evaluates the race formulas on ciphertexts',
                 ],
             },
             {
@@ -69,7 +68,7 @@ export const achievements: Achievement[] = [
                 details: [
                     'Collaborative generation of encryption key',
                     'Each judge holds only a portion of the secret',
-                    'Elimination of single points of failure',
+                    'No single point of failure',
                     'Private key is never fully reconstructed',
                 ],
             },
@@ -77,10 +76,9 @@ export const achievements: Achievement[] = [
                 title: 'XRPL Blockchain Integration',
                 description: 'Payment and transaction management',
                 details: [
-                    'Economic layer management with XRP',
+                    'Payments in XRP',
                     'Transactions for training sessions',
                     'Race participation fees',
-                    'Seamless payment infrastructure',
                 ],
             },
         ],
@@ -95,11 +93,11 @@ export const achievements: Achievement[] = [
             },
             {
                 phase: 'Training',
-                description: 'Players adjust car flags by adding encrypted random deltas, maintaining end-to-end privacy.',
+                description: 'Players adjust car flags by adding encrypted random deltas, so the server never sees the plain values.',
             },
             {
                 phase: 'Web Interface',
-                description: 'A complete F1-AI web application provides an accessible user experience, abstracting the complex cryptographic operations.',
+                description: 'A web application for players that hides the cryptography behind a normal game interface.',
             },
         ],
         teamMembers: [

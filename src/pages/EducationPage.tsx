@@ -8,7 +8,7 @@ const EducationPage: React.FC = () => {
             <PageTopper
                 mark="§3"
                 title="Education"
-                subtitle="PhD in Artificial Intelligence (10/2025), research visit at NOVA IMS, MSc in Software Engineering."
+                subtitle="PhD in Artificial Intelligence (01/2026), research visit at NOVA IMS, MSc in Software Engineering."
             />
             <EducationSection />
         </>

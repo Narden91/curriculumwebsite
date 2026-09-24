@@ -2,7 +2,7 @@ import React from 'react';
 import PageTopper from '../components/layout/PageTopper';
 import PublicationsSection from '../components/sections/PublicationsSection';
 import { peerReviewedPublications } from '../data/publicationsData';
-import { fundedProjects } from '../data/projectsData';
+import { fundedProjects } from '../data/fundedProjectsData';
 import './ResearchPage.css';
 
 const ResearchPage: React.FC = () => {

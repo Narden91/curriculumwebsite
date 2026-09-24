@@ -1,4 +1,4 @@
-export interface ResearchTheme {
+interface ResearchTheme {
   title: string;
   text: string;
 }
@@ -23,7 +23,7 @@ export const researchThemes: ResearchTheme[] = [
   },
 ];
 
-export interface AboutData {
+interface AboutData {
   summary: string[];
   expertise: string[];
   currentRole: string;
@@ -32,7 +32,7 @@ export interface AboutData {
 
 export const aboutData: AboutData = {
   summary: [
-    "I hold a PhD in Artificial Intelligence (10/2025) from the University of Cassino and Southern Lazio. I work on machine learning and pattern recognition methods for decision support: evolutionary computation and feature selection, multimodal classification and classifier combination, uncertainty quantification with conformal prediction, and explainable AI.",
+    "I hold a PhD in Artificial Intelligence (01/2026) from the University of Cassino and Southern Lazio. I work on machine learning and pattern recognition methods for decision support: evolutionary computation and feature selection, multimodal classification and classifier combination, uncertainty quantification with conformal prediction, and explainable AI.",
     "My PhD applied these methods to handwriting analysis for the early detection of cognitive and developmental disorders, with first-author papers in Engineering Applications of Artificial Intelligence, Computers in Biology and Medicine and Pattern Recognition Letters. Our EvoStar 2026 paper on conformal prediction in surrogate-assisted evolutionary algorithms received the Best EvoApps Paper Award.",
     "Since 02/2026 I am a postdoctoral researcher at the University of Eastern Finland, where I use the same methods for inverse problems, spectral data analysis and image segmentation in photonics, as AI/ML lead on the Horizon Europe project HERMES. I also teach Artificial Intelligence as an adjunct lecturer (MSc LM-32) and serve as Guest Editor, Workshop Chair and journal reviewer.",
   ],

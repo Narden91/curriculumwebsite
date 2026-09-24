@@ -1,7 +1,4 @@
-/**
- * Shared SVG Icon Components
- * Centralized icon library to avoid duplication across components
- */
+/** Shared SVG icons. */
 
 import React from 'react';
 

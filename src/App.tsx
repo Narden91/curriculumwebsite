@@ -2,11 +2,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 
-/**
- * Main App component with React Router for multi-page navigation
- * Portfolio of Emanuele Nardone - PhD in Artificial Intelligence
- */
-// Get basename for GitHub Pages deployment
+// GitHub Pages serves the site under /curriculumwebsite/
 const basename = import.meta.env.BASE_URL;
 
 function App() {

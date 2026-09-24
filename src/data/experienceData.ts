@@ -1,4 +1,4 @@
-export interface ExperienceEntry {
+interface ExperienceEntry {
   company: string;
   role: string;
   duration: string;
@@ -7,7 +7,6 @@ export interface ExperienceEntry {
   achievements?: string[];
   technologies?: string[];
   supervisors?: string[];
-  sortOrder: number; // Add this for proper sorting
 }
 
 export const experienceData: ExperienceEntry[] = [
@@ -26,8 +25,7 @@ export const experienceData: ExperienceEntry[] = [
       "Co-supervisor of an iPSRS Erasmus Mundus Joint Master research internship (06-08/2026): Raman hyperspectral preprocessing and spectral ratio analysis pipeline for THz-Skin"
     ],
     technologies: ["Python", "C++", "PyTorch", "scikit-learn", "CINECA HPC"],
-    supervisors: ["Prof. P. Kuzhir", "Prof. G. Fedorov"],
-    sortOrder: 1
+    supervisors: ["Prof. P. Kuzhir", "Prof. G. Fedorov"]
   },
   {
     company: "Monozukuri S.p.A. (UEF-funded under HERMES)",
@@ -38,8 +36,7 @@ export const experienceData: ExperienceEntry[] = [
       "Feasibility study on THz-based non-invasive glucose detection",
       "Design of AI/ML signal-processing pipelines for THz spectroscopic biosensing data"
     ],
-    technologies: ["Python", "Signal processing"],
-    sortOrder: 2
+    technologies: ["Python", "Signal processing"]
   },
   {
     company: "University of Cassino and Southern Lazio",
@@ -53,8 +50,7 @@ export const experienceData: ExperienceEntry[] = [
       "Graph optimisation algorithms (Dijkstra, minimum spanning tree) and neural networks"
     ],
     technologies: ["Python", "TensorFlow", "PyTorch"],
-    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
-    sortOrder: 3
+    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"]
   },
   {
     company: "University of Cassino and Southern Lazio",
@@ -68,8 +64,7 @@ export const experienceData: ExperienceEntry[] = [
       "Supervision of participants' final projects"
     ],
     technologies: ["Python", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"],
-    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"],
-    sortOrder: 4
+    supervisors: ["Prof. Francesco Fontanella", "Prof. Claudio De Stefano"]
   },
   {
     company: "University of Cassino and Southern Lazio",
@@ -80,8 +75,7 @@ export const experienceData: ExperienceEntry[] = [
       "Kubernetes and GPU resource management, AIDA LAB (01/2025, 2 h)",
       "Frontiers in AI: generative models, self-supervised learning, diffusion (07/2024, 2 h)"
     ],
-    technologies: ["Kubernetes", "Docker", "GPU scheduling"],
-    sortOrder: 5
+    technologies: ["Kubernetes", "Docker", "GPU scheduling"]
   },
   {
     company: "University of Cassino and Southern Lazio",
@@ -91,8 +85,7 @@ export const experienceData: ExperienceEntry[] = [
     responsibilities: [
       "20 h introduction to machine learning and Python for secondary-school students (pre-university outreach)"
     ],
-    technologies: ["Python", "scikit-learn"],
-    sortOrder: 6
+    technologies: ["Python", "scikit-learn"]
   },
   {
     company: "University of Cassino and Southern Lazio — DIEI",
@@ -110,8 +103,7 @@ export const experienceData: ExperienceEntry[] = [
       "Built the handwriting acquisition software used for data collection in the PRIN2022 project"
     ],
     technologies: ["Python", "scikit-learn", "pandas", "NumPy", "C#", "WPF", ".NET", "Wacom SDK"],
-    supervisors: ["Prof. Claudio De Stefano", "Prof. Francesco Fontanella"],
-    sortOrder: 7
+    supervisors: ["Prof. Claudio De Stefano", "Prof. Francesco Fontanella"]
   },
   {
     company: "Corso GenAI Pignataro/Latina",
@@ -124,8 +116,7 @@ export const experienceData: ExperienceEntry[] = [
       "Teaching AI Ethics and responsible AI development",
       "Teaching Agentic AI systems and autonomous agents"
     ],
-    technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"],
-    sortOrder: 8
+    technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "Hugging Face"]
   },
   {
     company: "University of Cassino and Southern Lazio — ISESS 2023",
@@ -135,8 +126,7 @@ export const experienceData: ExperienceEntry[] = [
     responsibilities: [
       "Member of the Organization Committee of the 1st International PhD Symposium on Engineering and Sport Sciences",
       "Chair of an oral presentation session on engineering and sport sciences"
-    ],
-    sortOrder: 9
+    ]
   },
   {
     company: "Cybersecurity National Lab, CINI — CyberChallenge.IT 2023",
@@ -147,7 +137,6 @@ export const experienceData: ExperienceEntry[] = [
       "Hands-on cybersecurity training for university students at the Cassino site",
       "Practical exercises and challenges for participants"
     ],
-    technologies: ["Linux", "Network Security", "Penetration Testing", "Cryptography", "Python", "Bash Scripting"],
-    sortOrder: 10
+    technologies: ["Linux", "Network Security", "Penetration Testing", "Cryptography", "Python", "Bash Scripting"]
   }
 ];

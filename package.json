@@ -9,13 +9,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "fetch:pubs": "node scripts/fetch-publications.mjs",
-    "test:scripts": "node --test scripts/*.test.mjs"
+    "test:scripts": "node --test scripts/*.test.mjs",
+    "fetch:repos": "node scripts/fetch-repos.mjs",
+    "fetch:data": "npm run fetch:pubs && npm run fetch:repos"
   },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.9.6",
-    "uuid": "^13.0.0"
+    "react-router-dom": "^7.9.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

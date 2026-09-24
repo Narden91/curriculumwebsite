@@ -1,21 +1,18 @@
 import React from 'react';
-import PageLayout from '../components/layout/PageLayout';
 import PageTopper from '../components/layout/PageTopper';
 import PublicationsSection from '../components/sections/PublicationsSection';
-import { publicationsData } from '../data/publicationsData';
+import { peerReviewedPublications } from '../data/publicationsData';
 import { fundedProjects } from '../data/projectsData';
 import './ResearchPage.css';
 
-const peerReviewedCount = publicationsData.filter((p) => p.type === 'journal' || p.type === 'conference').length;
-
 const ResearchPage: React.FC = () => {
     return (
-        <PageLayout>
+        <>
             <PageTopper
                 mark="§1"
                 title="Research & Publications"
                 subtitle="Machine learning and pattern recognition for decision support: evolutionary feature selection, multimodal classification, conformal prediction and explainable AI."
-                badge={`${peerReviewedCount} peer-reviewed papers`}
+                badge={`${peerReviewedPublications.length} peer-reviewed papers`}
             />
             <PublicationsSection />
 
@@ -46,7 +43,7 @@ const ResearchPage: React.FC = () => {
                     </ul>
                 </div>
             </section>
-        </PageLayout>
+        </>
     );
 };
 

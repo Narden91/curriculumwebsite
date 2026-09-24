@@ -51,7 +51,7 @@ export const paperAwards: Record<string, string> = {
 
 export const awardFor = (p: Publication) => (p.doi ? paperAwards[p.doi.toLowerCase()] : undefined);
 
-export const isPeerReviewed = (p: Publication) => p.type === 'journal' || p.type === 'conference';
+export const peerReviewedPublications = publicationsData.filter((p) => p.type === 'journal' || p.type === 'conference');
 
 export const professionalAchievementsData: ProfessionalAchievement[] = [
   {

@@ -1,24 +1,10 @@
 import { Link } from 'react-router-dom';
-import { EmailIcon, LinkedInIcon, GitHubIcon, ScholarIcon, OrcidIcon, ArrowUpIcon } from '../icons';
+import { EmailIcon, ArrowUpIcon } from '../icons';
+import ProfileLinks from '../ui/ProfileLinks';
 import { heroData } from '../../data/heroData';
+import { NAV_LINKS } from '../../data/navigation';
 import { publicationsUpdatedAt } from '../../data/publicationsData';
 import './Footer.css';
-
-const pages = [
-    { path: '/research', label: 'Research' },
-    { path: '/experience', label: 'Experience' },
-    { path: '/education', label: 'Education' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/contact', label: 'Contact' },
-];
-
-const profiles = [
-    { href: heroData.scholar, label: 'Google Scholar', Icon: ScholarIcon },
-    { href: heroData.orcid, label: 'ORCID', Icon: OrcidIcon },
-    { href: heroData.github, label: 'GitHub', Icon: GitHubIcon },
-    { href: heroData.linkedin, label: 'LinkedIn', Icon: LinkedInIcon },
-];
 
 const Footer = () => {
     const scrollToTop = () => {
@@ -31,20 +17,12 @@ const Footer = () => {
                 <div className="footer-id">
                     <p className="footer-name serif">{heroData.name}</p>
                     <p className="footer-role">Postdoctoral Researcher, {heroData.affiliation}</p>
-                    <ul className="footer-profiles">
-                        {profiles.map(({ href, label, Icon }) => (
-                            <li key={label}>
-                                <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label}>
-                                    <Icon />
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                    <ProfileLinks className="footer-profiles" />
                 </div>
 
                 <nav className="footer-nav" aria-label="Footer">
                     <ul>
-                        {pages.map((p) => (
+                        {NAV_LINKS.map((p) => (
                             <li key={p.path}>
                                 <Link to={p.path} viewTransition>{p.label}</Link>
                             </li>

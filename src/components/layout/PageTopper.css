@@ -4,12 +4,6 @@
     padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
 }
 
-.page-topper-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 var(--space-xl);
-}
-
 .page-badge {
     display: inline-block;
     font-family: var(--font-mono);
@@ -39,10 +33,4 @@
     margin: 0;
     line-height: 1.6;
     max-width: 65ch;
-}
-
-@media (max-width: 768px) {
-    .page-topper-content {
-        padding: 0 var(--space-md);
-    }
 }

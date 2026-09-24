@@ -1,28 +1,24 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import './PageLayout.css';
 
-interface PageLayoutProps {
-    children: React.ReactNode;
-}
+/** Persistent shell: navbar and footer stay mounted while the routed page changes. */
+const PageLayout = () => {
+    const { pathname } = useLocation();
 
-const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
-    const location = useLocation();
-
-    // Scroll to top on route change
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location.pathname]);
-
-    const isHome = location.pathname === '/';
+    }, [pathname]);
 
     return (
         <div className="page-layout">
             <Navbar />
-            <main className={`page-main ${isHome ? 'page-home' : ''}`}>
-                {children}
+            <main className={pathname === '/' ? 'page-main page-home' : 'page-main'}>
+                <Suspense fallback={<div className="page-loader" aria-busy="true" />}>
+                    <Outlet />
+                </Suspense>
             </main>
             <Footer />
         </div>

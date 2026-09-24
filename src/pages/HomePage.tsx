@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PageLayout from '../components/layout/PageLayout';
 import HeroSection from '../components/sections/HeroSection';
-import { publicationsData, awardFor, isPeerReviewed } from '../data/publicationsData';
+import { peerReviewedPublications, awardFor } from '../data/publicationsData';
 import { researchThemes } from '../data/aboutData';
 import { fundedProjects } from '../data/projectsData';
 import { heroData } from '../data/heroData';
 import './HomePage.css';
 
-const selected = publicationsData.filter(isPeerReviewed).slice(0, 5);
+const selected = peerReviewedPublications.slice(0, 5);
 const current = fundedProjects.filter((p) => p.period?.includes('present'));
 
 const HomePage: React.FC = () => {
     return (
-        <PageLayout>
+        <>
             <HeroSection />
 
             <section className="nb-section">
@@ -103,7 +102,7 @@ const HomePage: React.FC = () => {
                     </div>
                 </div>
             </section>
-        </PageLayout>
+        </>
     );
 };
 

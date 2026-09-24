@@ -1,6 +1,45 @@
-import type { TeamMember, Achievement } from '../types';
+export interface TeamMember {
+  name: string;
+  role: string;
+  contributions: string[];
+}
 
-export type { TeamMember, Achievement };
+export interface TechnicalDetail {
+  title: string;
+  description: string;
+  details: string[];
+}
+
+export interface WorkflowPhase {
+  phase: string;
+  description: string;
+}
+
+export interface AchievementResources {
+  video?: string;
+  github?: string;
+  demo?: string;
+}
+
+/** Hackathon/Competition achievements */
+export interface Achievement {
+  id: string;
+  title: string;
+  subtitle: string;
+  event: string;
+  date: string;
+  team: string;
+  description: string;
+  challenge: string;
+  solution: string;
+  technicalDetails: TechnicalDetail[];
+  workflow: WorkflowPhase[];
+  teamMembers: TeamMember[];
+  resources: AchievementResources;
+  tags: string[];
+  /** Optional: section title for technical details (defaults to "Technical Details") */
+  technicalDetailsTitle?: string;
+}
 
 export const achievements: Achievement[] = [
     {

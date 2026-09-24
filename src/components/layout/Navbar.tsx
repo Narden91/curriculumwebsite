@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggleButton from '../ui/ThemeToggleButton';
+import { NAV_LINKS } from '../../data/navigation';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
-
-    const navLinks = [
-        { path: '/research', label: 'Research' },
-        { path: '/experience', label: 'Experience' },
-        { path: '/education', label: 'Education' },
-        { path: '/about', label: 'About' },
-        { path: '/projects', label: 'Projects' },
-        { path: '/contact', label: 'Contact' },
-    ];
 
     // Achievements lives under About in the menu, so About stays highlighted there.
     const isActive = (path: string) =>
@@ -26,14 +18,14 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className="navbar">
-            <div className="navbar-container">
+            <div className="container navbar-container">
                 <Link to="/" viewTransition className="navbar-logo" onClick={closeMenu}>
                     <span className="logo-text">Emanuele Nardone</span>
                     <span className="logo-subtitle">Postdoc · University of Eastern Finland</span>
                 </Link>
 
                 <ul id="navbar-menu" className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-                    {navLinks.map((link) => (
+                    {NAV_LINKS.map((link) => (
                         <li key={link.path} className="navbar-item">
                             <Link
                                 to={link.path}

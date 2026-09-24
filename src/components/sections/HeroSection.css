@@ -6,11 +6,8 @@
 
 .hero-grid,
 .hero-data {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 var(--space-xl);
   display: grid;
-  grid-template-columns: 9rem minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: var(--margin-col) minmax(0, 1.25fr) minmax(0, 1fr);
   column-gap: clamp(1.5rem, 4vw, 3.5rem);
 }
 
@@ -79,33 +76,6 @@
   height: 18px;
 }
 
-.hero-links {
-  display: flex;
-  gap: 0.25rem;
-  list-style: none;
-}
-
-.hero-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  color: var(--text-color-secondary);
-  transition: color var(--transition-fast), background-color var(--transition-fast);
-}
-
-.hero-link:hover {
-  color: var(--primary-color);
-  background: var(--surface);
-}
-
-.hero-link svg {
-  width: 20px;
-  height: 20px;
-}
-
 .hero-figure {
   margin: 0;
   align-self: end;
@@ -149,7 +119,7 @@
   gap: 1rem 2.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border-color);
-  align-self: end;
+  align-self: center;
 }
 
 .hero-stat {
@@ -207,7 +177,6 @@
   .hero-grid,
   .hero-data {
     grid-template-columns: 1fr;
-    padding: 0 var(--space-md);
   }
 
   .hero-figure {

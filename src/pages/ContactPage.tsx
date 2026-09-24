@@ -1,12 +1,11 @@
 import React from 'react';
-import PageLayout from '../components/layout/PageLayout';
 import PageTopper from '../components/layout/PageTopper';
 import { heroData } from '../data/heroData';
 import './ContactPage.css';
 
 const ContactPage: React.FC = () => {
     return (
-        <PageLayout>
+        <>
             <PageTopper
                 mark="§6"
                 title="Get In Touch"
@@ -92,7 +91,7 @@ const ContactPage: React.FC = () => {
                     </div>
                 </div>
             </section>
-        </PageLayout>
+        </>
     );
 };
 

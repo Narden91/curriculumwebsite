@@ -18,7 +18,7 @@ export const heroData: HeroData = {
   title: "Postdoctoral Researcher — Machine Learning and Pattern Recognition",
   affiliation: "University of Eastern Finland",
   location: "Joensuu, Finland",
-  tagline: "I build machine learning methods for decision support: evolutionary feature selection, multimodal classification, conformal prediction and explainable AI. Handwriting analysis for early detection of cognitive disorders during my PhD; photonics and spectral data at UEF now.",
+  tagline: "I work where machine learning meets experimental photonics: differentiable physical models for terahertz and optical inverse problems, statistically sound learning from small, high-dimensional spectra, and uncertainty that is checked rather than assumed. At UEF this spans Raman and THz spectroscopy, electron and single-molecule microscopy, diamond quantum sensors and ultrafast laser–matter interaction. My PhD (2025) developed evolutionary and multimodal methods for detecting cognitive disorders from handwriting.",
   email: "emanuele.nardone@uef.fi",
   emailSecondary: "emanuele.nardone@unicas.it",
   linkedin: "https://www.linkedin.com/in/emanuelenardone/",

@@ -3,23 +3,23 @@ export interface ResearchTheme {
   text: string;
 }
 
-// Wording follows the CV profile and publication titles.
+// Current postdoc work at UEF (research plan and seminar series); the PhD work is on the Research page.
 export const researchThemes: ResearchTheme[] = [
   {
-    title: "Evolutionary feature selection",
-    text: "Genetic algorithms and genetic programming that choose which features a classifier should use, including causality-driven and data-augmented variants.",
+    title: "Physics-guided inverse problems",
+    text: "Differentiable Transfer Matrix and Maxwell models that recover refractive index, absorption and layer thickness from terahertz and optical measurements.",
   },
   {
-    title: "Multimodal classifier combination",
-    text: "Combining handwriting tasks, feature sets and models with Bayesian networks and ensemble methods.",
+    title: "Learning from few, rich spectra",
+    text: "Raman and FTIR classification with sparse PLS, group-aware validation and permutation tests, so small studies neither overfit nor leak.",
   },
   {
     title: "Uncertainty you can check",
-    text: "Conformal prediction for reliable surrogate-assisted evolutionary algorithms: Best EvoApps Paper Award, EvoStar 2026.",
+    text: "Posterior models, conformal prediction and Fisher-information design for ill-posed problems. Best EvoApps Paper Award 2026.",
   },
   {
-    title: "Explainable, applied AI",
-    text: "SHAP and attention maps for handwriting-based detection of Alzheimer's disease; now spectral data, inverse problems and image segmentation in photonics.",
+    title: "Nanoscale imaging and sensing",
+    text: "Electron-microscopy segmentation, single-molecule localisation and diamond quantum sensors, with every processing step traceable.",
   },
 ];
 

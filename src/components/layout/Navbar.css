@@ -12,9 +12,6 @@
 }
 
 .navbar-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 var(--space-xl);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -141,11 +138,7 @@
     }
 }
 
-@media (max-width: 860px) {
-    .navbar-container {
-        padding: 0 var(--space-md);
-    }
-
+@media (max-width: 960px) {
     .hamburger {
         display: flex;
     }

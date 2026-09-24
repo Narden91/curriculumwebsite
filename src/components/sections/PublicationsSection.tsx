@@ -85,17 +85,17 @@ const PublicationsSection: React.FC = () => {
           )}
         </div>
 
-        <div className="pub-filters" role="group" aria-label="Filter by type">
+        <div className="filter-chips" role="group" aria-label="Filter by type">
           {(['all', ...presentTypes] as Filter[]).map((t) => (
             <button
               key={t}
               type="button"
-              className="pub-chip"
+              className="chip"
               aria-pressed={filter === t}
               onClick={() => setFilter(t)}
             >
               {t === 'all' ? 'All' : TYPE_LABELS[t]}
-              <span className="pub-chip-count mono">{t === 'all' ? publicationsData.length : count(t)}</span>
+              <span className="chip-count mono">{t === 'all' ? publicationsData.length : count(t)}</span>
             </button>
           ))}
         </div>

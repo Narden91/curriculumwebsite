@@ -1,0 +1,72 @@
+/* Palette-aware drawing classes for the postdoc topic schematics.
+   Fill classes come after stroke classes so a shape can combine both. */
+.topic-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.fig-axis {
+  stroke: var(--border-color);
+  stroke-width: 1;
+}
+
+.fig-main {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-width: 1.7;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.fig-thick {
+  stroke-width: 3;
+}
+
+.fig-soft {
+  fill: none;
+  stroke: var(--text-color-tertiary);
+  stroke-width: 1.2;
+}
+
+.fig-dash {
+  stroke-dasharray: 4 3;
+}
+
+.fig-fill {
+  fill: color-mix(in srgb, var(--primary-color) 14%, transparent);
+}
+
+.fig-fill-strong {
+  fill: color-mix(in srgb, var(--primary-color) 26%, transparent);
+}
+
+.fig-dim {
+  fill: var(--text-color-tertiary);
+}
+
+.fig-accent {
+  fill: var(--primary-color);
+}
+
+.fig-box {
+  fill: var(--surface);
+  stroke: var(--border-color);
+}
+
+.fig-box-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--text-color);
+}
+
+.fig-label {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  fill: var(--text-color-tertiary);
+}
+
+.fig-label-strong {
+  fill: var(--text-color-secondary);
+}

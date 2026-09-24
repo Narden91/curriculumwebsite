@@ -1,29 +1,21 @@
 import React from 'react';
 import { heroData } from '../../data/heroData';
-import { publicationsData, scholarStats, isPeerReviewed } from '../../data/publicationsData';
-import { EmailIcon, LinkedInIcon, GitHubIcon, DownloadIcon, ScholarIcon, OrcidIcon } from '../icons';
+import { peerReviewedPublications, scholarStats } from '../../data/publicationsData';
+import { DownloadIcon } from '../icons';
 import CitationChart from '../ui/CitationChart';
+import ProfileLinks from '../ui/ProfileLinks';
 import './HeroSection.css';
 
 const base = import.meta.env.BASE_URL;
 
-const peerReviewedCount = publicationsData.filter(isPeerReviewed).length;
-
-const profileLinks = [
-  { href: `mailto:${heroData.email}`, label: `Email ${heroData.email}`, Icon: EmailIcon },
-  { href: heroData.scholar, label: 'Google Scholar', Icon: ScholarIcon },
-  { href: heroData.orcid, label: 'ORCID', Icon: OrcidIcon },
-  { href: heroData.github, label: 'GitHub', Icon: GitHubIcon },
-  { href: heroData.linkedin, label: 'LinkedIn', Icon: LinkedInIcon },
-];
-
 const HeroSection: React.FC = React.memo(() => {
   return (
     <section id="hero" className="hero-section">
-      <div className="hero-grid">
+      <div className="container hero-grid">
         <aside className="hero-margin mono" aria-label="Summary">
           <span className="hero-margin-mark">§0</span>
           <span>Postdoc, UEF</span>
+          <span>Center for Photonics Sciences</span>
           <span>{heroData.location}</span>
           <span className="hero-margin-dim">62.60° N, 29.76° E</span>
         </aside>
@@ -31,7 +23,7 @@ const HeroSection: React.FC = React.memo(() => {
         <div className="hero-main">
           <h1 className="hero-title serif">{heroData.name}</h1>
           <p className="hero-lede serif">
-            Machine learning and pattern recognition for <em>decisions under uncertainty.</em>
+            Learning from light, with <em>physics and uncertainty</em> built in.
           </p>
           <p className="hero-description">{heroData.tagline}</p>
 
@@ -40,21 +32,7 @@ const HeroSection: React.FC = React.memo(() => {
               <DownloadIcon className="btn-icon" />
               Download CV
             </a>
-            <ul className="hero-links">
-              {profileLinks.map(({ href, label, Icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    className="hero-link"
-                    aria-label={label}
-                    title={label}
-                    {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  >
-                    <Icon />
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <ProfileLinks withEmail />
           </div>
         </div>
 
@@ -62,6 +40,8 @@ const HeroSection: React.FC = React.memo(() => {
           <div className="hero-figure-frame">
             <picture>
               <source srcSet={`${base}pixel-researcher-still.png`} media="(prefers-reduced-motion: reduce)" />
+              {/* Lossless animated WebP: same frames as the GIF at a third of the size */}
+              <source srcSet={`${base}pixel-researcher.webp`} type="image/webp" />
               <img
                 src={`${base}pixel-researcher.gif`}
                 width={512}
@@ -76,11 +56,11 @@ const HeroSection: React.FC = React.memo(() => {
         </figure>
       </div>
 
-      <div className="hero-data">
+      <div className="container hero-data">
         <dl className="hero-stats">
           <div className="hero-stat">
             <dt>Peer-reviewed papers</dt>
-            <dd className="mono">{peerReviewedCount}</dd>
+            <dd className="mono">{peerReviewedPublications.length}</dd>
           </div>
           {scholarStats && (
             <>

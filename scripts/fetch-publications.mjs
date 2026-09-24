@@ -2,9 +2,9 @@
 // (authors/venue per DOI) and Google Scholar (citation counts).
 // Runs in CI before each build. Any source that fails falls back to the values
 // already in the JSON, so a Scholar block never breaks a deploy.
-import { readFile, writeFile } from 'node:fs/promises';
-import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { fetchOk, readJsonOrNull, runIfMain } from './lib/http.mjs';
 
 const ORCID_ID = '0009-0005-8718-5435';
 const SCHOLAR_USER = '2qupBvTUD3sC';
@@ -14,7 +14,6 @@ const SCHOLAR_URL =
 const ORCID_WORK_URL = `https://pub.orcid.org/v3.0/${ORCID_ID}/work/`;
 const CROSSREF_URL = 'https://api.crossref.org/works/';
 const OUT_FILE = fileURLToPath(new URL('../src/data/publications.generated.json', import.meta.url));
-const TIMEOUT_MS = 20_000;
 
 // Titles differ between sources only in case, punctuation and quote style.
 export function normalizeTitle(title) {
@@ -120,18 +119,6 @@ export function mergeCitations(pubs, scholarRows, previousPubs = []) {
   });
 }
 
-async function fetchOk(url, headers = {}) {
-  let res = await fetch(url, { headers, signal: AbortSignal.timeout(TIMEOUT_MS) });
-  // Crossref's public pool answers 429 when pushed; wait once and retry.
-  if (res.status === 429) {
-    const waitS = Math.min(Number(res.headers.get('retry-after')) || 2, 10);
-    await new Promise((r) => setTimeout(r, waitS * 1000));
-    res = await fetch(url, { headers, signal: AbortSignal.timeout(TIMEOUT_MS) });
-  }
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} for ${url}`);
-  return res;
-}
-
 async function enrich(pub, previousPubs) {
   const prev = pub.doi && previousPubs.find((q) => q.doi?.toLowerCase() === pub.doi.toLowerCase());
   if (pub.doi) {
@@ -170,16 +157,8 @@ async function enrich(pub, previousPubs) {
   }
 }
 
-async function readPrevious() {
-  try {
-    return JSON.parse(await readFile(OUT_FILE, 'utf8'));
-  } catch {
-    return null;
-  }
-}
-
 async function main() {
-  const previous = await readPrevious();
+  const previous = await readJsonOrNull(OUT_FILE);
   const today = new Date().toISOString().slice(0, 10);
 
   let pubs;
@@ -228,9 +207,4 @@ async function main() {
   );
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  main().catch((err) => {
-    console.error(err.message);
-    process.exit(1);
-  });
-}
+runIfMain(import.meta.url, main);

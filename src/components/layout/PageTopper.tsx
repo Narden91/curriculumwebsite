@@ -12,7 +12,7 @@ interface PageTopperProps {
 const PageTopper: React.FC<PageTopperProps> = ({ title, subtitle, badge, mark }) => {
     return (
         <div className="page-topper">
-            <div className="page-topper-content">
+            <div className="container page-topper-content">
                 {(mark || badge) && (
                     <div className="page-badge">
                         {mark && <span className="page-mark">{mark}</span>}

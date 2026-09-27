@@ -35,3 +35,15 @@
 .theme-toggle-button:hover svg {
   transform: rotate(15deg);
 }
+
+/* Off state stays legible but reads as inactive */
+.splat-toggle-button[aria-pressed='false'] svg {
+  opacity: 0.45;
+}
+
+/* A third button next to the logo wraps its subtitle on phones */
+@media (max-width: 480px) {
+  .splat-toggle-button {
+    display: none;
+  }
+}

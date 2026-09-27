@@ -17,8 +17,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
+  // Background splats are on unless the visitor turned them off.
+  const [splatEnabled, setSplatEnabled] = useState(() => localStorage.getItem('splat') !== 'off');
+
+  useEffect(() => {
+    localStorage.setItem('splat', splatEnabled ? 'on' : 'off');
+  }, [splatEnabled]);
+
+  const toggleSplat = () => setSplatEnabled((enabled) => !enabled);
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, splatEnabled, toggleSplat }}>
       {children}
     </ThemeContext.Provider>
   );

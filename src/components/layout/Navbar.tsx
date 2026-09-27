@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggleButton from '../ui/ThemeToggleButton';
+import SplatToggleButton from '../ui/SplatToggleButton';
 import { NAV_LINKS } from '../../data/navigation';
 import './Navbar.css';
 
@@ -40,6 +41,7 @@ const Navbar: React.FC = () => {
                 </ul>
 
                 <div className="navbar-actions">
+                    <SplatToggleButton />
                     <ThemeToggleButton />
                     <button
                         className={`hamburger ${isMenuOpen ? 'active' : ''}`}

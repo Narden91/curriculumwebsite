@@ -73,6 +73,24 @@ body::before {
   mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.35) 70%, rgba(0, 0, 0, 0.2) 100%);
 }
 
+/* Gaussian splat cloud (SplatBackground): same fixed layer as the dot grid, painted
+   above it by DOM order. The mask dissolves the edges so no canvas border shows. */
+.splat-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease-out);
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 35%, transparent 100%);
+}
+
+.splat-bg.is-ready {
+  opacity: var(--splat-opacity);
+}
+
 /* Serif display type for titles, like a typeset paper */
 .serif {
   font-family: var(--font-serif);
@@ -155,6 +173,7 @@ body::before {
   --text-color-secondary: var(--text-secondary-light);
   --text-color-tertiary: var(--text-tertiary-light);
   --on-primary: var(--on-primary-light);
+  --splat-opacity: 0.22;
 }
 
 [data-theme='dark'] {
@@ -169,6 +188,7 @@ body::before {
   --text-color-secondary: var(--text-secondary-dark);
   --text-color-tertiary: var(--text-tertiary-dark);
   --on-primary: var(--on-primary-dark);
+  --splat-opacity: 0.32;
 }
 
 /* Base Styles */
@@ -661,6 +681,10 @@ h6 {
   /* scroll-driven reveals never run on paper */
   .reveal {
     animation: none !important;
+  }
+
+  .splat-bg {
+    display: none;
   }
 
   body {

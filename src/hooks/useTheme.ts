@@ -5,6 +5,8 @@ export type Theme = 'light' | 'dark';
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
+  splatEnabled: boolean;
+  toggleSplat: () => void;
 }
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);

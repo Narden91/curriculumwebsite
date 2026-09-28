@@ -20,8 +20,8 @@ const ContactPage: React.FC = () => (
                 <div className="nb-row nb-row-first">
                     <div className="nb-margin">Email</div>
                     <p className="contact-lines mono">
-                        <a href={`mailto:${heroData.email}`}>{heroData.email}</a>
-                        <a href={`mailto:${heroData.emailSecondary}`}>{heroData.emailSecondary}</a>
+                        <span>{heroData.email}</span>
+                        <span>{heroData.emailSecondary}</span>
                     </p>
                 </div>
 

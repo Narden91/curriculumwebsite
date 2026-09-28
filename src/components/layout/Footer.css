@@ -70,12 +70,8 @@
     color: var(--text-color-tertiary);
 }
 
-.footer-contact a {
+.footer-contact span {
     color: var(--text-color-secondary);
-}
-
-.footer-contact a:hover {
-    color: var(--primary-color);
 }
 
 .footer-location {

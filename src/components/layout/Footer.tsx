@@ -33,11 +33,11 @@ const Footer = () => {
                 <ul className="footer-contact">
                     <li>
                         <EmailIcon />
-                        <a href={`mailto:${heroData.email}`}>{heroData.email}</a>
+                        <span>{heroData.email}</span>
                     </li>
                     <li>
                         <EmailIcon />
-                        <a href={`mailto:${heroData.emailSecondary}`}>{heroData.emailSecondary}</a>
+                        <span>{heroData.emailSecondary}</span>
                     </li>
                     <li className="footer-location">{heroData.location}</li>
                 </ul>

@@ -96,8 +96,8 @@ const HomePage: React.FC = () => {
                             Collaborations, reviews and invited talks: <em>write to me.</em>
                         </p>
                         <p className="home-contact-links mono">
-                            <a href={`mailto:${heroData.email}`}>{heroData.email}</a>
-                            <a href={`mailto:${heroData.emailSecondary}`}>{heroData.emailSecondary}</a>
+                            <span>{heroData.email}</span>
+                            <span>{heroData.emailSecondary}</span>
                         </p>
                     </div>
                 </div>

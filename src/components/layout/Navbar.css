@@ -178,3 +178,17 @@
         display: none;
     }
 }
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.125rem;
+    }
+
+    .logo-subtitle {
+        display: none;
+    }
+
+    .navbar-actions {
+        gap: 0.25rem;
+    }
+}

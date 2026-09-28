@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { heroData } from '../../data/heroData';
 import { EmailIcon, ScholarIcon, OrcidIcon, GitHubIcon, LinkedInIcon } from '../icons';
 
@@ -10,7 +11,7 @@ const PROFILES = [
 ];
 
 interface ProfileLinksProps {
-  /** Prepend a mailto link to the primary address. */
+  /** Prepend a link to the contact page. */
   withEmail?: boolean;
   className?: string;
 }
@@ -20,9 +21,9 @@ const ProfileLinks: React.FC<ProfileLinksProps> = ({ withEmail = false, classNam
   <ul className={className ? `profile-links ${className}` : 'profile-links'}>
     {withEmail && (
       <li>
-        <a href={`mailto:${heroData.email}`} aria-label={`Email ${heroData.email}`} title={heroData.email}>
+        <Link to="/contact" aria-label="Email contact details" title="Email contact details">
           <EmailIcon />
-        </a>
+        </Link>
       </li>
     )}
     {PROFILES.map(({ href, label, Icon }) => (

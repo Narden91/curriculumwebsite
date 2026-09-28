@@ -139,11 +139,6 @@ a.home-paper-title:hover {
     font-size: 0.9375rem;
 }
 
-.home-contact-links a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
-
 @media (max-width: 768px) {
         .home-paper {
         grid-template-columns: 1fr auto;
